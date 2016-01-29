@@ -1,0 +1,6 @@
+skbeam.core.utils.bin_edges
+===========================
+
+.. currentmodule:: skbeam.core.utils
+
+.. autofunction:: bin_edges

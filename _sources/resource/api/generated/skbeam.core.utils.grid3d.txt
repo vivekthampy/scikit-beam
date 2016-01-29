@@ -1,0 +1,6 @@
+skbeam.core.utils.grid3d
+========================
+
+.. currentmodule:: skbeam.core.utils
+
+.. autofunction:: grid3d

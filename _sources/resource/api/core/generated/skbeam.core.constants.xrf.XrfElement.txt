@@ -1,0 +1,33 @@
+skbeam.core.constants.xrf.XrfElement
+====================================
+
+.. currentmodule:: skbeam.core.constants.xrf
+
+.. autoclass:: XrfElement
+
+   
+
+
+  .. HACK -- the point here is that we don't want this to appear in the output, but the autosummary should still generate the pages.
+      .. autosummary::
+         :toctree:
+      
+         XrfElement.line_near
+
+
+
+
+   
+
+
+   .. HACK -- the point here is that we don't want this to appear in the output, but the autosummary should still generate the pages.
+      .. autosummary::
+         :toctree:
+      
+         XrfElement.bind_energy
+         XrfElement.cs
+         XrfElement.emission_line
+         XrfElement.fluor_yield
+         XrfElement.jump_factor
+
+

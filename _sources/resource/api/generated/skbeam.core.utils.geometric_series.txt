@@ -1,0 +1,6 @@
+skbeam.core.utils.geometric_series
+==================================
+
+.. currentmodule:: skbeam.core.utils
+
+.. autofunction:: geometric_series

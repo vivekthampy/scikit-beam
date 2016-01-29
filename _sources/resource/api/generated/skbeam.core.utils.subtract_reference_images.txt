@@ -1,0 +1,6 @@
+skbeam.core.utils.subtract_reference_images
+===========================================
+
+.. currentmodule:: skbeam.core.utils
+
+.. autofunction:: subtract_reference_images

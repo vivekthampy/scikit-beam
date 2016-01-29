@@ -1,0 +1,6 @@
+skbeam.core.utils.wedge_integration
+===================================
+
+.. currentmodule:: skbeam.core.utils
+
+.. autofunction:: wedge_integration

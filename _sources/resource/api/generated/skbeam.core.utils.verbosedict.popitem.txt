@@ -1,0 +1,6 @@
+skbeam.core.utils.verbosedict.popitem
+=====================================
+
+.. currentmodule:: skbeam.core.utils
+
+.. automethod:: verbosedict.popitem

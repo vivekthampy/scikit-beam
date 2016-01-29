@@ -1,0 +1,6 @@
+skbeam.core.roi.rectangles
+==========================
+
+.. currentmodule:: skbeam.core.roi
+
+.. autofunction:: rectangles

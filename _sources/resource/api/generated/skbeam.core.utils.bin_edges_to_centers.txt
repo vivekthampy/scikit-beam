@@ -1,0 +1,6 @@
+skbeam.core.utils.bin_edges_to_centers
+======================================
+
+.. currentmodule:: skbeam.core.utils
+
+.. autofunction:: bin_edges_to_centers

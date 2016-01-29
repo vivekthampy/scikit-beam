@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Introduction to Git &mdash; scikit-beam 0.0.7 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootswatch-3.3.4/spacelab/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.0.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="scikit-beam 0.0.7 documentation" href="../../index.html" />
+    <link rel="up" title="Development Guide" href="index.html" />
+    <link rel="next" title="Git workflow" href="workflow.html" />
+    <link rel="prev" title="Development Guide" href="index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          scikit-beam</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.0.7</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../../tutorial.html">Tutorial</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Introduction to scikit-beam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installing scikit-beam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html#updating-your-installation">Updating Your Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../whats_new.html">What&#8217;s new</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">Complete Reference (API)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Development Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial with Examples</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/Generate_ROI_labeled_arrays.html">Generate Region of Interests (ROI) labeled arrays for simple shapes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/dpc_demo.html">Differential Phase Contrast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/Histogram2D-RingAveraging.html">Using two histograms to bin in space and time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/Histogram2D.html">Computing a 2D histogram using Histogram object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/histogram3D.html">3D histogramming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/IXS-alignment-clean.html">Alignment and interpolation of inelastic scattering data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/D_estimate_demo.html">[broken] An <strong>almost</strong> correct diffraction calibration notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/recip_example.html">This is an example of using real experimental data to plot the HK plane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/X-ray_Speckle_Visibility_Spectroscopy.html">X-ray Speckle Visibility Spectroscopy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/speckle-plotting.html">Plotting helper functions for Speckle analysis &#8211; <code class="docutils literal"><span class="pre">xray_vision.mpl_plotting.speckle</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/Check_remove_bad_imgs_using_same_image.html">Remove bad images for one time correlation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/Multi_tau_one_time_correlation_example.html">One Time Correlation Example for NIPA_GEL 250K¶</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/Removing_bad_images_one_time_correlation.html">Removing bad images from images set and get the one time correlation data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/XPCS_fitting_with_lmfit.html">XPCS fitting with lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/partial-multi-tau.html">First, let&#8217;s demo with synthetic data.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/partial-multi-tau.html#show-the-correlator-working-with-synthetic-data">Show the correlator working with synthetic data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/partial-multi-tau.html#now-let-s-do-it-with-some-real-data">Now let&#8217;s do it with some real data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/two-time-correlation.html">Two time correlation example notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/plot_xrf_spectrum.html">Using X-ray fluorescence information in scikit-beam</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Introduction to Git</a><ul>
+<li><a class="reference internal" href="#configuring-git">Configuring git</a></li>
+<li><a class="reference internal" href="#forking-and-cloning">Forking and  Cloning</a></li>
+<li><a class="reference internal" href="#branching-and-committing">Branching and committing</a><ul>
+<li><a class="reference internal" href="#branching">Branching</a></li>
+<li><a class="reference internal" href="#editing-staging-committing">Editing, Staging, Committing</a></li>
+<li><a class="reference internal" href="#changing-branches">Changing Branches</a></li>
+<li><a class="reference internal" href="#reverting-edits">Reverting edits</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#collaborating">Collaborating</a><ul>
+<li><a class="reference internal" href="#remotes">Remotes</a><ul>
+<li><a class="reference internal" href="#fetch">Fetch</a></li>
+<li><a class="reference internal" href="#push">Push</a></li>
+<li><a class="reference internal" href="#merging">Merging</a></li>
+<li><a class="reference internal" href="#pull">Pull</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#rebase-on-to-master">Rebase on to master</a></li>
+<li><a class="reference internal" href="#help">Help</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="introduction-to-git">
+<span id="git-guide"></span><h1>Introduction to Git<a class="headerlink" href="#introduction-to-git" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="configuring-git">
+<h2>Configuring git<a class="headerlink" href="#configuring-git" title="Permalink to this headline">¶</a></h2>
+<p>There are many resources on the web for how to use and configure
+<cite>git</cite>, this is a streamlined reference for use at NSLS-II.  There
+is a variety of gui front ends for <cite>git</cite>, this will demonstrate the
+command line usage as the lowest-common-denominator.  On windows and
+OSX the github applications seems pretty slick and integrates well with
+the website.</p>
+<p>To make pushing/pulling from github as frictionless as possible, it
+is best to generate an ssh key pair which will allow see
+<a class="reference external" href="https://help.github.com/articles/generating-ssh-keys">https://help.github.com/articles/generating-ssh-keys</a> for a
+guide of how to generate and upload the keys to github.  If you are
+working on a computer on the controls network ssh will not work.</p>
+<p>The global behavior of <cite>git</cite> in controlled through <cite>~/.gitconfig</cite>
+(<cite>C:UsersMyLogin.gitconfig</cite> on Windows), which can edited either
+directly, or through the command line (<cite>git config &#8211;global ...</cite>).
+This is as sugested global configuration file</p>
+<div class="highlight-python"><div class="highlight"><pre>[user]
+     name = Your Name
+     email = user@bnl.gov
+[color]
+     diff = auto
+     status = auto
+     branch = auto
+[push]
+     default = upstream
+</pre></div>
+</div>
+<p>These settings can be over-ridden on a per-repository basis (for
+example if you contribute to other projects under a different
+email).</p>
+</div>
+<div class="section" id="forking-and-cloning">
+<h2>Forking and  Cloning<a class="headerlink" href="#forking-and-cloning" title="Permalink to this headline">¶</a></h2>
+<p>The first step to with the code in github is to create a personal
+copy of the repository on github.  This is accomplished by
+navigating to the correct repository in <a class="reference external" href="https://github.com/NSLS-II/">https://github.com/NSLS-II/</a>
+while logged into github and clicking the <strong>fork</strong> button in the upper
+right hand corner.  Follow the on-screen and you should now a copy of
+the repository attached to your account on github.</p>
+<p>In order
+to work on the code you need to get a copy onto your local machine(s) which is
+done via <strong>cloning</strong> your github repository to your machine</p>
+<div class="highlight-python"><div class="highlight"><pre>mkdir ~/my_source  # Any directory will do
+cd ~/my_source     # but this is the scheme I use
+git clone git@github.com:github_user_name/repository_name.git
+</pre></div>
+</div>
+<p>where <cite>github_user_name</cite> is replaced with your user name.  You may be
+asked to unlock your sshkey or authenticate in some way and to accept
+the RSA key of the remote host (say yes).  Once you have done this you
+should have a directory in your current directory which contains the
+most up-to-date version of the code.</p>
+</div>
+<div class="section" id="branching-and-committing">
+<h2>Branching and committing<a class="headerlink" href="#branching-and-committing" title="Permalink to this headline">¶</a></h2>
+<p><cite>git</cite> stores the history of code as a series of &#8216;snapshots&#8217; of the
+project, <strong>commit</strong>s, in a tree.  Each <strong>commit</strong> has a unique
+identifier generated from it&#8217;s contents.  A <strong>branch</strong> points to a
+single commit and provides a human-readable label for a &#8216;snapshot&#8217; in
+the project history.</p>
+<div class="section" id="branching">
+<h3>Branching<a class="headerlink" href="#branching" title="Permalink to this headline">¶</a></h3>
+<p>On a fresh checkout there will be one <strong>branch</strong>, <em>master</em>.  To see
+a list of the branches currently in your repository run</p>
+<div class="highlight-python"><div class="highlight"><pre>git branch
+</pre></div>
+</div>
+<p>which should return</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="o">*</span> <span class="n">master</span>
+</pre></div>
+</div>
+<p>In general, it is a bad idea to work directly on the <em>master</em> branch
+(for social, not technical reasons), so we will create a new branch to
+work on</p>
+<div class="highlight-python"><div class="highlight"><pre>git branch new_feature
+</pre></div>
+</div>
+<p>where &#8216;new_feature&#8217; is the name of your branch.  The branch name should
+be chosen to be descriptive of the type of work you plan to do.  For example
+&#8216;add_bin1D_function&#8217; or &#8216;fix_bug_in_bin1D&#8217;.
+To see the results of this run</p>
+<div class="highlight-python"><div class="highlight"><pre>git branch
+</pre></div>
+</div>
+<p>again which should now print out</p>
+<div class="highlight-python"><div class="highlight"><pre>* master
+  new_feature
+</pre></div>
+</div>
+<p>There are two things that are important to note here: first we have
+not changed anything about the project, just created a new label for
+a commit; second we are still &#8216;on <em>master</em> &#8216;.  To switch to our new
+branch we need to &#8216;check it out&#8217; via</p>
+<div class="highlight-python"><div class="highlight"><pre>git checkout new_feature
+</pre></div>
+</div>
+<p>Running</p>
+<div class="highlight-python"><div class="highlight"><pre>git branch
+</pre></div>
+</div>
+<p>again should print</p>
+<div class="highlight-python"><div class="highlight"><pre>  master
+* new_feature
+</pre></div>
+</div>
+<p>confirming that we have switched branches.  We are now ready
+to start working.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The process of creating and switching to a new branch can be
+done in a single commend with</p>
+<div class="last highlight-python"><div class="highlight"><pre>git checkout -b new_feature
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="editing-staging-committing">
+<h3>Editing, Staging, Committing<a class="headerlink" href="#editing-staging-committing" title="Permalink to this headline">¶</a></h3>
+<p>Now that we are on a new branch we are ready to start working.  You can
+use what ever editor you want to create and edit files.  When you reach a
+point in your work when you want to save what you have done (ideally this
+should be a minimal self-contained change) it is time to <strong>commit</strong> your
+work to git.  The first thing you should do is run</p>
+<div class="highlight-python"><div class="highlight"><pre>git status
+</pre></div>
+</div>
+<p>which in the case of working on this text prints</p>
+<div class="highlight-python"><div class="highlight"><pre># On branch add_sphinx
+# Changes not staged for commit:
+#   (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+#   (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)
+#
+#       modified:   source/dev_guide/git_guide.rst
+#       modified:   source/index.rst
+#
+# Untracked files:
+#   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+#
+#       source/dev_guide/index.rst
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+</pre></div>
+</div>
+<p>which shows there are two files that have been changed and one new
+file created, and no files added to the <strong>index</strong> sense the last
+<strong>commit</strong>.  This message also gives some helpful advice on how to
+proceed.  To add files to the commit use <strong>add</strong></p>
+<div class="highlight-python"><div class="highlight"><pre>git add filename1, filename2, ...
+</pre></div>
+</div>
+<p>You can also use shell expansions.  After <strong>add</strong>ing the files we
+want to <strong>commit</strong>, running <strong>status</strong> again prints:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c1"># On branch add_sphinx</span>
+<span class="c1"># Changes to be committed:</span>
+<span class="c1">#   (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)</span>
+<span class="c1">#</span>
+<span class="c1">#       modified:   source/dev_guide/git_guide.rst</span>
+<span class="c1">#       new file:   source/dev_guide/index.rst</span>
+<span class="c1">#       modified:   source/index.rst</span>
+<span class="c1">#</span>
+</pre></div>
+</div>
+<p>Having confirmed that things look right (you didn&#8217;t miss any files or
+add files that should not be committed) run</p>
+<div class="highlight-python"><div class="highlight"><pre>git commit
+</pre></div>
+</div>
+<p>which will open a text editor and prompt you enter a message to go
+with your commit.  The message should start with a one-line summary of
+the change and then a few sentences describing the changes in more
+detail.  The commit message for this commit will be</p>
+<div class="highlight-python"><div class="highlight"><pre>DOC : basic git usage
+
+Added text about basic git usage.
+</pre></div>
+</div>
+<p>Repeat this process as often as necessary.</p>
+</div>
+<div class="section" id="changing-branches">
+<h3>Changing Branches<a class="headerlink" href="#changing-branches" title="Permalink to this headline">¶</a></h3>
+<p>The files in the repository directory are what <cite>git</cite> refers to as you
+<strong>working copy</strong>.  When you switch <strong>branch</strong>es <cite>git</cite> will make your
+working copy look exactly like the snapshot saved in the <strong>commit</strong>
+the <strong>branch</strong> points to.  For example say you are working on
+<strong>branch</strong> <em>new_feature</em> and you notice an un-related bug.  You should
+<strong>commit</strong> all of your feature work (or use <strong>stash</strong>) and then switch back
+to the <cite>master</cite> branch</p>
+<div class="highlight-python"><div class="highlight"><pre>git checkout master
+</pre></div>
+</div>
+<p>The <strong>working copy</strong> now contains none of your new work.  Create a new
+branch to fix the bug</p>
+<div class="highlight-python"><div class="highlight"><pre>git checkout -b bug_fix
+</pre></div>
+</div>
+<p>Once you have fixed and committed the bug, switch back to your feature
+branch:</p>
+<div class="highlight-python"><div class="highlight"><pre>git checkout new_feature
+</pre></div>
+</div>
+<p>and pick up where you left off.</p>
+</div>
+<div class="section" id="reverting-edits">
+<h3>Reverting edits<a class="headerlink" href="#reverting-edits" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes edits just are not working out and you need to throw away
+all uncommitted changes to a file or the entire <strong>working copy</strong>.  For
+a single file</p>
+<div class="highlight-python"><div class="highlight"><pre>git checkout -- file_name
+</pre></div>
+</div>
+<p>(the space between <cite>&#8211;</cite> and <cite>file_name</cite> is important) will reset the
+file to what it looks like on the current branch.  To throw out
+<em>all</em> of your changes and reset your working directory to the last
+commit on your branch</p>
+<div class="highlight-python"><div class="highlight"><pre>git reset --hard current_branch
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="collaborating">
+<h2>Collaborating<a class="headerlink" href="#collaborating" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="remotes">
+<h3>Remotes<a class="headerlink" href="#remotes" title="Permalink to this headline">¶</a></h3>
+<p>One of the powerful ideas of distributed version control is that all
+clones of a repository are <em>technically</em> equivalent.  However, for
+organizational reasons we designate one to be the &#8216;canonical&#8217;
+repository, in this case the repository associated with the
+<code class="docutils literal"><span class="pre">scikit-beam</span></code> group on github.</p>
+<p>In order to get the lastest code from github to your local machine you
+need to tell <code class="docutils literal"><span class="pre">git</span></code> where the other code is.  These locations are, in
+the language of <code class="docutils literal"><span class="pre">git</span></code>, <strong>remotes</strong>.  The first remote we will want to
+add in the canonical repository:</p>
+<div class="highlight-python"><div class="highlight"><pre># make sure you are in the working directory of your local repo
+cd ~/&lt;&lt;my_source&gt;&gt;/scikit-beam-examples
+# add the canonical repo as &#39;upstream&#39;
+git remote add upstream git@github.com:scikit-beam/scikit-beam-examples.git
+# fetch the commits in the new repository
+git fetch upstream
+</pre></div>
+</div>
+<p>To checkout your handy work run</p>
+<div class="highlight-python"><div class="highlight"><pre>git remote -v
+</pre></div>
+</div>
+<p>which should print something like:</p>
+<div class="highlight-python"><div class="highlight"><pre>origin  git@github.com:username/repo_name.git (fetch)
+origin  git@github.com:username/repo_name.git (push)
+upstream        git@github.com:scikit-beam/scikit-beam-examples.git (fetch)
+upstream        git@github.com:scikit-beam/scikit-beam-examples.git (push)
+</pre></div>
+</div>
+<p>which shows two remotes (origin and upstream).  It is recommended to
+re-name <code class="docutils literal"><span class="pre">origin</span></code> -&gt; your github username</p>
+<div class="highlight-python"><div class="highlight"><pre>git remote rename origin gh_username
+</pre></div>
+</div>
+<p>which is the convention that will be used throughout.  You can also
+add as a remote the github repositories of other group members, ex</p>
+<div class="highlight-python"><div class="highlight"><pre>git remote add tacaswell git@github.com:tacaswell/scikit-beam-examples.git
+</pre></div>
+</div>
+<p>which will allow you to <strong>fetch</strong> to your local computer any commits
+they have <strong>push</strong>ed to github.</p>
+<div class="section" id="fetch">
+<h4>Fetch<a class="headerlink" href="#fetch" title="Permalink to this headline">¶</a></h4>
+<p>Fetching is very simple, assuming you have added the repository you want
+to <strong>fetch</strong> from as a <strong>remote</strong></p>
+<div class="highlight-python"><div class="highlight"><pre>get fetch remote_name
+</pre></div>
+</div>
+<p>which will copy all of the commits in the <strong>remote</strong> repository that
+are not already in your local repository.   This does not change your
+<strong>working copy</strong>, only updates what <strong>commit</strong>s <cite>git</cite> knows about.</p>
+<p>To checkout a local copy of a remote <strong>branch</strong></p>
+<div class="highlight-python"><div class="highlight"><pre>git checkout -t remote_name/remote_branch
+</pre></div>
+</div>
+<p>See <span class="xref std std-ref">git-merging</span> for how to merge these changes into your branches.</p>
+</div>
+<div class="section" id="push">
+<h4>Push<a class="headerlink" href="#push" title="Permalink to this headline">¶</a></h4>
+<p><strong>push</strong> is the symmetric operation to <strong>fetch</strong> as ships commits <em>to</em>
+a remote.   The first time you <strong>push</strong> a <strong>branch</strong> you need to tell <cite>git</cite>
+which branch on the <strong>remote</strong> to push to:</p>
+<div class="highlight-python"><div class="highlight"><pre>git push --set-upstream a_remote branch_name
+</pre></div>
+</div>
+<p>and all subsequent times you can just use</p>
+<div class="highlight-python"><div class="highlight"><pre>git push a_remote
+</pre></div>
+</div>
+<p>This is the mechanism to share code with in the group, as once you
+have pushed <strong>commit</strong>s to github, anyone who can see your repository
+can <strong>fetch</strong> them and begin to work with them.</p>
+</div>
+<div class="section" id="merging">
+<h4>Merging<a class="headerlink" href="#merging" title="Permalink to this headline">¶</a></h4>
+<p>You merge two branches by changing to the branch you would like to merge <em>into</em> and running</p>
+<div class="highlight-python"><div class="highlight"><pre>git merge merge_source
+</pre></div>
+</div>
+<p>If your current branch has no commits that are not in <em>merge_source</em>
+it is called a &#8216;fast-forward&#8217; merge and will always succeed.  If your
+local branch has commits that are not in <cite>merge_source</cite> the merge can
+generate conflicts which will need to resolved by hand.</p>
+</div>
+<div class="section" id="pull">
+<h4>Pull<a class="headerlink" href="#pull" title="Permalink to this headline">¶</a></h4>
+<p>The steps of <strong>fetch</strong> and <strong>merge</strong> can be done in one step via</p>
+<div class="highlight-python"><div class="highlight"><pre>git pull remote_name
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="rebase-on-to-master">
+<h2>Rebase on to master<a class="headerlink" href="#rebase-on-to-master" title="Permalink to this headline">¶</a></h2>
+<p>TODO, see mpl or numpy doc or ask google/stackoverflow</p>
+</div>
+<div class="section" id="help">
+<h2>Help<a class="headerlink" href="#help" title="Permalink to this headline">¶</a></h2>
+<p>If you have any issues contact Thomas Caswell <a class="reference external" href="mailto:tcaswell&#37;&#52;&#48;bnl&#46;gov">tcaswell<span>&#64;</span>bnl<span>&#46;</span>gov</a> ex3146</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/resource/dev_guide/git_guide.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014-2015 Brookhaven National Lab.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

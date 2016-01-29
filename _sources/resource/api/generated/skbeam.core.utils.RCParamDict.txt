@@ -1,0 +1,29 @@
+skbeam.core.utils.RCParamDict
+=============================
+
+.. currentmodule:: skbeam.core.utils
+
+.. autoclass:: RCParamDict
+
+   
+
+
+  .. HACK -- the point here is that we don't want this to appear in the output, but the autosummary should still generate the pages.
+      .. autosummary::
+         :toctree:
+      
+         RCParamDict.clear
+         RCParamDict.get
+         RCParamDict.items
+         RCParamDict.keys
+         RCParamDict.pop
+         RCParamDict.popitem
+         RCParamDict.setdefault
+         RCParamDict.update
+         RCParamDict.values
+
+
+
+
+   
+

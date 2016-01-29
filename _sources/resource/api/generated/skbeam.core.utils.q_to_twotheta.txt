@@ -1,0 +1,6 @@
+skbeam.core.utils.q_to_twotheta
+===============================
+
+.. currentmodule:: skbeam.core.utils
+
+.. autofunction:: q_to_twotheta

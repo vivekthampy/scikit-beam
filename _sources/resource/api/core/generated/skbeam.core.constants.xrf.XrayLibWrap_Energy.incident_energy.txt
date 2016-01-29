@@ -1,0 +1,6 @@
+skbeam.core.constants.xrf.XrayLibWrap_Energy.incident_energy
+============================================================
+
+.. currentmodule:: skbeam.core.constants.xrf
+
+.. autoattribute:: XrayLibWrap_Energy.incident_energy

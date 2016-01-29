@@ -1,0 +1,6 @@
+skbeam.core.constants.xrf.XrayLibWrap_Energy.values
+===================================================
+
+.. currentmodule:: skbeam.core.constants.xrf
+
+.. automethod:: XrayLibWrap_Energy.values

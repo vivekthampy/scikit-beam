@@ -1,0 +1,6 @@
+skbeam.core.constants.xrs.PowderStandard.from_d
+===============================================
+
+.. currentmodule:: skbeam.core.constants.xrs
+
+.. automethod:: PowderStandard.from_d

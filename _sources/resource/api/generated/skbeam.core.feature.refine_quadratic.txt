@@ -1,0 +1,6 @@
+skbeam.core.feature.refine_quadratic
+====================================
+
+.. currentmodule:: skbeam.core.feature
+
+.. autofunction:: refine_quadratic

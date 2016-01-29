@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>skbeam.core.feature.peak_refinement &mdash; scikit-beam 0.0.7 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootswatch-3.3.4/spacelab/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.0.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="scikit-beam 0.0.7 documentation" href="../../../index.html" />
+    <link rel="up" title="core subpackge" href="../core.html" />
+    <link rel="next" title="skbeam.core.feature.refine_quadratic" href="skbeam.core.feature.refine_quadratic.html" />
+    <link rel="prev" title="skbeam.core.utils.angle_grid" href="skbeam.core.utils.angle_grid.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          scikit-beam</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.0.7</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../../../tutorial.html">Tutorial</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Introduction to scikit-beam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installing scikit-beam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html#updating-your-installation">Updating Your Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../whats_new.html">What&#8217;s new</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Complete Reference (API)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev_guide/index.html">Development Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial.html">Tutorial with Examples</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/Generate_ROI_labeled_arrays.html">Generate Region of Interests (ROI) labeled arrays for simple shapes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/dpc_demo.html">Differential Phase Contrast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/Histogram2D-RingAveraging.html">Using two histograms to bin in space and time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/Histogram2D.html">Computing a 2D histogram using Histogram object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/histogram3D.html">3D histogramming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/IXS-alignment-clean.html">Alignment and interpolation of inelastic scattering data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/D_estimate_demo.html">[broken] An <strong>almost</strong> correct diffraction calibration notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/recip_example.html">This is an example of using real experimental data to plot the HK plane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/X-ray_Speckle_Visibility_Spectroscopy.html">X-ray Speckle Visibility Spectroscopy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/speckle-plotting.html">Plotting helper functions for Speckle analysis &#8211; <code class="docutils literal"><span class="pre">xray_vision.mpl_plotting.speckle</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/Check_remove_bad_imgs_using_same_image.html">Remove bad images for one time correlation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/Multi_tau_one_time_correlation_example.html">One Time Correlation Example for NIPA_GEL 250K¶</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/Removing_bad_images_one_time_correlation.html">Removing bad images from images set and get the one time correlation data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/XPCS_fitting_with_lmfit.html">XPCS fitting with lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/partial-multi-tau.html">First, let&#8217;s demo with synthetic data.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/partial-multi-tau.html#show-the-correlator-working-with-synthetic-data">Show the correlator working with synthetic data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/partial-multi-tau.html#now-let-s-do-it-with-some-real-data">Now let&#8217;s do it with some real data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/two-time-correlation.html">Two time correlation example notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/plot_xrf_spectrum.html">Using X-ray fluorescence information in scikit-beam</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">skbeam.core.feature.peak_refinement</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="skbeam-core-feature-peak-refinement">
+<h1>skbeam.core.feature.peak_refinement<a class="headerlink" href="#skbeam-core-feature-peak-refinement" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="skbeam.core.feature.peak_refinement">
+<code class="descclassname">skbeam.core.feature.</code><code class="descname">peak_refinement</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>cands</em>, <em>window</em>, <em>refine_function</em>, <em>refine_args=None</em><span class="sig-paren">)</span><a class="headerlink" href="#skbeam.core.feature.peak_refinement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Refine candidate locations</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>x</strong> : array</p>
+<blockquote>
+<div><p>The independent variable, does not need to be evenly spaced.</p>
+</div></blockquote>
+<p><strong>y</strong> : array</p>
+<blockquote>
+<div><p>The dependent variable.  Must correspond 1:1 with the values in <cite>x</cite></p>
+</div></blockquote>
+<p><strong>cands</strong> : array</p>
+<blockquote>
+<div><p>Array of the indices in <cite>x</cite> (and <cite>y</cite>) for the candidate peaks.</p>
+</div></blockquote>
+<p><strong>refine_function</strong> : function</p>
+<blockquote>
+<div><p>A function which takes a section of data with a peak in it and returns
+the location and height of the peak to sub-sample accuracy.  Additional
+parameters can be passed through via the refine_args kwarg.
+The function signature must be:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">center</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">refine_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This function may raise <cite>PeakRejection</cite> to indicate no suitable
+peak was found</p>
+</div></blockquote>
+<p><strong>window</strong> : int</p>
+<blockquote>
+<div><p>How many samples to extract on either side of the
+candidate locations are passed to the refine function.  The
+window will be truncated near the boundaries.  The length of the
+data passed to the refine function will be (2 * window + 1).</p>
+</div></blockquote>
+<p><strong>refine_args</strong> : dict, optional</p>
+<blockquote>
+<div><p>The passed to the refine_function</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>peak_locations</strong> : array</p>
+<blockquote>
+<div><p>The locations of the peaks</p>
+</div></blockquote>
+<p><strong>peak_heights</strong> : array</p>
+<blockquote class="last">
+<div><p>The heights of the peaks</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">512</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">512</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tt</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="mf">150.55</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tt</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="mf">450.75</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cands</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">argrelmax</span><span class="p">(</span><span class="n">tt</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">peak_refinement</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">tt</span><span class="p">,</span> <span class="n">cands</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">refine_quadratic</span><span class="p">))</span>
+<span class="go">(array([ 150.62286432,  450.7909412 ]), array([ 0.96435832,  0.96491501]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">peak_refinement</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">tt</span><span class="p">,</span> <span class="n">cands</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">refine_log_quadratic</span><span class="p">))</span>
+<span class="go">(array([ 150.55,  450.75]), array([ 1.,  1.]))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../../_sources/resource/api/generated/skbeam.core.feature.peak_refinement.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014-2015 Brookhaven National Lab.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

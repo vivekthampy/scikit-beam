@@ -1,0 +1,6 @@
+skbeam.core.constants.xrs.HKL.index
+===================================
+
+.. currentmodule:: skbeam.core.constants.xrs
+
+.. automethod:: HKL.index

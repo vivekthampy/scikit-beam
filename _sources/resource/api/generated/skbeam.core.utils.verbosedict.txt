@@ -1,0 +1,31 @@
+skbeam.core.utils.verbosedict
+=============================
+
+.. currentmodule:: skbeam.core.utils
+
+.. autoclass:: verbosedict
+
+   
+
+
+  .. HACK -- the point here is that we don't want this to appear in the output, but the autosummary should still generate the pages.
+      .. autosummary::
+         :toctree:
+      
+         verbosedict.clear
+         verbosedict.copy
+         verbosedict.fromkeys
+         verbosedict.get
+         verbosedict.items
+         verbosedict.keys
+         verbosedict.pop
+         verbosedict.popitem
+         verbosedict.setdefault
+         verbosedict.update
+         verbosedict.values
+
+
+
+
+   
+

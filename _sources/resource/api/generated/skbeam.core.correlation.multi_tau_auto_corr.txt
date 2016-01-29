@@ -1,0 +1,6 @@
+skbeam.core.correlation.multi_tau_auto_corr
+===========================================
+
+.. currentmodule:: skbeam.core.correlation
+
+.. autofunction:: multi_tau_auto_corr

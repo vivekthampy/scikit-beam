@@ -1,0 +1,6 @@
+skbeam.core.constants.xrs.Reflection.count
+==========================================
+
+.. currentmodule:: skbeam.core.constants.xrs
+
+.. automethod:: Reflection.count

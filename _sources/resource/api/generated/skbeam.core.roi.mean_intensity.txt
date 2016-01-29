@@ -1,0 +1,6 @@
+skbeam.core.roi.mean_intensity
+==============================
+
+.. currentmodule:: skbeam.core.roi
+
+.. autofunction:: mean_intensity

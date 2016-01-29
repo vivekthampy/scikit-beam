@@ -1,0 +1,6 @@
+skbeam.core.arithmetic.logical_sub
+==================================
+
+.. currentmodule:: skbeam.core.arithmetic
+
+.. autofunction:: logical_sub

@@ -1,0 +1,6 @@
+skbeam.core.recip.hkl_to_q
+==========================
+
+.. currentmodule:: skbeam.core.recip
+
+.. autofunction:: hkl_to_q

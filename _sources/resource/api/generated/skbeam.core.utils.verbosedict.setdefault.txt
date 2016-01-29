@@ -1,0 +1,6 @@
+skbeam.core.utils.verbosedict.setdefault
+========================================
+
+.. currentmodule:: skbeam.core.utils
+
+.. automethod:: verbosedict.setdefault

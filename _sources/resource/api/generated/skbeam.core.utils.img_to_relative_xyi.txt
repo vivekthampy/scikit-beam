@@ -1,0 +1,6 @@
+skbeam.core.utils.img_to_relative_xyi
+=====================================
+
+.. currentmodule:: skbeam.core.utils
+
+.. autofunction:: img_to_relative_xyi

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>This is an example of using real experimental data to plot the HK plane &mdash; scikit-beam 0.0.7 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/spacelab/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.0.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="scikit-beam 0.0.7 documentation" href="../index.html" />
+    <link rel="up" title="Tutorial with Examples" href="../tutorial.html" />
+    <link rel="next" title="X-ray Speckle Visibility Spectroscopy" href="X-ray_Speckle_Visibility_Spectroscopy.html" />
+    <link rel="prev" title="[broken] An almost correct diffraction calibration notebook" href="D_estimate_demo.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          scikit-beam</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.0.7</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../tutorial.html">Tutorial</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction to scikit-beam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installing scikit-beam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html#updating-your-installation">Updating Your Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whats_new.html">What&#8217;s new</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resource/api/index.html">Complete Reference (API)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resource/dev_guide/index.html">Development Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorial.html">Tutorial with Examples</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Generate_ROI_labeled_arrays.html">Generate Region of Interests (ROI) labeled arrays for simple shapes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dpc_demo.html">Differential Phase Contrast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Histogram2D-RingAveraging.html">Using two histograms to bin in space and time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Histogram2D.html">Computing a 2D histogram using Histogram object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="histogram3D.html">3D histogramming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IXS-alignment-clean.html">Alignment and interpolation of inelastic scattering data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="D_estimate_demo.html">[broken] An <strong>almost</strong> correct diffraction calibration notebook</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">This is an example of using real experimental data to plot the HK plane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X-ray_Speckle_Visibility_Spectroscopy.html">X-ray Speckle Visibility Spectroscopy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="speckle-plotting.html">Plotting helper functions for Speckle analysis &#8211; <code class="docutils literal"><span class="pre">xray_vision.mpl_plotting.speckle</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Check_remove_bad_imgs_using_same_image.html">Remove bad images for one time correlation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Multi_tau_one_time_correlation_example.html">One Time Correlation Example for NIPA_GEL 250K¶</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Removing_bad_images_one_time_correlation.html">Removing bad images from images set and get the one time correlation data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XPCS_fitting_with_lmfit.html">XPCS fitting with lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="partial-multi-tau.html">First, let&#8217;s demo with synthetic data.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="partial-multi-tau.html#show-the-correlator-working-with-synthetic-data">Show the correlator working with synthetic data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="partial-multi-tau.html#now-let-s-do-it-with-some-real-data">Now let&#8217;s do it with some real data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="two-time-correlation.html">Two time correlation example notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_xrf_spectrum.html">Using X-ray fluorescence information in scikit-beam</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">This is an example of using real experimental data to plot the HK plane</a><ul>
+<li><a class="reference internal" href="#define-some-metadata">define some metadata</a></li>
+<li><a class="reference internal" href="#load-the-data">Load the data</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="this-is-an-example-of-using-real-experimental-data-to-plot-the-hk-plane">
+<h1>This is an example of using real experimental data to plot the HK plane<a class="headerlink" href="#this-is-an-example-of-using-real-experimental-data-to-plot-the-hk-plane" title="Permalink to this headline">¶</a></h1>
+<p>Requires: - six angles(motor position) - image stack.</p>
+<p>Here skbeam.core.recip.process_to_q function is used to convert to Q
+(reciprocal space) and then that data is gridded using nsls2.core.py -&gt;
+process_grid function.</p>
+<div class="code python highlight-python"><div class="highlight"><pre>from __future__ import absolute_import, division, print_function
+import numpy as np
+import numpy.ma as ma
+import os
+import matplotlib.pyplot as plt
+from skbeam.core import recip
+from skbeam.core.utils import grid3d
+import zipfile
+import six
+import time as ttime
+%matplotlib inline
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">recip_ex</span><span class="p">(</span><span class="n">detector_size</span><span class="p">,</span> <span class="n">pixel_size</span><span class="p">,</span> <span class="n">calibrated_center</span><span class="p">,</span> <span class="n">dist_sample</span><span class="p">,</span>
+             <span class="n">ub_mat</span><span class="p">,</span> <span class="n">wavelength</span><span class="p">,</span> <span class="n">motors</span><span class="p">,</span> <span class="n">i_stack</span><span class="p">,</span> <span class="n">H_range</span><span class="p">,</span> <span class="n">K_range</span><span class="p">,</span> <span class="n">L_range</span><span class="p">):</span>
+    <span class="c1"># convert to Q space</span>
+    <span class="n">q_values</span> <span class="o">=</span> <span class="n">recip</span><span class="o">.</span><span class="n">process_to_q</span><span class="p">(</span><span class="n">motors</span><span class="p">,</span> <span class="n">detector_size</span><span class="p">,</span> <span class="n">pixel_size</span><span class="p">,</span>
+                                  <span class="n">calibrated_center</span><span class="p">,</span> <span class="n">dist_sample</span><span class="p">,</span>
+                                  <span class="n">wavelength</span><span class="p">,</span> <span class="n">ub_mat</span><span class="p">)</span>
+
+    <span class="c1"># minimum and maximum values of the voxel</span>
+    <span class="n">q_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">H_range</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">K_range</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">L_range</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+    <span class="n">q_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">H_range</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">K_range</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">L_range</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+
+    <span class="c1"># no. of bins</span>
+    <span class="n">dqn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1"># process the grid values</span>
+    <span class="p">(</span><span class="n">grid_data</span><span class="p">,</span> <span class="n">grid_occu</span><span class="p">,</span> <span class="n">std_err</span><span class="p">,</span>
+     <span class="n">grid_out</span><span class="p">,</span> <span class="n">bounds</span><span class="p">)</span> <span class="o">=</span> <span class="n">grid3d</span><span class="p">(</span><span class="n">q_values</span><span class="p">,</span> <span class="n">i_stack</span><span class="p">,</span> <span class="n">dqn</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dqn</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                                            <span class="n">dqn</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mgrid</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">dqn</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">:</span><span class="n">dqn</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">:</span><span class="n">dqn</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">q_max</span> <span class="o">-</span> <span class="n">q_min</span><span class="p">)</span> <span class="o">/</span> <span class="n">dqn</span>
+
+    <span class="n">X</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">q_min</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">q_min</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">Z</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">q_min</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+    <span class="c1"># creating a mask</span>
+    <span class="n">_mask</span> <span class="o">=</span> <span class="n">grid_occu</span> <span class="o">&lt;=</span> <span class="mi">10</span>
+    <span class="n">grid_mask_data</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">masked_array</span><span class="p">(</span><span class="n">grid_data</span><span class="p">,</span> <span class="n">_mask</span><span class="p">)</span>
+    <span class="n">grid_mask_std_err</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">masked_array</span><span class="p">(</span><span class="n">std_err</span><span class="p">,</span> <span class="n">_mask</span><span class="p">)</span>
+    <span class="n">grid_mask_occu</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">masked_array</span><span class="p">(</span><span class="n">grid_occu</span><span class="p">,</span> <span class="n">_mask</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">grid_mask_data</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">plot_slice</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">i_slice</span><span class="p">,</span> <span class="n">lx</span><span class="p">,</span> <span class="n">H_range</span><span class="p">,</span> <span class="n">K_range</span><span class="p">):</span>
+    <span class="c1"># plot the HK plane</span>
+
+    <span class="n">i_slice_range</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.006</span><span class="p">,</span> <span class="mf">0.0115</span><span class="p">]</span>
+
+    <span class="n">cnt</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">i_slice</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">i_slice_range</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                                   <span class="n">i_slice_range</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                                                   <span class="mi">50</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+                        <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;hot&#39;</span><span class="p">,</span>
+                        <span class="n">extend</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+    <span class="n">subp</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;scaled&#39;</span><span class="p">)</span>
+    <span class="n">subp</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">H_range</span><span class="p">)</span>
+    <span class="n">subp</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">K_range</span><span class="p">)</span>
+
+    <span class="n">subp</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">subp</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;K&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+    <span class="n">subp</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+
+    <span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cnt</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">i_slice_range</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                               <span class="n">i_slice_range</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                                               <span class="mi">3</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+                        <span class="n">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%.4f</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">grid_mask_data</span><span class="p">,</span> <span class="n">plane</span><span class="p">):</span>
+    <span class="n">HKL</span> <span class="o">=</span> <span class="s1">&#39;HKL&#39;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">plane</span><span class="p">:</span>
+        <span class="n">HKL</span> <span class="o">=</span> <span class="n">HKL</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+    <span class="n">HH</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+    <span class="n">H</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">KK</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+    <span class="n">K</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">i_slice</span> <span class="o">=</span> <span class="n">grid_mask_data</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>  <span class="c1"># intensity slice</span>
+    <span class="n">lx</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">plane</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">i_slice</span><span class="p">,</span> <span class="n">lx</span>
+</pre></div>
+</div>
+<div class="section" id="define-some-metadata">
+<h2>define some metadata<a class="headerlink" href="#define-some-metadata" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">H_range</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.270</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.200</span><span class="p">]</span>
+<span class="n">K_range</span> <span class="o">=</span> <span class="p">[</span><span class="o">+</span><span class="mf">0.010</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.010</span><span class="p">]</span>
+<span class="n">L_range</span> <span class="o">=</span> <span class="p">[</span><span class="o">+</span><span class="mf">1.370</span><span class="p">,</span> <span class="o">+</span><span class="mf">1.410</span><span class="p">]</span>
+
+<span class="n">detector_size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+<span class="n">pixel_size</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0135</span><span class="o">*</span><span class="mi">8</span><span class="p">,</span> <span class="mf">0.0135</span><span class="o">*</span><span class="mi">8</span><span class="p">)</span>  <span class="c1"># (mm)</span>
+<span class="n">calibrated_center</span> <span class="o">=</span> <span class="p">(</span><span class="mi">256</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span> <span class="mi">256</span><span class="o">/</span><span class="mf">2.0</span><span class="p">)</span>  <span class="c1"># (mm)</span>
+<span class="n">dist_sample</span> <span class="o">=</span> <span class="mf">355.0</span>  <span class="c1"># (mm)</span>
+
+<span class="c1"># ub matrix data</span>
+<span class="n">ub_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span> <span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">1.39772305e-01</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.65559565e+00</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.40501716e-02</span><span class="p">],</span>
+                    <span class="p">[</span><span class="o">-</span><span class="mf">1.65632438e+00</span><span class="p">,</span> <span class="mf">1.39853170e-01</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.84650965e-04</span><span class="p">],</span>
+                    <span class="p">[</span><span class="mf">4.79923390e-03</span><span class="p">,</span> <span class="mf">4.91318724e-02</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.72922724e-01</span><span class="p">]])</span>
+
+<span class="c1"># wavelength data</span>
+<span class="n">wavelength</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">13.28559417</span><span class="p">])</span>
+
+<span class="c1"># six angles data</span>
+<span class="n">motors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">102.3546</span><span class="p">,</span> <span class="mf">77.874608</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.0205</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">102.6738</span><span class="p">,</span> <span class="mf">78.285008</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.0575</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">102.9969</span><span class="p">,</span> <span class="mf">78.696608</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.0945</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">103.3236</span><span class="p">,</span> <span class="mf">79.108808</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.1315</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">103.6545</span><span class="p">,</span> <span class="mf">79.521908</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.1685</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">103.9893</span><span class="p">,</span> <span class="mf">79.935908</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.2055</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">104.3283</span><span class="p">,</span> <span class="mf">80.350808</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.243</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">104.6712</span><span class="p">,</span> <span class="mf">80.766608</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.28</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">105.018</span><span class="p">,</span> <span class="mf">81.183308</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.317</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">105.369</span><span class="p">,</span> <span class="mf">81.600908</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.354</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">105.7242</span><span class="p">,</span> <span class="mf">82.019408</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.391</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">106.0836</span><span class="p">,</span> <span class="mf">82.438808</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.428</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">106.4472</span><span class="p">,</span> <span class="mf">82.859108</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.465</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">106.815</span><span class="p">,</span> <span class="mf">83.280608</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.502</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">107.187</span><span class="p">,</span> <span class="mf">83.703308</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.539</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">107.5632</span><span class="p">,</span> <span class="mf">84.126608</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.576</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">107.9442</span><span class="p">,</span> <span class="mf">84.551108</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.6135</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">108.3291</span><span class="p">,</span> <span class="mf">84.976808</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.6505</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">108.7188</span><span class="p">,</span> <span class="mf">85.403709</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.6875</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">109.113</span><span class="p">,</span> <span class="mf">85.831509</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.7245</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">109.5117</span><span class="p">,</span> <span class="mf">86.260509</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.7615</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">109.9149</span><span class="p">,</span> <span class="mf">86.690709</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.7985</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">110.3229</span><span class="p">,</span> <span class="mf">87.122109</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.8355</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">110.7357</span><span class="p">,</span> <span class="mf">87.554709</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.8725</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">111.153</span><span class="p">,</span> <span class="mf">87.988809</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.91</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">111.5754</span><span class="p">,</span> <span class="mf">88.424109</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.947</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">112.0026</span><span class="p">,</span> <span class="mf">88.860609</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.984</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">112.4349</span><span class="p">,</span> <span class="mf">89.298609</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">2.021</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">112.8723</span><span class="p">,</span> <span class="mf">89.737809</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">2.058</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">113.3145</span><span class="p">,</span> <span class="mf">90.178809</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">2.095</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">113.7621</span><span class="p">,</span> <span class="mf">90.621009</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">2.132</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">114.2151</span><span class="p">,</span> <span class="mf">91.065009</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">2.169</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mf">114.6735</span><span class="p">,</span> <span class="mf">91.510209</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">2.2065</span><span class="p">]])</span>
+
+<span class="c1"># Data folder path</span>
+<span class="c1"># path = &quot;LSCO_Nov12_broker&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="load-the-data">
+<h2>Load the data<a class="headerlink" href="#load-the-data" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="c1"># intensity of the image stack data</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">i_stack</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;LSCO_Nov12_broker&quot;</span><span class="p">,</span> <span class="s2">&quot;i_stack.npy&quot;</span><span class="p">))</span>
+<span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
+    <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;LSCO_Nov12_broker.zip&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">extractall</span><span class="p">()</span>
+    <span class="n">i_stack</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;LSCO_Nov12_broker&quot;</span><span class="p">,</span> <span class="s2">&quot;i_stack.npy&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">grid_mask_data</span> <span class="o">=</span> <span class="n">recip_ex</span><span class="p">(</span><span class="n">detector_size</span><span class="p">,</span> <span class="n">pixel_size</span><span class="p">,</span>
+                                   <span class="n">calibrated_center</span><span class="p">,</span> <span class="n">dist_sample</span><span class="p">,</span>
+                                   <span class="n">ub_mat</span><span class="p">,</span> <span class="n">wavelength</span><span class="p">,</span> <span class="n">motors</span><span class="p">,</span> <span class="n">i_stack</span><span class="p">,</span>
+                                   <span class="n">H_range</span><span class="p">,</span> <span class="n">K_range</span><span class="p">,</span> <span class="n">L_range</span><span class="p">)</span>
+
+<span class="n">i_slice</span><span class="p">,</span> <span class="n">lx</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">grid_mask_data</span><span class="p">,</span> <span class="n">plane</span><span class="o">=</span><span class="s1">&#39;HK&#39;</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">Y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="s2">&quot;HK plane&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mf">0.10</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mf">0.155555</span><span class="p">,</span>
+                    <span class="n">right</span><span class="o">=</span><span class="mf">1.05</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span>
+                    <span class="n">wspace</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mf">0.45</span><span class="p">)</span>
+<span class="n">subp</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">plot_slice</span><span class="p">(</span><span class="n">subp</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">i_slice</span><span class="p">,</span> <span class="n">lx</span><span class="p">,</span> <span class="n">H_range</span><span class="p">,</span> <span class="n">K_range</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/recip_example_10_0.png" src="../_images/recip_example_10_0.png" />
+<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">skbeam</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">skbeam</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="s1">&#39;0.0.6+41.g8aa4712&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/tutorial/recip_example.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014-2015 Brookhaven National Lab.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

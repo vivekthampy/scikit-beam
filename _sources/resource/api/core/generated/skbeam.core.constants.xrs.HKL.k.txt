@@ -1,0 +1,6 @@
+skbeam.core.constants.xrs.HKL.k
+===============================
+
+.. currentmodule:: skbeam.core.constants.xrs
+
+.. autoattribute:: HKL.k

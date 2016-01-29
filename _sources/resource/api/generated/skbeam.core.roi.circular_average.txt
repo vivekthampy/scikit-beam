@@ -1,0 +1,6 @@
+skbeam.core.roi.circular_average
+================================
+
+.. currentmodule:: skbeam.core.roi
+
+.. autofunction:: circular_average

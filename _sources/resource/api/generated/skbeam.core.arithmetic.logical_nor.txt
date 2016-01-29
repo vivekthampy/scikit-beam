@@ -1,0 +1,6 @@
+skbeam.core.arithmetic.logical_nor
+==================================
+
+.. currentmodule:: skbeam.core.arithmetic
+
+.. autofunction:: logical_nor

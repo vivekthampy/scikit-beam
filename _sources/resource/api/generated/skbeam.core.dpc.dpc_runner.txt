@@ -1,0 +1,6 @@
+skbeam.core.dpc.dpc_runner
+==========================
+
+.. currentmodule:: skbeam.core.dpc
+
+.. autofunction:: dpc_runner

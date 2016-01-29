@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>skbeam.core.constants.basic.BasicElement &mdash; scikit-beam 0.0.7 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/bootswatch-3.3.4/spacelab/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '0.0.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="scikit-beam 0.0.7 documentation" href="../../../../index.html" />
+    <link rel="up" title="core.constants Module" href="../constants.html" />
+    <link rel="next" title="skbeam.core.constants.xrf.XrayLibWrap" href="skbeam.core.constants.xrf.XrayLibWrap.html" />
+    <link rel="prev" title="core.constants Module" href="../constants.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../../index.html">
+          scikit-beam</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.0.7</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../../../../tutorial.html">Tutorial</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../introduction.html">Introduction to scikit-beam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installing scikit-beam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html#updating-your-installation">Updating Your Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../whats_new.html">What&#8217;s new</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Complete Reference (API)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev_guide/index.html">Development Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial.html">Tutorial with Examples</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/Generate_ROI_labeled_arrays.html">Generate Region of Interests (ROI) labeled arrays for simple shapes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/dpc_demo.html">Differential Phase Contrast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/Histogram2D-RingAveraging.html">Using two histograms to bin in space and time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/Histogram2D.html">Computing a 2D histogram using Histogram object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/histogram3D.html">3D histogramming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/IXS-alignment-clean.html">Alignment and interpolation of inelastic scattering data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/D_estimate_demo.html">[broken] An <strong>almost</strong> correct diffraction calibration notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/recip_example.html">This is an example of using real experimental data to plot the HK plane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/X-ray_Speckle_Visibility_Spectroscopy.html">X-ray Speckle Visibility Spectroscopy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/speckle-plotting.html">Plotting helper functions for Speckle analysis &#8211; <code class="docutils literal"><span class="pre">xray_vision.mpl_plotting.speckle</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/Check_remove_bad_imgs_using_same_image.html">Remove bad images for one time correlation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/Multi_tau_one_time_correlation_example.html">One Time Correlation Example for NIPA_GEL 250K¶</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/Removing_bad_images_one_time_correlation.html">Removing bad images from images set and get the one time correlation data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/XPCS_fitting_with_lmfit.html">XPCS fitting with lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/partial-multi-tau.html">First, let&#8217;s demo with synthetic data.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/partial-multi-tau.html#show-the-correlator-working-with-synthetic-data">Show the correlator working with synthetic data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/partial-multi-tau.html#now-let-s-do-it-with-some-real-data">Now let&#8217;s do it with some real data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/two-time-correlation.html">Two time correlation example notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/plot_xrf_spectrum.html">Using X-ray fluorescence information in scikit-beam</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">skbeam.core.constants.basic.BasicElement</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="skbeam-core-constants-basic-basicelement">
+<h1>skbeam.core.constants.basic.BasicElement<a class="headerlink" href="#skbeam-core-constants-basic-basicelement" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="skbeam.core.constants.basic.BasicElement">
+<em class="property">class </em><code class="descclassname">skbeam.core.constants.basic.</code><code class="descname">BasicElement</code><span class="sig-paren">(</span><em>Z</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#skbeam.core.constants.basic.BasicElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object to return basic elemental information</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>element</strong> : str or int</p>
+<blockquote class="last">
+<div><p>Element symbol, name or atomic number (&#8216;Zinc&#8217;, &#8216;Zn&#8217; or 30)</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create an `Element` object</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span> <span class="o">=</span> <span class="n">Element</span><span class="p">(</span><span class="s1">&#39;Zn&#39;</span><span class="p">)</span> <span class="c1"># or e = Element(30)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># get the atomic mass</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span><span class="o">.</span><span class="n">mass</span>
+<span class="go">65.37</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># get the density in grams / cm^3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span><span class="o">.</span><span class="n">density</span>
+<span class="go">7.14</span>
+</pre></div>
+</div>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="37%" />
+<col width="63%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Z</td>
+<td>(int) Atomic number</td>
+</tr>
+<tr class="row-even"><td>sym</td>
+<td>(str) Element symbol (Fe, Cr, etc.)</td>
+</tr>
+<tr class="row-odd"><td>name</td>
+<td>(str) Full element name (Iron, Chromium, etc.</td>
+</tr>
+<tr class="row-even"><td>atomic_radius</td>
+<td>(float) AtomicRadius[A]</td>
+</tr>
+<tr class="row-odd"><td>covalent_radius</td>
+<td>(float) CovalentRadius[A]</td>
+</tr>
+<tr class="row-even"><td>mass</td>
+<td>(float) AtomicMass</td>
+</tr>
+<tr class="row-odd"><td>bp</td>
+<td>(float) BoilingPoint[K]</td>
+</tr>
+<tr class="row-even"><td>mp</td>
+<td>(float) MeltingPoint[K]</td>
+</tr>
+<tr class="row-odd"><td>density</td>
+<td>(float) Density[g/ccm]</td>
+</tr>
+<tr class="row-even"><td>atomic_volume</td>
+<td>(float) AtomicVolume</td>
+</tr>
+<tr class="row-odd"><td>coherent_scattering_length</td>
+<td>(float) CoherentScatteringLength[1E-12cm]</td>
+</tr>
+<tr class="row-even"><td>incoherent_crosssection</td>
+<td>(float) IncoherentX-section[barn]</td>
+</tr>
+<tr class="row-odd"><td>absorption</td>
+<td>(float) Absorption&#64;1.8A[barn]</td>
+</tr>
+<tr class="row-even"><td>debye_temp</td>
+<td>(float) DebyeTemperature[K]</td>
+</tr>
+<tr class="row-odd"><td>thermal_conductivity</td>
+<td>(float) ThermalConductivity[W/cmK]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../../../_sources/resource/api/core/generated/skbeam.core.constants.basic.BasicElement.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014-2015 Brookhaven National Lab.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

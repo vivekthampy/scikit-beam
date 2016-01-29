@@ -1,0 +1,6 @@
+skbeam.core.constants.xrf.XrayLibWrap.all
+=========================================
+
+.. currentmodule:: skbeam.core.constants.xrf
+
+.. autoattribute:: XrayLibWrap.all

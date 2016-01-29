@@ -1,0 +1,1549 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Index &mdash; scikit-beam 0.0.7 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.4/spacelab/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="scikit-beam 0.0.7 documentation" href="index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          scikit-beam</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.0.7</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="tutorial.html">Tutorial</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction to scikit-beam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installing scikit-beam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#updating-your-installation">Updating Your Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whats_new.html">What&#8217;s new</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resource/api/index.html">Complete Reference (API)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resource/dev_guide/index.html">Development Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial with Examples</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/Generate_ROI_labeled_arrays.html">Generate Region of Interests (ROI) labeled arrays for simple shapes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/dpc_demo.html">Differential Phase Contrast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/Histogram2D-RingAveraging.html">Using two histograms to bin in space and time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/Histogram2D.html">Computing a 2D histogram using Histogram object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/histogram3D.html">3D histogramming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/IXS-alignment-clean.html">Alignment and interpolation of inelastic scattering data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/D_estimate_demo.html">[broken] An <strong>almost</strong> correct diffraction calibration notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/recip_example.html">This is an example of using real experimental data to plot the HK plane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/X-ray_Speckle_Visibility_Spectroscopy.html">X-ray Speckle Visibility Spectroscopy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/speckle-plotting.html">Plotting helper functions for Speckle analysis &#8211; <code class="docutils literal"><span class="pre">xray_vision.mpl_plotting.speckle</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/Check_remove_bad_imgs_using_same_image.html">Remove bad images for one time correlation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/Multi_tau_one_time_correlation_example.html">One Time Correlation Example for NIPA_GEL 250K¶</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/Removing_bad_images_one_time_correlation.html">Removing bad images from images set and get the one time correlation data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/XPCS_fitting_with_lmfit.html">XPCS fitting with lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/partial-multi-tau.html">First, let&#8217;s demo with synthetic data.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/partial-multi-tau.html#show-the-correlator-working-with-synthetic-data">Show the correlator working with synthetic data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/partial-multi-tau.html#now-let-s-do-it-with-some-real-data">Now let&#8217;s do it with some real data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/two-time-correlation.html">Two time correlation example notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/plot_xrf_spectrum.html">Using X-ray fluorescence information in scikit-beam</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#J"><strong>J</strong></a>
+ | <a href="#K"><strong>K</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#Q"><strong>Q</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ | <a href="#X"><strong>X</strong></a>
+ 
+</div>
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/fitting/funcs.html#skbeam.core.fitting.xrf_model.ParamController.add_param">add_param() (skbeam.core.fitting.xrf_model.ParamController method)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/spectroscopy.html#skbeam.core.spectroscopy.align_and_scale">align_and_scale() (in module skbeam.core.spectroscopy)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrf.XrayLibWrap.all.html#skbeam.core.constants.xrf.XrayLibWrap.all">all (skbeam.core.constants.xrf.XrayLibWrap attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrf.XrayLibWrap_Energy.all.html#skbeam.core.constants.xrf.XrayLibWrap_Energy.all">(skbeam.core.constants.xrf.XrayLibWrap_Energy attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="resource/api/core/utils.html#skbeam.core.utils.angle_grid">angle_grid() (in module skbeam.core.utils)</a>, <a href="resource/api/generated/skbeam.core.utils.angle_grid.html#skbeam.core.utils.angle_grid">[1]</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/diffraction.html#skbeam.diffraction.angle_grid">(in module skbeam.diffraction)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/fitting/funcs.html#skbeam.core.fitting.xrf_model.ModelSpectrum.assemble_models">assemble_models() (skbeam.core.fitting.xrf_model.ModelSpectrum method)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/correlation.html#skbeam.core.correlation.auto_corr_scat_factor">auto_corr_scat_factor() (in module skbeam.core.correlation)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/dpc.html#skbeam.core.dpc.dpc_internal_state.ax">ax (skbeam.core.dpc.dpc_internal_state attribute)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/dpc.html#skbeam.core.dpc.dpc_internal_state.ay">ay (skbeam.core.dpc.dpc_internal_state attribute)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/mask.html#skbeam.core.mask.bad_to_nan_gen">bad_to_nan_gen() (in module skbeam.core.mask)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.basic.BasicElement.html#skbeam.core.constants.basic.BasicElement">BasicElement (class in skbeam.core.constants.basic)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/diffraction.html#skbeam.diffraction.BasicElement">(class in skbeam.diffraction)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="resource/api/core/utils.html#skbeam.core.utils.bin_1D">bin_1D() (in module skbeam.core.utils)</a>, <a href="resource/api/generated/skbeam.core.utils.bin_1D.html#skbeam.core.utils.bin_1D">[1]</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/diffraction.html#skbeam.diffraction.bin_1D">(in module skbeam.diffraction)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/utils.html#skbeam.core.utils.bin_edges">bin_edges() (in module skbeam.core.utils)</a>, <a href="resource/api/generated/skbeam.core.utils.bin_edges.html#skbeam.core.utils.bin_edges">[1]</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/diffraction.html#skbeam.diffraction.bin_edges">(in module skbeam.diffraction)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="resource/api/core/utils.html#skbeam.core.utils.bin_edges_to_centers">bin_edges_to_centers() (in module skbeam.core.utils)</a>, <a href="resource/api/generated/skbeam.core.utils.bin_edges_to_centers.html#skbeam.core.utils.bin_edges_to_centers">[1]</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/diffraction.html#skbeam.diffraction.bin_edges_to_centers">(in module skbeam.diffraction)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrf.XrfElement.bind_energy.html#skbeam.core.constants.xrf.XrfElement.bind_energy">bind_energy (skbeam.core.constants.xrf.XrfElement attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/fluorescence.html#skbeam.fluorescence.XrfElement.bind_energy">(skbeam.fluorescence.XrfElement attribute)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/cdi.html#skbeam.core.cdi.cal_diff_error">cal_diff_error() (in module skbeam.core.cdi)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/fitting/funcs.html#skbeam.core.fitting.xrf_model.calculate_area">calculate_area() (in module skbeam.core.fitting.xrf_model)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/recip.html#skbeam.core.recip.calibrated_pixels_to_q">calibrated_pixels_to_q() (in module skbeam.core.recip)</a>, <a href="resource/api/generated/skbeam.core.recip.calibrated_pixels_to_q.html#skbeam.core.recip.calibrated_pixels_to_q">[1]</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrs.calibration_standards.html#skbeam.core.constants.xrs.calibration_standards">calibration_standards (in module skbeam.core.constants.xrs)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/cdi.html#skbeam.core.cdi.cdi_recon">cdi_recon() (in module skbeam.core.cdi)</a>, <a href="resource/api/generated/skbeam.core.cdi.cdi_recon.html#skbeam.core.cdi.cdi_recon">[1]</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/roi.html#skbeam.core.roi.circular_average">circular_average() (in module skbeam.core.roi)</a>, <a href="resource/api/generated/skbeam.core.roi.circular_average.html#skbeam.core.roi.circular_average">[1]</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/generated/skbeam.core.utils.MD_dict.clear.html#skbeam.core.utils.MD_dict.clear">clear() (skbeam.core.utils.MD_dict method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/generated/skbeam.core.utils.RCParamDict.clear.html#skbeam.core.utils.RCParamDict.clear">(skbeam.core.utils.RCParamDict method)</a>
+  </dt>
+
+        
+  <dt><a href="resource/api/generated/skbeam.core.utils.verbosedict.clear.html#skbeam.core.utils.verbosedict.clear">(skbeam.core.utils.verbosedict method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="resource/api/core/fitting/models.html#skbeam.core.fitting.lineshapes.compton">compton() (in module skbeam.core.fitting.lineshapes)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/fitting/xrf_model.html#skbeam.core.fitting.models.ComptonModel">ComptonModel (class in skbeam.core.fitting.models)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/fluorescence.html#skbeam.fluorescence.ComptonModel">(class in skbeam.fluorescence)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="resource/api/core/fitting/funcs.html#skbeam.core.fitting.xrf_model.compute_escape_peak">compute_escape_peak() (in module skbeam.core.fitting.xrf_model)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/fitting/funcs.html#skbeam.core.fitting.xrf_model.construct_linear_model">construct_linear_model() (in module skbeam.core.fitting.xrf_model)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrs.PowderStandard.convert_2theta.html#skbeam.core.constants.xrs.PowderStandard.convert_2theta">convert_2theta() (skbeam.core.constants.xrs.PowderStandard method)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/generated/skbeam.core.utils.verbosedict.copy.html#skbeam.core.utils.verbosedict.copy">copy() (skbeam.core.utils.verbosedict method)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrs.HKL.count.html#skbeam.core.constants.xrs.HKL.count">count() (skbeam.core.constants.xrs.HKL method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrs.Reflection.count.html#skbeam.core.constants.xrs.Reflection.count">(skbeam.core.constants.xrs.Reflection method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrf.XrfElement.cs.html#skbeam.core.constants.xrf.XrfElement.cs">cs (skbeam.core.constants.xrf.XrfElement attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/fluorescence.html#skbeam.fluorescence.XrfElement.cs">(skbeam.fluorescence.XrfElement attribute)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrs.Reflection.d.html#skbeam.core.constants.xrs.Reflection.d">d (skbeam.core.constants.xrs.Reflection attribute)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/utils.html#skbeam.core.utils.d_to_q">d_to_q() (in module skbeam.core.utils)</a>, <a href="resource/api/generated/skbeam.core.utils.d_to_q.html#skbeam.core.utils.d_to_q">[1]</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/diffraction.html#skbeam.diffraction.d_to_q">(in module skbeam.diffraction)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="resource/api/core/dpc.html#skbeam.core.dpc.dpc_fit">dpc_fit() (in module skbeam.core.dpc)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/dpc.html#skbeam.core.dpc.dpc_internal_state">dpc_internal_state (class in skbeam.core.dpc)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/dpc.html#skbeam.core.dpc.dpc_runner">dpc_runner() (in module skbeam.core.dpc)</a>, <a href="resource/api/generated/skbeam.core.dpc.dpc_runner.html#skbeam.core.dpc.dpc_runner">[1]</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/fitting/models.html#skbeam.core.fitting.lineshapes.elastic">elastic() (in module skbeam.core.fitting.lineshapes)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/fitting/xrf_model.html#skbeam.core.fitting.models.ElasticModel">ElasticModel (class in skbeam.core.fitting.models)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/fluorescence.html#skbeam.fluorescence.ElasticModel">(class in skbeam.fluorescence)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="resource/api/core/fitting/funcs.html#skbeam.core.fitting.xrf_model.element_peak_xrf">element_peak_xrf() (in module skbeam.core.fitting.xrf_model)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/fitting/funcs.html#skbeam.core.fitting.xrf_model.ElementModel">ElementModel (class in skbeam.core.fitting.xrf_model)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrf.XrfElement.emission_line.html#skbeam.core.constants.xrf.XrfElement.emission_line">emission_line (skbeam.core.constants.xrf.XrfElement attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/fluorescence.html#skbeam.fluorescence.XrfElement.emission_line">(skbeam.fluorescence.XrfElement attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrf.emission_line_search.html#skbeam.core.constants.xrf.emission_line_search">emission_line_search() (in module skbeam.core.constants.xrf)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/fluorescence.html#skbeam.fluorescence.emission_line_search">(in module skbeam.fluorescence)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="resource/api/core/calibration.html#skbeam.core.calibration.estimate_d_blind">estimate_d_blind() (in module skbeam.core.calibration)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/diffraction.html#skbeam.diffraction.estimate_d_blind">(in module skbeam.diffraction)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="resource/api/core/roi.html#skbeam.core.roi.extract_label_indices">extract_label_indices() (in module skbeam.core.roi)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/feature.html#skbeam.core.feature.filter_n_largest">filter_n_largest() (in module skbeam.core.feature)</a>, <a href="resource/api/generated/skbeam.core.feature.filter_n_largest.html#skbeam.core.feature.filter_n_largest">[1]</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/feature.html#skbeam.core.feature.filter_peak_height">filter_peak_height() (in module skbeam.core.feature)</a>, <a href="resource/api/generated/skbeam.core.feature.filter_peak_height.html#skbeam.core.feature.filter_peak_height">[1]</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/spectroscopy.html#skbeam.core.spectroscopy.find_largest_peak">find_largest_peak() (in module skbeam.core.spectroscopy)</a>, <a href="resource/api/generated/skbeam.core.spectroscopy.find_largest_peak.html#skbeam.core.spectroscopy.find_largest_peak">[1]</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/image.html#skbeam.core.image.find_ring_center_acorr_1D">find_ring_center_acorr_1D() (in module skbeam.core.image)</a>, <a href="resource/api/generated/skbeam.core.image.find_ring_center_acorr_1D.html#skbeam.core.image.find_ring_center_acorr_1D">[1]</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/cdi.html#skbeam.core.cdi.find_support">find_support() (in module skbeam.core.cdi)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/fitting/funcs.html#skbeam.core.fitting.xrf_model.fit_per_line_nnls">fit_per_line_nnls() (in module skbeam.core.fitting.xrf_model)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/fitting/funcs.html#skbeam.core.fitting.xrf_model.fit_pixel_multiprocess_nnls">fit_pixel_multiprocess_nnls() (in module skbeam.core.fitting.xrf_model)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/fitting/background.html#skbeam.core.fitting.funcs.fit_quad_to_peak">fit_quad_to_peak() (in module skbeam.core.fitting.funcs)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrf.XrfElement.fluor_yield.html#skbeam.core.constants.xrf.XrfElement.fluor_yield">fluor_yield (skbeam.core.constants.xrf.XrfElement attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/fluorescence.html#skbeam.fluorescence.XrfElement.fluor_yield">(skbeam.fluorescence.XrfElement attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrs.PowderStandard.from_d.html#skbeam.core.constants.xrs.PowderStandard.from_d">from_d() (skbeam.core.constants.xrs.PowderStandard class method)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrs.PowderStandard.from_lambda_2theta_hkl.html#skbeam.core.constants.xrs.PowderStandard.from_lambda_2theta_hkl">from_lambda_2theta_hkl() (skbeam.core.constants.xrs.PowderStandard class method)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/generated/skbeam.core.utils.verbosedict.fromkeys.html#skbeam.core.utils.verbosedict.fromkeys">fromkeys() (skbeam.core.utils.verbosedict method)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/fitting/models.html#skbeam.core.fitting.lineshapes.gamma_dist">gamma_dist() (in module skbeam.core.fitting.lineshapes)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/cdi.html#skbeam.core.cdi.gauss">gauss() (in module skbeam.core.cdi)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/fitting/models.html#skbeam.core.fitting.lineshapes.gaussian">gaussian() (in module skbeam.core.fitting.lineshapes)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/diffraction.html#skbeam.diffraction.gaussian">(in module skbeam.diffraction)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="resource/api/core/fitting/models.html#skbeam.core.fitting.lineshapes.gaussian_tail">gaussian_tail() (in module skbeam.core.fitting.lineshapes)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/diffraction.html#skbeam.diffraction.gaussian_tail">(in module skbeam.diffraction)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="resource/api/core/fitting/models.html#skbeam.core.fitting.lineshapes.gausssian_step">gausssian_step() (in module skbeam.core.fitting.lineshapes)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/diffraction.html#skbeam.diffraction.gausssian_step">(in module skbeam.diffraction)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="resource/api/core/cdi.html#skbeam.core.cdi.generate_box_support">generate_box_support() (in module skbeam.core.cdi)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/cdi.html#skbeam.core.cdi.generate_disk_support">generate_disk_support() (in module skbeam.core.cdi)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/cdi.html#skbeam.core.cdi.generate_random_phase_field">generate_random_phase_field() (in module skbeam.core.cdi)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/utils.html#skbeam.core.utils.geometric_series">geometric_series() (in module skbeam.core.utils)</a>, <a href="resource/api/generated/skbeam.core.utils.geometric_series.html#skbeam.core.utils.geometric_series">[1]</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrf.XrayLibWrap.get.html#skbeam.core.constants.xrf.XrayLibWrap.get">get() (skbeam.core.constants.xrf.XrayLibWrap method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrf.XrayLibWrap_Energy.get.html#skbeam.core.constants.xrf.XrayLibWrap_Energy.get">(skbeam.core.constants.xrf.XrayLibWrap_Energy method)</a>
+  </dt>
+
+        
+  <dt><a href="resource/api/generated/skbeam.core.utils.MD_dict.get.html#skbeam.core.utils.MD_dict.get">(skbeam.core.utils.MD_dict method)</a>
+  </dt>
+
+        
+  <dt><a href="resource/api/generated/skbeam.core.utils.RCParamDict.get.html#skbeam.core.utils.RCParamDict.get">(skbeam.core.utils.RCParamDict method)</a>
+  </dt>
+
+        
+  <dt><a href="resource/api/generated/skbeam.core.utils.verbosedict.get.html#skbeam.core.utils.verbosedict.get">(skbeam.core.utils.verbosedict method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="resource/api/core/fitting/funcs.html#skbeam.core.fitting.xrf_model.get_activated_lines">get_activated_lines() (in module skbeam.core.fitting.xrf_model)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/fitting/funcs.html#skbeam.core.fitting.xrf_model.get_line_energy">get_line_energy() (in module skbeam.core.fitting.xrf_model)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/fitting/funcs.html#skbeam.core.fitting.xrf_model.get_relative_cs_ratio">get_relative_cs_ratio() (in module skbeam.core.fitting.xrf_model)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/utils.html#skbeam.core.utils.grid3d">grid3d() (in module skbeam.core.utils)</a>, <a href="resource/api/generated/skbeam.core.utils.grid3d.html#skbeam.core.utils.grid3d">[1]</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/diffraction.html#skbeam.diffraction.grid3d">(in module skbeam.diffraction)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="resource/api/io/gsas_file_reader.html#skbeam.io.gsas_file_reader.gsas_reader">gsas_reader() (in module skbeam.io.gsas_file_reader)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/io/save_powder_output.html#skbeam.io.save_powder_output.gsas_writer">gsas_writer() (in module skbeam.io.save_powder_output)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/dpc.html#skbeam.core.dpc.dpc_internal_state.gx">gx (skbeam.core.dpc.dpc_internal_state attribute)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/dpc.html#skbeam.core.dpc.dpc_internal_state.gy">gy (skbeam.core.dpc.dpc_internal_state attribute)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrs.HKL.h.html#skbeam.core.constants.xrs.HKL.h">h (skbeam.core.constants.xrs.HKL attribute)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrs.HKL.html#skbeam.core.constants.xrs.HKL">HKL (class in skbeam.core.constants.xrs)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrs.Reflection.hkl.html#skbeam.core.constants.xrs.Reflection.hkl">hkl (skbeam.core.constants.xrs.Reflection attribute)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/recip.html#skbeam.core.recip.hkl_to_q">hkl_to_q() (in module skbeam.core.recip)</a>, <a href="resource/api/generated/skbeam.core.recip.hkl_to_q.html#skbeam.core.recip.hkl_to_q">[1]</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/diffraction.html#skbeam.diffraction.hkl_to_q">(in module skbeam.diffraction)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/dpc.html#skbeam.core.dpc.image_reduction">image_reduction() (in module skbeam.core.dpc)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/utils.html#skbeam.core.utils.img_to_relative_xyi">img_to_relative_xyi() (in module skbeam.core.utils)</a>, <a href="resource/api/generated/skbeam.core.utils.img_to_relative_xyi.html#skbeam.core.utils.img_to_relative_xyi">[1]</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrf.XrayLibWrap_Energy.incident_energy.html#skbeam.core.constants.xrf.XrayLibWrap_Energy.incident_energy">incident_energy (skbeam.core.constants.xrf.XrayLibWrap_Energy attribute)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/dpc.html#skbeam.core.dpc.dpc_internal_state.index">index (skbeam.core.dpc.dpc_internal_state attribute)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrs.HKL.index.html#skbeam.core.constants.xrs.HKL.index">index() (skbeam.core.constants.xrs.HKL method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrs.Reflection.index.html#skbeam.core.constants.xrs.Reflection.index">(skbeam.core.constants.xrs.Reflection method)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrf.XrayLibWrap.info_type.html#skbeam.core.constants.xrf.XrayLibWrap.info_type">info_type (skbeam.core.constants.xrf.XrayLibWrap attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrf.XrayLibWrap_Energy.info_type.html#skbeam.core.constants.xrf.XrayLibWrap_Energy.info_type">(skbeam.core.constants.xrf.XrayLibWrap_Energy attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="resource/api/core/spectroscopy.html#skbeam.core.spectroscopy.integrate_ROI">integrate_ROI() (in module skbeam.core.spectroscopy)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/spectroscopy.html#skbeam.core.spectroscopy.integrate_ROI_spectrum">integrate_ROI_spectrum() (in module skbeam.core.spectroscopy)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrf.XrayLibWrap.items.html#skbeam.core.constants.xrf.XrayLibWrap.items">items() (skbeam.core.constants.xrf.XrayLibWrap method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrf.XrayLibWrap_Energy.items.html#skbeam.core.constants.xrf.XrayLibWrap_Energy.items">(skbeam.core.constants.xrf.XrayLibWrap_Energy method)</a>
+  </dt>
+
+        
+  <dt><a href="resource/api/generated/skbeam.core.utils.MD_dict.items.html#skbeam.core.utils.MD_dict.items">(skbeam.core.utils.MD_dict method)</a>
+  </dt>
+
+        
+  <dt><a href="resource/api/generated/skbeam.core.utils.RCParamDict.items.html#skbeam.core.utils.RCParamDict.items">(skbeam.core.utils.RCParamDict method)</a>
+  </dt>
+
+        
+  <dt><a href="resource/api/generated/skbeam.core.utils.verbosedict.items.html#skbeam.core.utils.verbosedict.items">(skbeam.core.utils.verbosedict method)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+</tr></table>
+
+<h2 id="J">J</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrf.XrfElement.jump_factor.html#skbeam.core.constants.xrf.XrfElement.jump_factor">jump_factor (skbeam.core.constants.xrf.XrfElement attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/fluorescence.html#skbeam.fluorescence.XrfElement.jump_factor">(skbeam.fluorescence.XrfElement attribute)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+</tr></table>
+
+<h2 id="K">K</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrs.HKL.k.html#skbeam.core.constants.xrs.HKL.k">k (skbeam.core.constants.xrs.HKL attribute)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrf.XrayLibWrap.keys.html#skbeam.core.constants.xrf.XrayLibWrap.keys">keys() (skbeam.core.constants.xrf.XrayLibWrap method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrf.XrayLibWrap_Energy.keys.html#skbeam.core.constants.xrf.XrayLibWrap_Energy.keys">(skbeam.core.constants.xrf.XrayLibWrap_Energy method)</a>
+  </dt>
+
+        
+  <dt><a href="resource/api/generated/skbeam.core.utils.MD_dict.keys.html#skbeam.core.utils.MD_dict.keys">(skbeam.core.utils.MD_dict method)</a>
+  </dt>
+
+        
+  <dt><a href="resource/api/generated/skbeam.core.utils.RCParamDict.keys.html#skbeam.core.utils.RCParamDict.keys">(skbeam.core.utils.RCParamDict method)</a>
+  </dt>
+
+        
+  <dt><a href="resource/api/generated/skbeam.core.utils.verbosedict.keys.html#skbeam.core.utils.verbosedict.keys">(skbeam.core.utils.verbosedict method)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/roi.html#skbeam.core.roi.kymograph">kymograph() (in module skbeam.core.roi)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrs.HKL.l.html#skbeam.core.constants.xrs.HKL.l">l (skbeam.core.constants.xrs.HKL attribute)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/dpc.html#skbeam.core.dpc.lazy_dpc">lazy_dpc() (in module skbeam.core.dpc)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/correlation.html#skbeam.core.correlation.lazy_one_time">lazy_one_time() (in module skbeam.core.correlation)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/correlation.html#skbeam.core.correlation.lazy_two_time">lazy_two_time() (in module skbeam.core.correlation)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrs.HKL.length.html#skbeam.core.constants.xrs.HKL.length">length (skbeam.core.constants.xrs.HKL attribute)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrf.XrfElement.line_near.html#skbeam.core.constants.xrf.XrfElement.line_near">line_near() (skbeam.core.constants.xrf.XrfElement method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/fluorescence.html#skbeam.fluorescence.XrfElement.line_near">(skbeam.fluorescence.XrfElement method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="resource/api/core/fitting/funcs.html#skbeam.core.fitting.xrf_model.linear_spectrum_fitting">linear_spectrum_fitting() (in module skbeam.core.fitting.xrf_model)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/io/avizo_io.html#skbeam.io.avizo_io.load_amiramesh">load_amiramesh() (in module skbeam.io.avizo_io)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/io/net_cdf_io.html#skbeam.io.net_cdf_io.load_netCDF">load_netCDF() (in module skbeam.io.net_cdf_io)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/arithmetic.html#skbeam.core.arithmetic.logical_nand">logical_nand() (in module skbeam.core.arithmetic)</a>, <a href="resource/api/generated/skbeam.core.arithmetic.logical_nand.html#skbeam.core.arithmetic.logical_nand">[1]</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/arithmetic.html#skbeam.core.arithmetic.logical_nor">logical_nor() (in module skbeam.core.arithmetic)</a>, <a href="resource/api/generated/skbeam.core.arithmetic.logical_nor.html#skbeam.core.arithmetic.logical_nor">[1]</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/arithmetic.html#skbeam.core.arithmetic.logical_sub">logical_sub() (in module skbeam.core.arithmetic)</a>, <a href="resource/api/generated/skbeam.core.arithmetic.logical_sub.html#skbeam.core.arithmetic.logical_sub">[1]</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/fitting/models.html#skbeam.core.fitting.lineshapes.lorentzian">lorentzian() (in module skbeam.core.fitting.lineshapes)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/diffraction.html#skbeam.diffraction.lorentzian">(in module skbeam.diffraction)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="resource/api/core/fitting/models.html#skbeam.core.fitting.lineshapes.lorentzian2">lorentzian2() (in module skbeam.core.fitting.lineshapes)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/diffraction.html#skbeam.diffraction.lorentzian2">(in module skbeam.diffraction)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="resource/api/core/fitting/xrf_model.html#skbeam.core.fitting.models.Lorentzian2Model">Lorentzian2Model (class in skbeam.core.fitting.models)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/diffraction.html#skbeam.diffraction.Lorentzian2Model">(class in skbeam.diffraction)</a>
+  </dt>
+
+        
+  <dt><a href="resource/api/fluorescence.html#skbeam.fluorescence.Lorentzian2Model">(class in skbeam.fluorescence)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/utils.html#skbeam.core.utils.MD_dict">MD_dict (class in skbeam.core.utils)</a>, <a href="resource/api/generated/skbeam.core.utils.MD_dict.html#skbeam.core.utils.MD_dict">[1]</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/utils.html#skbeam.core.utils.md_value">md_value (class in skbeam.core.utils)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/roi.html#skbeam.core.roi.mean_intensity">mean_intensity() (in module skbeam.core.roi)</a>, <a href="resource/api/generated/skbeam.core.roi.mean_intensity.html#skbeam.core.roi.mean_intensity">[1]</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/fitting/funcs.html#skbeam.core.fitting.xrf_model.ModelSpectrum.model_fit">model_fit() (skbeam.core.fitting.xrf_model.ModelSpectrum method)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/fitting/funcs.html#skbeam.core.fitting.xrf_model.ModelSpectrum">ModelSpectrum (class in skbeam.core.fitting.xrf_model)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/correlation.html#skbeam.core.correlation.multi_tau_auto_corr">multi_tau_auto_corr() (in module skbeam.core.correlation)</a>, <a href="resource/api/generated/skbeam.core.correlation.multi_tau_auto_corr.html#skbeam.core.correlation.multi_tau_auto_corr">[1]</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/utils.html#skbeam.core.utils.multi_tau_lags">multi_tau_lags() (in module skbeam.core.utils)</a>, <a href="resource/api/generated/skbeam.core.utils.multi_tau_lags.html#skbeam.core.utils.multi_tau_lags">[1]</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrs.PowderStandard.name.html#skbeam.core.constants.xrs.PowderStandard.name">name (skbeam.core.constants.xrs.PowderStandard attribute)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/fitting/models.html#skbeam.core.fitting.lineshapes.nbinom_dist">nbinom_dist() (in module skbeam.core.fitting.lineshapes)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/fitting/funcs.html#skbeam.core.fitting.xrf_model.nnls_fit">nnls_fit() (in module skbeam.core.fitting.xrf_model)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/utils.html#skbeam.core.utils.NotInstalledError">NotInstalledError</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrf.XrayLibWrap.opts_info_type.html#skbeam.core.constants.xrf.XrayLibWrap.opts_info_type">opts_info_type (skbeam.core.constants.xrf.XrayLibWrap attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrf.XrayLibWrap_Energy.opts_info_type.html#skbeam.core.constants.xrf.XrayLibWrap_Energy.opts_info_type">(skbeam.core.constants.xrf.XrayLibWrap_Energy attribute)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/utils.html#skbeam.core.utils.pairwise">pairwise() (in module skbeam.core.utils)</a>, <a href="resource/api/generated/skbeam.core.utils.pairwise.html#skbeam.core.utils.pairwise">[1]</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/fitting/funcs.html#skbeam.core.fitting.xrf_model.ParamController">ParamController (class in skbeam.core.fitting.xrf_model)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/feature.html#skbeam.core.feature.peak_refinement">peak_refinement() (in module skbeam.core.feature)</a>, <a href="resource/api/generated/skbeam.core.feature.peak_refinement.html#skbeam.core.feature.peak_refinement">[1]</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/feature.html#skbeam.core.feature.PeakRejection">PeakRejection</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/cdi.html#skbeam.core.cdi.pi_modulus">pi_modulus() (in module skbeam.core.cdi)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/fitting/models.html#skbeam.core.fitting.lineshapes.poisson_dist">poisson_dist() (in module skbeam.core.fitting.lineshapes)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/generated/skbeam.core.utils.MD_dict.pop.html#skbeam.core.utils.MD_dict.pop">pop() (skbeam.core.utils.MD_dict method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/generated/skbeam.core.utils.RCParamDict.pop.html#skbeam.core.utils.RCParamDict.pop">(skbeam.core.utils.RCParamDict method)</a>
+  </dt>
+
+        
+  <dt><a href="resource/api/generated/skbeam.core.utils.verbosedict.pop.html#skbeam.core.utils.verbosedict.pop">(skbeam.core.utils.verbosedict method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="resource/api/generated/skbeam.core.utils.MD_dict.popitem.html#skbeam.core.utils.MD_dict.popitem">popitem() (skbeam.core.utils.MD_dict method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/generated/skbeam.core.utils.RCParamDict.popitem.html#skbeam.core.utils.RCParamDict.popitem">(skbeam.core.utils.RCParamDict method)</a>
+  </dt>
+
+        
+  <dt><a href="resource/api/generated/skbeam.core.utils.verbosedict.popitem.html#skbeam.core.utils.verbosedict.popitem">(skbeam.core.utils.verbosedict method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrs.PowderStandard.html#skbeam.core.constants.xrs.PowderStandard">PowderStandard (class in skbeam.core.constants.xrs)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/recip.html#skbeam.core.recip.process_to_q">process_to_q() (in module skbeam.core.recip)</a>, <a href="resource/api/generated/skbeam.core.recip.process_to_q.html#skbeam.core.recip.process_to_q">[1]</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/diffraction.html#skbeam.diffraction.process_to_q">(in module skbeam.diffraction)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="resource/api/core/fitting/models.html#skbeam.core.fitting.lineshapes.pvoigt">pvoigt() (in module skbeam.core.fitting.lineshapes)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/diffraction.html#skbeam.diffraction.pvoigt">(in module skbeam.diffraction)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+</tr></table>
+
+<h2 id="Q">Q</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrs.Reflection.q.html#skbeam.core.constants.xrs.Reflection.q">q (skbeam.core.constants.xrs.Reflection attribute)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/utils.html#skbeam.core.utils.q_to_d">q_to_d() (in module skbeam.core.utils)</a>, <a href="resource/api/generated/skbeam.core.utils.q_to_d.html#skbeam.core.utils.q_to_d">[1]</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/diffraction.html#skbeam.diffraction.q_to_d">(in module skbeam.diffraction)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/utils.html#skbeam.core.utils.q_to_twotheta">q_to_twotheta() (in module skbeam.core.utils)</a>, <a href="resource/api/generated/skbeam.core.utils.q_to_twotheta.html#skbeam.core.utils.q_to_twotheta">[1]</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/diffraction.html#skbeam.diffraction.q_to_twotheta">(in module skbeam.diffraction)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/utils.html#skbeam.core.utils.radial_grid">radial_grid() (in module skbeam.core.utils)</a>, <a href="resource/api/generated/skbeam.core.utils.radial_grid.html#skbeam.core.utils.radial_grid">[1]</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/diffraction.html#skbeam.diffraction.radial_grid">(in module skbeam.diffraction)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="resource/api/core/utils.html#skbeam.core.utils.radius_to_twotheta">radius_to_twotheta() (in module skbeam.core.utils)</a>, <a href="resource/api/generated/skbeam.core.utils.radius_to_twotheta.html#skbeam.core.utils.radius_to_twotheta">[1]</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/utils.html#skbeam.core.utils.RCParamDict">RCParamDict (class in skbeam.core.utils)</a>, <a href="resource/api/generated/skbeam.core.utils.RCParamDict.html#skbeam.core.utils.RCParamDict">[1]</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/io/binary.html#skbeam.io.binary.read_binary">read_binary() (in module skbeam.io.binary)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/dpc.html#skbeam.core.dpc.recon">recon() (in module skbeam.core.dpc)</a>, <a href="resource/api/generated/skbeam.core.dpc.recon.html#skbeam.core.dpc.recon">[1]</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/dpc.html#skbeam.core.dpc.reconstruct_phase_from_partial_info">reconstruct_phase_from_partial_info() (in module skbeam.core.dpc)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/roi.html#skbeam.core.roi.rectangles">rectangles() (in module skbeam.core.roi)</a>, <a href="resource/api/generated/skbeam.core.roi.rectangles.html#skbeam.core.roi.rectangles">[1]</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/dpc.html#skbeam.core.dpc.dpc_internal_state.ref_fx">ref_fx (skbeam.core.dpc.dpc_internal_state attribute)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/dpc.html#skbeam.core.dpc.dpc_internal_state.ref_fy">ref_fy (skbeam.core.dpc.dpc_internal_state attribute)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/calibration.html#skbeam.core.calibration.refine_center">refine_center() (in module skbeam.core.calibration)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/diffraction.html#skbeam.diffraction.refine_center">(in module skbeam.diffraction)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/feature.html#skbeam.core.feature.refine_log_quadratic">refine_log_quadratic() (in module skbeam.core.feature)</a>, <a href="resource/api/generated/skbeam.core.feature.refine_log_quadratic.html#skbeam.core.feature.refine_log_quadratic">[1]</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/feature.html#skbeam.core.feature.refine_quadratic">refine_quadratic() (in module skbeam.core.feature)</a>, <a href="resource/api/generated/skbeam.core.feature.refine_quadratic.html#skbeam.core.feature.refine_quadratic">[1]</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrs.Reflection.html#skbeam.core.constants.xrs.Reflection">Reflection (class in skbeam.core.constants.xrs)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrs.PowderStandard.reflections.html#skbeam.core.constants.xrs.PowderStandard.reflections">reflections (skbeam.core.constants.xrs.PowderStandard attribute)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/fitting/funcs.html#skbeam.core.fitting.xrf_model.register_strategy">register_strategy() (in module skbeam.core.fitting.xrf_model)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/correlation.html#skbeam.core.correlation.results">results (in module skbeam.core.correlation)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/roi.html#skbeam.core.roi.ring_edges">ring_edges() (in module skbeam.core.roi)</a>, <a href="resource/api/generated/skbeam.core.roi.ring_edges.html#skbeam.core.roi.ring_edges">[1]</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/roi.html#skbeam.core.roi.rings">rings() (in module skbeam.core.roi)</a>, <a href="resource/api/generated/skbeam.core.roi.rings.html#skbeam.core.roi.rings">[1]</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/roi.html#skbeam.core.roi.roi_max_counts">roi_max_counts() (in module skbeam.core.roi)</a>, <a href="resource/api/generated/skbeam.core.roi.roi_max_counts.html#skbeam.core.roi.roi_max_counts">[1]</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/roi.html#skbeam.core.roi.roi_pixel_values">roi_pixel_values() (in module skbeam.core.roi)</a>, <a href="resource/api/generated/skbeam.core.roi.roi_pixel_values.html#skbeam.core.roi.roi_pixel_values">[1]</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/io/save_powder_output.html#skbeam.io.save_powder_output.save_output">save_output() (in module skbeam.io.save_powder_output)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/roi.html#skbeam.core.roi.segmented_rings">segmented_rings() (in module skbeam.core.roi)</a>, <a href="resource/api/generated/skbeam.core.roi.segmented_rings.html#skbeam.core.roi.segmented_rings">[1]</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/fitting/xrf_model.html#skbeam.core.fitting.models.set_default">set_default() (in module skbeam.core.fitting.models)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/fitting/funcs.html#skbeam.core.fitting.xrf_model.set_parameter_bound">set_parameter_bound() (in module skbeam.core.fitting.xrf_model)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/fitting/funcs.html#skbeam.core.fitting.xrf_model.ParamController.set_strategy">set_strategy() (skbeam.core.fitting.xrf_model.ParamController method)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/generated/skbeam.core.utils.MD_dict.setdefault.html#skbeam.core.utils.MD_dict.setdefault">setdefault() (skbeam.core.utils.MD_dict method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/generated/skbeam.core.utils.RCParamDict.setdefault.html#skbeam.core.utils.RCParamDict.setdefault">(skbeam.core.utils.RCParamDict method)</a>
+  </dt>
+
+        
+  <dt><a href="resource/api/generated/skbeam.core.utils.verbosedict.setdefault.html#skbeam.core.utils.verbosedict.setdefault">(skbeam.core.utils.verbosedict method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="resource/api/core/fitting/funcs.html#skbeam.core.fitting.xrf_model.ModelSpectrum.setup_compton_model">setup_compton_model() (skbeam.core.fitting.xrf_model.ModelSpectrum method)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/fitting/funcs.html#skbeam.core.fitting.xrf_model.ModelSpectrum.setup_elastic_model">setup_elastic_model() (skbeam.core.fitting.xrf_model.ModelSpectrum method)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/fitting/funcs.html#skbeam.core.fitting.xrf_model.ModelSpectrum.setup_element_model">setup_element_model() (skbeam.core.fitting.xrf_model.ModelSpectrum method)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/arithmetic.html#module-skbeam.core.arithmetic">skbeam.core.arithmetic (module)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/calibration.html#module-skbeam.core.calibration">skbeam.core.calibration (module)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/cdi.html#module-skbeam.core.cdi">skbeam.core.cdi (module)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/correlation.html#module-skbeam.core.correlation">skbeam.core.correlation (module)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/dpc.html#module-skbeam.core.dpc">skbeam.core.dpc (module)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/feature.html#module-skbeam.core.feature">skbeam.core.feature (module)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/fitting/lineshapes.html#module-skbeam.core.fitting.background">skbeam.core.fitting.background (module)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/fitting/background.html#module-skbeam.core.fitting.funcs">skbeam.core.fitting.funcs (module)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/fitting/models.html#module-skbeam.core.fitting.lineshapes">skbeam.core.fitting.lineshapes (module)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/fitting/xrf_model.html#module-skbeam.core.fitting.models">skbeam.core.fitting.models (module)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/fitting/funcs.html#module-skbeam.core.fitting.xrf_model">skbeam.core.fitting.xrf_model (module)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/image.html#module-skbeam.core.image">skbeam.core.image (module)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/mask.html#module-skbeam.core.mask">skbeam.core.mask (module)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/recip.html#module-skbeam.core.recip">skbeam.core.recip (module)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/roi.html#module-skbeam.core.roi">skbeam.core.roi (module)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/spectroscopy.html#module-skbeam.core.spectroscopy">skbeam.core.spectroscopy (module)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/utils.html#module-skbeam.core.utils">skbeam.core.utils (module)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/diffraction.html#module-skbeam.diffraction">skbeam.diffraction (module)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/fluorescence.html#module-skbeam.fluorescence">skbeam.fluorescence (module)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/io/avizo_io.html#module-skbeam.io.avizo_io">skbeam.io.avizo_io (module)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/io/binary.html#module-skbeam.io.binary">skbeam.io.binary (module)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/io/gsas_file_reader.html#module-skbeam.io.gsas_file_reader">skbeam.io.gsas_file_reader (module)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/io/net_cdf_io.html#module-skbeam.io.net_cdf_io">skbeam.io.net_cdf_io (module)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/io/save_powder_output.html#module-skbeam.io.save_powder_output">skbeam.io.save_powder_output (module)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/fitting/lineshapes.html#skbeam.core.fitting.background.snip_method">snip_method() (in module skbeam.core.fitting.background)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/fluorescence.html#skbeam.fluorescence.snip_method">(in module skbeam.fluorescence)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="resource/api/core/utils.html#skbeam.core.utils.subtract_reference_images">subtract_reference_images() (in module skbeam.core.utils)</a>, <a href="resource/api/generated/skbeam.core.utils.subtract_reference_images.html#skbeam.core.utils.subtract_reference_images">[1]</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/fitting/funcs.html#skbeam.core.fitting.xrf_model.sum_area">sum_area() (in module skbeam.core.fitting.xrf_model)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/mask.html#skbeam.core.mask.threshold_mask">threshold_mask() (in module skbeam.core.mask)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/fitting/funcs.html#skbeam.core.fitting.xrf_model.trim">trim() (in module skbeam.core.fitting.xrf_model)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/correlation.html#skbeam.core.correlation.two_time_corr">two_time_corr() (in module skbeam.core.correlation)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/correlation.html#skbeam.core.correlation.two_time_state_to_results">two_time_state_to_results() (in module skbeam.core.correlation)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/utils.html#skbeam.core.utils.twotheta_to_q">twotheta_to_q() (in module skbeam.core.utils)</a>, <a href="resource/api/generated/skbeam.core.utils.twotheta_to_q.html#skbeam.core.utils.twotheta_to_q">[1]</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/diffraction.html#skbeam.diffraction.twotheta_to_q">(in module skbeam.diffraction)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/utils.html#skbeam.core.utils.md_value.units">units (skbeam.core.utils.md_value attribute)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/generated/skbeam.core.utils.MD_dict.update.html#skbeam.core.utils.MD_dict.update">update() (skbeam.core.utils.MD_dict method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/generated/skbeam.core.utils.RCParamDict.update.html#skbeam.core.utils.RCParamDict.update">(skbeam.core.utils.RCParamDict method)</a>
+  </dt>
+
+        
+  <dt><a href="resource/api/generated/skbeam.core.utils.verbosedict.update.html#skbeam.core.utils.verbosedict.update">(skbeam.core.utils.verbosedict method)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/fitting/funcs.html#skbeam.core.fitting.xrf_model.ParamController.update_element_prop">update_element_prop() (skbeam.core.fitting.xrf_model.ParamController method)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/fitting/funcs.html#skbeam.core.fitting.xrf_model.update_parameter_dict">update_parameter_dict() (in module skbeam.core.fitting.xrf_model)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/utils.html#skbeam.core.utils.md_value.value">value (skbeam.core.utils.md_value attribute)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrf.XrayLibWrap.values.html#skbeam.core.constants.xrf.XrayLibWrap.values">values() (skbeam.core.constants.xrf.XrayLibWrap method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrf.XrayLibWrap_Energy.values.html#skbeam.core.constants.xrf.XrayLibWrap_Energy.values">(skbeam.core.constants.xrf.XrayLibWrap_Energy method)</a>
+  </dt>
+
+        
+  <dt><a href="resource/api/generated/skbeam.core.utils.MD_dict.values.html#skbeam.core.utils.MD_dict.values">(skbeam.core.utils.MD_dict method)</a>
+  </dt>
+
+        
+  <dt><a href="resource/api/generated/skbeam.core.utils.RCParamDict.values.html#skbeam.core.utils.RCParamDict.values">(skbeam.core.utils.RCParamDict method)</a>
+  </dt>
+
+        
+  <dt><a href="resource/api/generated/skbeam.core.utils.verbosedict.values.html#skbeam.core.utils.verbosedict.values">(skbeam.core.utils.verbosedict method)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/utils.html#skbeam.core.utils.verbosedict">verbosedict (class in skbeam.core.utils)</a>, <a href="resource/api/generated/skbeam.core.utils.verbosedict.html#skbeam.core.utils.verbosedict">[1]</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/fitting/models.html#skbeam.core.fitting.lineshapes.voigt">voigt() (in module skbeam.core.fitting.lineshapes)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/diffraction.html#skbeam.diffraction.voigt">(in module skbeam.diffraction)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/utils.html#skbeam.core.utils.wedge_integration">wedge_integration() (in module skbeam.core.utils)</a>, <a href="resource/api/generated/skbeam.core.utils.wedge_integration.html#skbeam.core.utils.wedge_integration">[1]</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="X">X</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrf.XrayLibWrap.html#skbeam.core.constants.xrf.XrayLibWrap">XrayLibWrap (class in skbeam.core.constants.xrf)</a>
+  </dt>
+
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrf.XrayLibWrap_Energy.html#skbeam.core.constants.xrf.XrayLibWrap_Energy">XrayLibWrap_Energy (class in skbeam.core.constants.xrf)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="resource/api/core/generated/skbeam.core.constants.xrf.XrfElement.html#skbeam.core.constants.xrf.XrfElement">XrfElement (class in skbeam.core.constants.xrf)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="resource/api/fluorescence.html#skbeam.fluorescence.XrfElement">(class in skbeam.fluorescence)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+</tr></table>
+
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+        &copy; Copyright 2014-2015 Brookhaven National Lab.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

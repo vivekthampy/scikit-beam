@@ -1,0 +1,6 @@
+skbeam.core.roi.roi_max_counts
+==============================
+
+.. currentmodule:: skbeam.core.roi
+
+.. autofunction:: roi_max_counts

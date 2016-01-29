@@ -1,0 +1,6 @@
+skbeam.core.roi.roi_pixel_values
+================================
+
+.. currentmodule:: skbeam.core.roi
+
+.. autofunction:: roi_pixel_values

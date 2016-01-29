@@ -1,0 +1,6 @@
+skbeam.core.feature.filter_peak_height
+======================================
+
+.. currentmodule:: skbeam.core.feature
+
+.. autofunction:: filter_peak_height

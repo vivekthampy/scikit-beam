@@ -1,0 +1,6 @@
+skbeam.core.constants.xrs.Reflection.d
+======================================
+
+.. currentmodule:: skbeam.core.constants.xrs
+
+.. autoattribute:: Reflection.d

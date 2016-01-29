@@ -1,0 +1,6 @@
+skbeam.core.roi.ring_edges
+==========================
+
+.. currentmodule:: skbeam.core.roi
+
+.. autofunction:: ring_edges

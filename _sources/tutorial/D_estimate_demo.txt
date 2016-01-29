@@ -1,0 +1,195 @@
+
+[broken] An **almost** correct diffraction calibration notebook
+===============================================================
+
+We are aware that this notebook does not work and will fix it
+eventually. If you are interested in this notebook, please help us out
+and try to get it working again!
+
+.. code:: python
+
+    import matplotlib
+    %matplotlib notebook
+    import matplotlib.pyplot as plt
+    from matplotlib.patches import Circle
+    from matplotlib.colors import LogNorm
+    from copy import copy
+
+.. code:: python
+
+    import skbeam
+    from skbeam.core.image import find_ring_center_acorr_1D
+    from skbeam.core.utils import bin_1D, radial_grid, bin_edges_to_centers
+    from skbeam.core.calibration import estimate_d_blind, refine_center
+    import numpy as np
+    from pims.tiff_stack import TiffStack_tifffile as TiffStack
+    import os.path
+    pixel_size = (.2, .2)
+
+
+.. parsed-literal::
+
+    /home/edill/mc/envs/beam35/lib/python3.5/site-packages/IPython/html.py:14: ShimWarning: The `IPython.html` package has been deprecated. You should import from `notebook` instead. `IPython.html.widgets` has moved to `ipywidgets`.
+      "`IPython.html.widgets` has moved to `ipywidgets`.", ShimWarning)
+
+
+Define some helpful functions
+-----------------------------
+
+.. code:: python
+
+    def estimate_d(img, name, wavelength, pixel_size):
+        # find the
+        res = find_ring_center_acorr_1D(img)
+        res2 = refine_center(img, res, pixel_size, 25, 5, thresh=0.1, window_size=5)
+        bins, sums, counts = img_to_relative_xyi(img, res2, radial_grid)
+    
+        mask = counts > 10
+        bin_centers = bin_edges_to_centers(bins)[mask]
+        ring_averages = sums[mask] / counts[mask]
+    
+        d_mean, d_std = estimate_d_blind(name,wavelength, bin_centers,
+                                         ring_averages, 5, 7, thresh=0.03)
+        return d_mean, d_std, res2
+    
+    
+    def show_rings_on_image(ax, image, ring_radius, center):
+        vmin, vmax = np.percentile(image, [80, 100])
+        my_cmap = copy(matplotlib.cm.get_cmap('gray'))
+        my_cmap.set_bad('k')
+        im = ax.imshow(image, cmap=my_cmap, interpolation='none', norm=LogNorm(), vmin=vmin, vmax=vmax)
+        for r in ring_radius:
+            c = Circle(center[::-1], r , facecolor='none', edgecolor='r', lw=2, linestyle='dashed')
+            ax.add_patch(c)
+        ax.axhline(center[0], color='r')
+        ax.axvline(center[1], color='r')
+    
+        ax.set_ylim([center[0] - ring_radius[-1], center[0] + ring_radius[-1]])
+        ax.set_xlim([center[1] - ring_radius[-1], center[1] + ring_radius[-1]])
+
+Setup data for Si standard sample
+---------------------------------
+
+.. code:: python
+
+    si_fname = 'Si_STD_d204-00002.tif'
+    si_name = 'Si'
+    si_wavelength = 0.1839
+    si_data = TiffStack(si_fname)
+
+Setup data for LaB6 calibration standard
+----------------------------------------
+
+.. code:: python
+
+    lab6_fname = 'LaB6_d500-0p72959-2Kx2K_pix200.tif'
+    lab6_name = 'LaB6'
+    lab6_wavelength = .72959
+    lab6_data = TiffStack(lab6_fname)
+
+Calibrate Si data
+-----------------
+
+.. code:: python
+
+    calib_si = estimate_d(si_data[0], si_name, si_wavelength, pixel_size)
+    print("D: {} ± {}".format(calib_si[0], calib_si[1]))
+    print("center: {}".format(calib_si[2]))
+
+
+
+::
+
+
+    ---------------------------------------------------------------------------
+
+    NameError                                 Traceback (most recent call last)
+
+    <ipython-input-6-23f8c796d9eb> in <module>()
+    ----> 1 calib_si = estimate_d(si_data[0], si_name, si_wavelength, pixel_size)
+          2 print("D: {} ± {}".format(calib_si[0], calib_si[1]))
+          3 print("center: {}".format(calib_si[2]))
+
+
+    <ipython-input-3-5285f337cdcd> in estimate_d(img, name, wavelength, pixel_size)
+          3     res = find_ring_center_acorr_1D(img)
+          4     res2 = refine_center(img, res, pixel_size, 25, 5, thresh=0.1, window_size=5)
+    ----> 5     bins, sums, counts = img_to_relative_xyi(img, res2, radial_grid)
+          6 
+          7     mask = counts > 10
+
+
+    NameError: name 'img_to_relative_xyi' is not defined
+
+
+.. code:: python
+
+    cal_si = skbeam.core.calibration.calibration_standards['Si']
+    si_rings = calib_si[0] * np.tan(cal_si.convert_2theta(si_wavelength)) / .2
+    fig, ax = plt.subplots()
+    show_rings_on_image(ax, si_data[0], si_rings, calib_si[2])
+    plt.show()
+
+
+::
+
+
+    ---------------------------------------------------------------------------
+
+    NameError                                 Traceback (most recent call last)
+
+    <ipython-input-7-b501b9e2f511> in <module>()
+          1 cal_si = skbeam.core.calibration.calibration_standards['Si']
+    ----> 2 si_rings = calib_si[0] * np.tan(cal_si.convert_2theta(si_wavelength)) / .2
+          3 fig, ax = plt.subplots()
+          4 show_rings_on_image(ax, si_data[0], si_rings, calib_si[2])
+          5 plt.show()
+
+
+    NameError: name 'calib_si' is not defined
+
+
+Calibrate using Lab 6 data
+--------------------------
+
+.. code:: python
+
+    calib_lab6 = estimate_d(lab6_data[0], lab6_name, lab6_wavelength, pixel_size)
+    print("D: {} ± {}".format(calib_lab6[0], calib_lab6[1]))
+    print("center: {}".format(calib_lab6[2]))
+
+
+::
+
+
+    ---------------------------------------------------------------------------
+
+    NameError                                 Traceback (most recent call last)
+
+    <ipython-input-8-0b8ac6a41d12> in <module>()
+    ----> 1 calib_lab6 = estimate_d(lab6_data[0], lab6_name, lab6_wavelength, pixel_size)
+          2 print("D: {} ± {}".format(calib_lab6[0], calib_lab6[1]))
+          3 print("center: {}".format(calib_lab6[2]))
+
+
+    <ipython-input-3-5285f337cdcd> in estimate_d(img, name, wavelength, pixel_size)
+          3     res = find_ring_center_acorr_1D(img)
+          4     res2 = refine_center(img, res, pixel_size, 25, 5, thresh=0.1, window_size=5)
+    ----> 5     bins, sums, counts = img_to_relative_xyi(img, res2, radial_grid)
+          6 
+          7     mask = counts > 10
+
+
+    NameError: name 'img_to_relative_xyi' is not defined
+
+
+.. code:: python
+
+    cal_lab6 = nsls2.calibration.calibration_standards['LaB6']\n",
+    lab6_rings = calib_lab6[0] * np.tan(cal_lab6.convert_2theta(lab6_wavelength)) / .2\n",
+    fig, ax = plt.subplots()\n",
+    show_rings_on_image(ax, lab6_data[0], lab6_rings, calib_lab6[2])\n",
+    ax.set_xlim([0, lab6_data.frame_shape[0]])\n",
+    ax.set_ylim([0, lab6_data.frame_shape[1]])\n",
+    plt.show()
+

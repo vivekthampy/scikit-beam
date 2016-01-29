@@ -1,0 +1,6 @@
+skbeam.core.cdi.cdi_recon
+=========================
+
+.. currentmodule:: skbeam.core.cdi
+
+.. autofunction:: cdi_recon

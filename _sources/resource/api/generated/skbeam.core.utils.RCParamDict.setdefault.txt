@@ -1,0 +1,6 @@
+skbeam.core.utils.RCParamDict.setdefault
+========================================
+
+.. currentmodule:: skbeam.core.utils
+
+.. automethod:: RCParamDict.setdefault

@@ -1,0 +1,6 @@
+skbeam.core.utils.verbosedict.copy
+==================================
+
+.. currentmodule:: skbeam.core.utils
+
+.. automethod:: verbosedict.copy

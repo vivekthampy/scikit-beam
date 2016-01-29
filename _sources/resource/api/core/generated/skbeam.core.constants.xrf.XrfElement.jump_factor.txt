@@ -1,0 +1,6 @@
+skbeam.core.constants.xrf.XrfElement.jump_factor
+================================================
+
+.. currentmodule:: skbeam.core.constants.xrf
+
+.. autoattribute:: XrfElement.jump_factor

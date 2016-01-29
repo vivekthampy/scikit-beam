@@ -1,0 +1,6 @@
+skbeam.core.constants.xrf.XrfElement.emission_line
+==================================================
+
+.. currentmodule:: skbeam.core.constants.xrf
+
+.. autoattribute:: XrfElement.emission_line

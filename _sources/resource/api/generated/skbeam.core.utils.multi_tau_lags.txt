@@ -1,0 +1,6 @@
+skbeam.core.utils.multi_tau_lags
+================================
+
+.. currentmodule:: skbeam.core.utils
+
+.. autofunction:: multi_tau_lags

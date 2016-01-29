@@ -1,0 +1,347 @@
+
+Generate Region of Interests (ROI) labeled arrays for simple shapes
+===================================================================
+
+This example notebook explain the use of analysis module
+"skbeam/core/roi"
+https://github.com/scikit-beam/scikit-beam/blob/master/skbeam/core/roi.py
+
+.. code:: python
+
+    import skbeam.core.roi as roi
+    import skbeam.core.correlation as corr
+    
+    import numpy as np
+    
+    import matplotlib.pyplot as plt
+    %matplotlib inline
+    from matplotlib.ticker import MaxNLocator
+    from matplotlib.colors import LogNorm
+    
+    import xray_vision.mpl_plotting as mpl_plot
+
+
+.. parsed-literal::
+
+    :0: FutureWarning: IPython widgets are experimental and may change in the future.
+
+
+Easily switch between interactive and static matplotlib plots
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: python
+
+    interactive_mode = False
+    
+    import matplotlib as mpl
+    if interactive_mode:
+        %matplotlib notebook
+    else:
+        %matplotlib inline
+    
+    backend = mpl.get_backend()
+    cmap='Dark2'
+
+Rectangle region of interests.
+------------------------------
+
+.. code:: python
+
+    # Image shape which is used to determine the maximum extent of output pixel coordinates
+    shape = (15, 26)
+    
+    # coordinates of the upper-left corner and width and height of each rectangle
+    roi_data = np.array(([2, 2, 6, 3], [6, 7, 8, 5], [8, 18, 5, 10]),
+                            dtype=np.int64)
+    
+    #Elements not inside any ROI are zero; elements inside each ROI are 1, 2, 3, corresponding
+    # to the order they are specified in coords.
+    label_array = roi.rectangles(roi_data, shape)
+    roi_inds, pixel_list = roi.extract_label_indices(label_array)
+    
+    # plot the figure
+    fig, axes = plt.subplots(figsize=(6, 5))
+    im = mpl_plot.show_label_array(axes, label_array, cmap)
+    plt.show()
+
+
+
+.. image:: Generate_ROI_labeled_arrays_files/Generate_ROI_labeled_arrays_5_0.png
+
+
+Draw annual (ring-shaped) regions of interest
+---------------------------------------------
+
+.. code:: python
+
+    center = (100., 100.)   # center of the rings
+    
+    # Image shape which is used to determine the maximum extent of output pixel coordinates
+    img_shape = (200, 205)   
+    
+    first_q = 10.0 # inner radius of the inner-most ring
+    delta_q = 5.0  #ring thickness
+    
+    num_rings = 7  # number of Q rings
+    
+    # step or spacing, spacing between rings 
+    one_step_q = 5.0  #  one spacing between rings
+    
+    step_q = [2.5, 3.0, 5.8]   # differnt spacing between rings
+
+Test when there is same spacing between rings
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: python
+
+    # inner and outer radius for each ring
+    edges = roi.ring_edges(first_q, width=delta_q, spacing=one_step_q,
+                               num_rings=num_rings)
+    edges
+
+
+
+
+.. parsed-literal::
+
+    array([[ 10.,  15.],
+           [ 20.,  25.],
+           [ 30.,  35.],
+           [ 40.,  45.],
+           [ 50.,  55.],
+           [ 60.,  65.],
+           [ 70.,  75.]])
+
+
+
+.. code:: python
+
+    #Elements not inside any ROI are zero; elements inside each
+    #ROI are 1, 2, 3, corresponding to the order they are specified in edges.
+    label_array = roi.rings(edges, center, img_shape)
+    
+    # plot the figure
+    fig, axes = plt.subplots(figsize=(6, 5))
+    axes.set_title("Same spacing between rings")
+    im = mpl_plot.show_label_array(axes, label_array, cmap)
+    plt.show()
+
+
+
+.. image:: Generate_ROI_labeled_arrays_files/Generate_ROI_labeled_arrays_10_0.png
+
+
+Test when there is different spacing between rings
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: python
+
+    # inner and outer radius for each ring
+    
+    edges = roi.ring_edges(first_q, width=delta_q, spacing=step_q,
+                               num_rings=4)
+    print("edges when there is different spacing between rings", edges)
+
+
+.. parsed-literal::
+
+    ('edges when there is different spacing between rings', array([[ 10. ,  15. ],
+           [ 17.5,  22.5],
+           [ 25.5,  30.5],
+           [ 36.3,  41.3]]))
+
+
+.. code:: python
+
+    #Elements not inside any ROI are zero; elements inside each
+    #ROI are 1, 2, 3, corresponding to the order they are specified in edges.
+    label_array = roi.rings(edges, center, img_shape)
+    
+    # plot the figure
+    fig, axes = plt.subplots(figsize=(6, 5))
+    axes.set_title("Different spacing between rings")
+    axes.set_xlim(50, 150)
+    axes.set_ylim(50, 150)
+    im = mpl_plot.show_label_array(axes, label_array, cmap)
+    plt.show()
+
+
+
+
+.. image:: Generate_ROI_labeled_arrays_files/Generate_ROI_labeled_arrays_13_0.png
+
+
+Test when there is no spacing between rings
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: python
+
+    # inner and outer radius for each ring
+    edges = roi.ring_edges(first_q, width=delta_q, num_rings=num_rings)
+    edges
+
+
+
+
+.. parsed-literal::
+
+    array([[ 10.,  15.],
+           [ 15.,  20.],
+           [ 20.,  25.],
+           [ 25.,  30.],
+           [ 30.,  35.],
+           [ 35.,  40.],
+           [ 40.,  45.]])
+
+
+
+.. code:: python
+
+    #Elements not inside any ROI are zero; elements inside each
+    #ROI are 1, 2, 3, corresponding to the order they are specified in edges.
+    label_array = roi.rings(edges, center, img_shape)
+    
+    # plot the figure
+    fig, axes = plt.subplots(figsize=(6, 5))
+    axes.set_title("There is no spacing between rings")
+    axes.set_xlim(50, 150)
+    axes.set_ylim(50, 150)
+    im = mpl_plot.show_label_array(axes, label_array, cmap)
+    plt.show()
+
+
+
+.. image:: Generate_ROI_labeled_arrays_files/Generate_ROI_labeled_arrays_16_0.png
+
+
+Generate a ROI of Segmented Rings¶
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: python
+
+    center = (75, 75)   # center of the rings
+    
+    #Image shape which is used to determine the maximum extent of output pixel coordinates
+    img_shape = (150, 140) 
+    
+    first_q = 5.0  # inner radius of the inner-most ring
+    delta_q = 5.0  #ring thickness
+    num_rings = 4  # number of rings
+    
+    slicing = 4 # number of pie slices or list of angles in radians
+    spacing = 4 # margin between rings, 0 by default
+
+find the inner and outer radius of each ring
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code:: python
+
+    # inner and outer radius for each ring
+    edges = roi.ring_edges(first_q, width=delta_q, spacing=spacing,
+                               num_rings=num_rings)
+    
+    edges
+
+
+
+
+.. parsed-literal::
+
+    array([[  5.,  10.],
+           [ 14.,  19.],
+           [ 23.,  28.],
+           [ 32.,  37.]])
+
+
+
+.. code:: python
+
+    #Elements not inside any ROI are zero; elements inside each
+    #ROI are 1, 2, 3, corresponding to the order they are specified in edges.
+    label_array = roi.segmented_rings(edges, slicing, center,
+                                          img_shape, offset_angle=0)
+    
+    # plot the figure
+    fig, axes = plt.subplots(figsize=(6, 5))
+    axes.set_title("Segmented Rings")
+    axes.set_xlim(38, 120)
+    axes.set_ylim(38, 120)
+    im = mpl_plot.show_label_array(axes, label_array, cmap)
+    plt.show()
+
+
+
+
+.. image:: Generate_ROI_labeled_arrays_files/Generate_ROI_labeled_arrays_21_0.png
+
+
+Generate a ROI of Pies
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: python
+
+    first_q = 0  
+    
+    # inner and outer radius for each ring
+    edges = roi.ring_edges(first_q, width=50, num_rings=1)
+    
+    edges
+
+
+
+
+.. parsed-literal::
+
+    array([[  0.,  50.]])
+
+
+
+.. code:: python
+
+    slicing = 10 # number of pie slices or list of angles in radians
+    
+    #Elements not inside any ROI are zero; elements inside each
+    #ROI are 1, 2, 3, corresponding to the order they are specified in edges.
+    label_array = roi.segmented_rings(edges, slicing, center,
+                                          img_shape, offset_angle=0)
+    
+    # plot the figure
+    fig, axes = plt.subplots(figsize=(6, 5))
+    axes.set_title("Pies")
+    axes.set_xlim(20, 140)
+    axes.set_ylim(20, 140)
+    im = mpl_plot.show_label_array(axes, label_array, cmap)
+    plt.show()
+    plt.figure()
+
+
+
+.. image:: Generate_ROI_labeled_arrays_files/Generate_ROI_labeled_arrays_24_0.png
+
+
+
+
+.. parsed-literal::
+
+    <matplotlib.figure.Figure at 0x10c4db810>
+
+
+
+
+.. parsed-literal::
+
+    <matplotlib.figure.Figure at 0x10c4db810>
+
+
+.. code:: python
+
+    import skbeam
+    print(skbeam.__version__)
+
+
+
+.. parsed-literal::
+
+    0.0.4+105.ge27b978
+
+

@@ -1,0 +1,6 @@
+skbeam.core.constants.xrs.HKL.count
+===================================
+
+.. currentmodule:: skbeam.core.constants.xrs
+
+.. automethod:: HKL.count

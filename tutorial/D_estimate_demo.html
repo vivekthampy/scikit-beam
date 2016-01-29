@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>[broken] An almost correct diffraction calibration notebook &mdash; scikit-beam 0.0.7 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/spacelab/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.0.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="scikit-beam 0.0.7 documentation" href="../index.html" />
+    <link rel="up" title="Tutorial with Examples" href="../tutorial.html" />
+    <link rel="next" title="This is an example of using real experimental data to plot the HK plane" href="recip_example.html" />
+    <link rel="prev" title="Alignment and interpolation of inelastic scattering data" href="IXS-alignment-clean.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          scikit-beam</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.0.7</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../tutorial.html">Tutorial</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction to scikit-beam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installing scikit-beam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html#updating-your-installation">Updating Your Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whats_new.html">What&#8217;s new</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resource/api/index.html">Complete Reference (API)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resource/dev_guide/index.html">Development Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorial.html">Tutorial with Examples</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Generate_ROI_labeled_arrays.html">Generate Region of Interests (ROI) labeled arrays for simple shapes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dpc_demo.html">Differential Phase Contrast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Histogram2D-RingAveraging.html">Using two histograms to bin in space and time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Histogram2D.html">Computing a 2D histogram using Histogram object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="histogram3D.html">3D histogramming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IXS-alignment-clean.html">Alignment and interpolation of inelastic scattering data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">[broken] An <strong>almost</strong> correct diffraction calibration notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recip_example.html">This is an example of using real experimental data to plot the HK plane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X-ray_Speckle_Visibility_Spectroscopy.html">X-ray Speckle Visibility Spectroscopy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="speckle-plotting.html">Plotting helper functions for Speckle analysis &#8211; <code class="docutils literal"><span class="pre">xray_vision.mpl_plotting.speckle</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Check_remove_bad_imgs_using_same_image.html">Remove bad images for one time correlation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Multi_tau_one_time_correlation_example.html">One Time Correlation Example for NIPA_GEL 250K¶</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Removing_bad_images_one_time_correlation.html">Removing bad images from images set and get the one time correlation data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XPCS_fitting_with_lmfit.html">XPCS fitting with lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="partial-multi-tau.html">First, let&#8217;s demo with synthetic data.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="partial-multi-tau.html#show-the-correlator-working-with-synthetic-data">Show the correlator working with synthetic data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="partial-multi-tau.html#now-let-s-do-it-with-some-real-data">Now let&#8217;s do it with some real data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="two-time-correlation.html">Two time correlation example notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_xrf_spectrum.html">Using X-ray fluorescence information in scikit-beam</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">[broken] An <strong>almost</strong> correct diffraction calibration notebook</a><ul>
+<li><a class="reference internal" href="#define-some-helpful-functions">Define some helpful functions</a></li>
+<li><a class="reference internal" href="#setup-data-for-si-standard-sample">Setup data for Si standard sample</a></li>
+<li><a class="reference internal" href="#setup-data-for-lab6-calibration-standard">Setup data for LaB6 calibration standard</a></li>
+<li><a class="reference internal" href="#calibrate-si-data">Calibrate Si data</a></li>
+<li><a class="reference internal" href="#calibrate-using-lab-6-data">Calibrate using Lab 6 data</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="broken-an-almost-correct-diffraction-calibration-notebook">
+<h1>[broken] An <strong>almost</strong> correct diffraction calibration notebook<a class="headerlink" href="#broken-an-almost-correct-diffraction-calibration-notebook" title="Permalink to this headline">¶</a></h1>
+<p>We are aware that this notebook does not work and will fix it
+eventually. If you are interested in this notebook, please help us out
+and try to get it working again!</p>
+<div class="code python highlight-python"><div class="highlight"><pre>import matplotlib
+%matplotlib notebook
+import matplotlib.pyplot as plt
+from matplotlib.patches import Circle
+from matplotlib.colors import LogNorm
+from copy import copy
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">skbeam</span>
+<span class="kn">from</span> <span class="nn">skbeam.core.image</span> <span class="kn">import</span> <span class="n">find_ring_center_acorr_1D</span>
+<span class="kn">from</span> <span class="nn">skbeam.core.utils</span> <span class="kn">import</span> <span class="n">bin_1D</span><span class="p">,</span> <span class="n">radial_grid</span><span class="p">,</span> <span class="n">bin_edges_to_centers</span>
+<span class="kn">from</span> <span class="nn">skbeam.core.calibration</span> <span class="kn">import</span> <span class="n">estimate_d_blind</span><span class="p">,</span> <span class="n">refine_center</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pims.tiff_stack</span> <span class="kn">import</span> <span class="n">TiffStack_tifffile</span> <span class="k">as</span> <span class="n">TiffStack</span>
+<span class="kn">import</span> <span class="nn">os.path</span>
+<span class="n">pixel_size</span> <span class="o">=</span> <span class="p">(</span><span class="o">.</span><span class="mi">2</span><span class="p">,</span> <span class="o">.</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<pre class="literal-block">
+/home/edill/mc/envs/beam35/lib/python3.5/site-packages/IPython/html.py:14: ShimWarning: The <cite>IPython.html</cite> package has been deprecated. You should import from <cite>notebook</cite> instead. <cite>IPython.html.widgets</cite> has moved to <cite>ipywidgets</cite>.
+  &quot;<cite>IPython.html.widgets</cite> has moved to <cite>ipywidgets</cite>.&quot;, ShimWarning)
+</pre>
+<div class="section" id="define-some-helpful-functions">
+<h2>Define some helpful functions<a class="headerlink" href="#define-some-helpful-functions" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">estimate_d</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">wavelength</span><span class="p">,</span> <span class="n">pixel_size</span><span class="p">):</span>
+    <span class="c1"># find the</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">find_ring_center_acorr_1D</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+    <span class="n">res2</span> <span class="o">=</span> <span class="n">refine_center</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">pixel_size</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">window_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">bins</span><span class="p">,</span> <span class="n">sums</span><span class="p">,</span> <span class="n">counts</span> <span class="o">=</span> <span class="n">img_to_relative_xyi</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">res2</span><span class="p">,</span> <span class="n">radial_grid</span><span class="p">)</span>
+
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">counts</span> <span class="o">&gt;</span> <span class="mi">10</span>
+    <span class="n">bin_centers</span> <span class="o">=</span> <span class="n">bin_edges_to_centers</span><span class="p">(</span><span class="n">bins</span><span class="p">)[</span><span class="n">mask</span><span class="p">]</span>
+    <span class="n">ring_averages</span> <span class="o">=</span> <span class="n">sums</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">/</span> <span class="n">counts</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+
+    <span class="n">d_mean</span><span class="p">,</span> <span class="n">d_std</span> <span class="o">=</span> <span class="n">estimate_d_blind</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span> <span class="n">bin_centers</span><span class="p">,</span>
+                                     <span class="n">ring_averages</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="mf">0.03</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">d_mean</span><span class="p">,</span> <span class="n">d_std</span><span class="p">,</span> <span class="n">res2</span>
+
+
+<span class="k">def</span> <span class="nf">show_rings_on_image</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">ring_radius</span><span class="p">,</span> <span class="n">center</span><span class="p">):</span>
+    <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="p">[</span><span class="mi">80</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
+    <span class="n">my_cmap</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;gray&#39;</span><span class="p">))</span>
+    <span class="n">my_cmap</span><span class="o">.</span><span class="n">set_bad</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">my_cmap</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">LogNorm</span><span class="p">(),</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">ring_radius</span><span class="p">:</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="n">center</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">r</span> <span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">center</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">center</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="n">center</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">ring_radius</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">center</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">ring_radius</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="n">center</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">ring_radius</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">center</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">ring_radius</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setup-data-for-si-standard-sample">
+<h2>Setup data for Si standard sample<a class="headerlink" href="#setup-data-for-si-standard-sample" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">si_fname</span> <span class="o">=</span> <span class="s1">&#39;Si_STD_d204-00002.tif&#39;</span>
+<span class="n">si_name</span> <span class="o">=</span> <span class="s1">&#39;Si&#39;</span>
+<span class="n">si_wavelength</span> <span class="o">=</span> <span class="mf">0.1839</span>
+<span class="n">si_data</span> <span class="o">=</span> <span class="n">TiffStack</span><span class="p">(</span><span class="n">si_fname</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setup-data-for-lab6-calibration-standard">
+<h2>Setup data for LaB6 calibration standard<a class="headerlink" href="#setup-data-for-lab6-calibration-standard" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">lab6_fname</span> <span class="o">=</span> <span class="s1">&#39;LaB6_d500-0p72959-2Kx2K_pix200.tif&#39;</span>
+<span class="n">lab6_name</span> <span class="o">=</span> <span class="s1">&#39;LaB6&#39;</span>
+<span class="n">lab6_wavelength</span> <span class="o">=</span> <span class="o">.</span><span class="mi">72959</span>
+<span class="n">lab6_data</span> <span class="o">=</span> <span class="n">TiffStack</span><span class="p">(</span><span class="n">lab6_fname</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="calibrate-si-data">
+<h2>Calibrate Si data<a class="headerlink" href="#calibrate-si-data" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">calib_si</span> <span class="o">=</span> <span class="n">estimate_d</span><span class="p">(</span><span class="n">si_data</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">si_name</span><span class="p">,</span> <span class="n">si_wavelength</span><span class="p">,</span> <span class="n">pixel_size</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;D: {} ± {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">calib_si</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">calib_si</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;center: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">calib_si</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>---------------------------------------------------------------------------
+
+NameError                                 Traceback (most recent call last)
+
+&lt;ipython-input-6-23f8c796d9eb&gt; in &lt;module&gt;()
+----&gt; 1 calib_si = estimate_d(si_data[0], si_name, si_wavelength, pixel_size)
+      2 print(&quot;D: {} ± {}&quot;.format(calib_si[0], calib_si[1]))
+      3 print(&quot;center: {}&quot;.format(calib_si[2]))
+
+
+&lt;ipython-input-3-5285f337cdcd&gt; in estimate_d(img, name, wavelength, pixel_size)
+      3     res = find_ring_center_acorr_1D(img)
+      4     res2 = refine_center(img, res, pixel_size, 25, 5, thresh=0.1, window_size=5)
+----&gt; 5     bins, sums, counts = img_to_relative_xyi(img, res2, radial_grid)
+      6
+      7     mask = counts &gt; 10
+
+
+NameError: name &#39;img_to_relative_xyi&#39; is not defined
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">cal_si</span> <span class="o">=</span> <span class="n">skbeam</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">calibration</span><span class="o">.</span><span class="n">calibration_standards</span><span class="p">[</span><span class="s1">&#39;Si&#39;</span><span class="p">]</span>
+<span class="n">si_rings</span> <span class="o">=</span> <span class="n">calib_si</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">cal_si</span><span class="o">.</span><span class="n">convert_2theta</span><span class="p">(</span><span class="n">si_wavelength</span><span class="p">))</span> <span class="o">/</span> <span class="o">.</span><span class="mi">2</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">show_rings_on_image</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">si_data</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">si_rings</span><span class="p">,</span> <span class="n">calib_si</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>---------------------------------------------------------------------------
+
+NameError                                 Traceback (most recent call last)
+
+&lt;ipython-input-7-b501b9e2f511&gt; in &lt;module&gt;()
+      1 cal_si = skbeam.core.calibration.calibration_standards[&#39;Si&#39;]
+----&gt; 2 si_rings = calib_si[0] * np.tan(cal_si.convert_2theta(si_wavelength)) / .2
+      3 fig, ax = plt.subplots()
+      4 show_rings_on_image(ax, si_data[0], si_rings, calib_si[2])
+      5 plt.show()
+
+
+NameError: name &#39;calib_si&#39; is not defined
+</pre></div>
+</div>
+</div>
+<div class="section" id="calibrate-using-lab-6-data">
+<h2>Calibrate using Lab 6 data<a class="headerlink" href="#calibrate-using-lab-6-data" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">calib_lab6</span> <span class="o">=</span> <span class="n">estimate_d</span><span class="p">(</span><span class="n">lab6_data</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lab6_name</span><span class="p">,</span> <span class="n">lab6_wavelength</span><span class="p">,</span> <span class="n">pixel_size</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;D: {} ± {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">calib_lab6</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">calib_lab6</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;center: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">calib_lab6</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>---------------------------------------------------------------------------
+
+NameError                                 Traceback (most recent call last)
+
+&lt;ipython-input-8-0b8ac6a41d12&gt; in &lt;module&gt;()
+----&gt; 1 calib_lab6 = estimate_d(lab6_data[0], lab6_name, lab6_wavelength, pixel_size)
+      2 print(&quot;D: {} ± {}&quot;.format(calib_lab6[0], calib_lab6[1]))
+      3 print(&quot;center: {}&quot;.format(calib_lab6[2]))
+
+
+&lt;ipython-input-3-5285f337cdcd&gt; in estimate_d(img, name, wavelength, pixel_size)
+      3     res = find_ring_center_acorr_1D(img)
+      4     res2 = refine_center(img, res, pixel_size, 25, 5, thresh=0.1, window_size=5)
+----&gt; 5     bins, sums, counts = img_to_relative_xyi(img, res2, radial_grid)
+      6
+      7     mask = counts &gt; 10
+
+
+NameError: name &#39;img_to_relative_xyi&#39; is not defined
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre>cal_lab6 = nsls2.calibration.calibration_standards[&#39;LaB6&#39;]\n&quot;,
+lab6_rings = calib_lab6[0] * np.tan(cal_lab6.convert_2theta(lab6_wavelength)) / .2\n&quot;,
+fig, ax = plt.subplots()\n&quot;,
+show_rings_on_image(ax, lab6_data[0], lab6_rings, calib_lab6[2])\n&quot;,
+ax.set_xlim([0, lab6_data.frame_shape[0]])\n&quot;,
+ax.set_ylim([0, lab6_data.frame_shape[1]])\n&quot;,
+plt.show()
+</pre></div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/tutorial/D_estimate_demo.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014-2015 Brookhaven National Lab.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+skbeam.core.constants.xrs.HKL.length
+====================================
+
+.. currentmodule:: skbeam.core.constants.xrs
+
+.. autoattribute:: HKL.length

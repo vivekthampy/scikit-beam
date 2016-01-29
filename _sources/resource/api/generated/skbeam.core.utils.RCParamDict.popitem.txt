@@ -1,0 +1,6 @@
+skbeam.core.utils.RCParamDict.popitem
+=====================================
+
+.. currentmodule:: skbeam.core.utils
+
+.. automethod:: RCParamDict.popitem

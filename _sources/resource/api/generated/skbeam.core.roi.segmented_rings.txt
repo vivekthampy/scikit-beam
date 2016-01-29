@@ -1,0 +1,6 @@
+skbeam.core.roi.segmented_rings
+===============================
+
+.. currentmodule:: skbeam.core.roi
+
+.. autofunction:: segmented_rings

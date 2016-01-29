@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>New Sub-packages and Modules &mdash; scikit-beam 0.0.7 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootswatch-3.3.4/spacelab/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.0.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="scikit-beam 0.0.7 documentation" href="../../index.html" />
+    <link rel="up" title="Development Guide" href="index.html" />
+    <link rel="next" title="Logging" href="logging.html" />
+    <link rel="prev" title="Documentation" href="doc_doc.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          scikit-beam</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.0.7</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../../tutorial.html">Tutorial</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Introduction to scikit-beam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installing scikit-beam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html#updating-your-installation">Updating Your Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../whats_new.html">What&#8217;s new</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">Complete Reference (API)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Development Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial with Examples</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/Generate_ROI_labeled_arrays.html">Generate Region of Interests (ROI) labeled arrays for simple shapes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/dpc_demo.html">Differential Phase Contrast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/Histogram2D-RingAveraging.html">Using two histograms to bin in space and time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/Histogram2D.html">Computing a 2D histogram using Histogram object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/histogram3D.html">3D histogramming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/IXS-alignment-clean.html">Alignment and interpolation of inelastic scattering data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/D_estimate_demo.html">[broken] An <strong>almost</strong> correct diffraction calibration notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/recip_example.html">This is an example of using real experimental data to plot the HK plane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/X-ray_Speckle_Visibility_Spectroscopy.html">X-ray Speckle Visibility Spectroscopy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/speckle-plotting.html">Plotting helper functions for Speckle analysis &#8211; <code class="docutils literal"><span class="pre">xray_vision.mpl_plotting.speckle</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/Check_remove_bad_imgs_using_same_image.html">Remove bad images for one time correlation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/Multi_tau_one_time_correlation_example.html">One Time Correlation Example for NIPA_GEL 250K¶</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/Removing_bad_images_one_time_correlation.html">Removing bad images from images set and get the one time correlation data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/XPCS_fitting_with_lmfit.html">XPCS fitting with lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/partial-multi-tau.html">First, let&#8217;s demo with synthetic data.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/partial-multi-tau.html#show-the-correlator-working-with-synthetic-data">Show the correlator working with synthetic data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/partial-multi-tau.html#now-let-s-do-it-with-some-real-data">Now let&#8217;s do it with some real data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/two-time-correlation.html">Two time correlation example notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/plot_xrf_spectrum.html">Using X-ray fluorescence information in scikit-beam</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">New Sub-packages and Modules</a><ul>
+<li><a class="reference internal" href="#build">Build</a></li>
+<li><a class="reference internal" href="#documentation">Documentation</a></li>
+<li><a class="reference internal" href="#testing">Testing</a></li>
+<li><a class="reference internal" href="#relative-imports">Relative Imports</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="new-sub-packages-and-modules">
+<span id="adding-files"></span><h1>New Sub-packages and Modules<a class="headerlink" href="#new-sub-packages-and-modules" title="Permalink to this headline">¶</a></h1>
+<p>When adding new packages and modules (which map to folders and files)
+to the library you are required to update both the build/install
+system (<code class="file docutils literal"><span class="pre">setup.py</span></code>) and add files to the documentation folder.</p>
+<p>All python source code must be under the main <code class="file docutils literal"><span class="pre">skbeam</span></code> directory.
+Non-python sources goes in the <code class="file docutils literal"><span class="pre">src</span></code> directory.</p>
+<div class="section" id="build">
+<h2>Build<a class="headerlink" href="#build" title="Permalink to this headline">¶</a></h2>
+<p>For a folder in the source-tree to be a package it must have an
+<code class="file docutils literal"><span class="pre">__init__.py</span></code> file (even if it is empty).  All of the python
+(<code class="file docutils literal"><span class="pre">*.py</span></code>) files in that package are then recognized as modules in
+that package which can be imported in other files (See Relative Imports header).</p>
+<p>In order for <code class="xref py py-mod docutils literal"><span class="pre">distutils</span></code> to work it must be explicitly told what
+packages from the source tree to byte-compile and install.  This is
+done via the <code class="code docutils literal"><span class="pre">packages</span></code> key word argument (kwarg) to <code class="xref py py-func docutils literal"><span class="pre">setup()</span></code> in
+<code class="file docutils literal"><span class="pre">setup.py</span></code>.  If you add a package, then it&#8217;s dotted-name must be
+added to this list.</p>
+<p>e.g. if you add a new package called <code class="code docutils literal"><span class="pre">utils</span></code> to the <code class="code docutils literal"><span class="pre">skbeam</span></code> folder,
+the following setup.py file:</p>
+<div class="highlight-python"><div class="highlight"><pre>setup(
+    name=&#39;scikit-beam&#39;,
+    version=&#39;0&#39;,
+    author=&#39;Brookhaven National Lab&#39;,
+    packages=[&quot;skbeam&quot;],
+    )
+
+would need to be modified to:
+
+setup(
+    name=&#39;scikit-beam&#39;,
+    version=&#39;0&#39;,
+    author=&#39;Brookhaven National Lab&#39;,
+    packages=[&quot;skbeam&quot;, &quot;skbeam.utils&quot;],   &lt;------- modification happened here
+    )
+</pre></div>
+</div>
+</div>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<p>See <a class="reference internal" href="doc_doc.html#doc-doc"><span>Documentation</span></a> for documentation about writing and building
+the documentation.</p>
+<p>Continuing the example from above where a &#8216;utils&#8217; source code package was added,
+a folder called <code class="file docutils literal"><span class="pre">/doc/resource/api/utils</span></code> should be added.  Let&#8217;s also
+presume that you&#8217;ve got <code class="file docutils literal"><span class="pre">fitting.py</span></code> in the <code class="file docutils literal"><span class="pre">/skbeam/utils/</span></code>.  In the
+documentation <code class="file docutils literal"><span class="pre">/doc/resource/api/utils</span></code> folder, create a file named
+<code class="file docutils literal"><span class="pre">index.rst</span></code> with the contents:</p>
+<div class="highlight-python"><div class="highlight"><pre>UTILS API
+=========
+
+Contents:
+
+.. toctree::
+   :maxdepth: 2
+
+   fitting
+</pre></div>
+</div>
+<p>Also, add the <code class="file docutils literal"><span class="pre">/doc/resource/api/utils/index.rst</span></code> to
+<code class="file docutils literal"><span class="pre">/doc/resource/api/index.rst</span></code>.  This will tell <a href="#id1"><span class="problematic" id="id2">:prog:`sphinx`</span></a> to include
+the new package in the API documentation.</p>
+<p>Now, let&#8217;s create a module called <code class="file docutils literal"><span class="pre">fitting.py</span></code> in the <code class="file docutils literal"><span class="pre">utils</span></code>
+package.  When you add <code class="file docutils literal"><span class="pre">fitting.py</span></code> you need to add a corresponding file
+in the documentation folder structure:
+<code class="file docutils literal"><span class="pre">/doc/resource/api/utils/fitting.rst</span></code>.  In <code class="file docutils literal"><span class="pre">fitting.rst</span></code> use the
+following template:</p>
+<div class="highlight-python"><div class="highlight"><pre>======================
+ :mod:`fitting` Module
+======================
+
+Any prose you want to add about the module, such as examples, discussion,
+or saying hi to your mom can go here.
+
+.. automodule:: skbeam.core.fitting
+   :members:
+   :show-inheritance:
+   :undoc-members:
+</pre></div>
+</div>
+<p>This will automatically walk the module to extract and format the doc strings
+of all the classes and functions in the module.</p>
+</div>
+<div class="section" id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<p>When you add a new module or package please add the corresponding
+files and folders in the <code class="file docutils literal"><span class="pre">skbeam/tests</span></code> folder.  Packages get
+<code class="file docutils literal"><span class="pre">test_packagename</span></code> and modules get <code class="file docutils literal"><span class="pre">test_module_name.py</span></code>
+in the proper directory.</p>
+<p>Using the example above, you would create the directory
+<code class="file docutils literal"><span class="pre">/skbeam/tests/test_utils/</span></code> and the file <code class="file docutils literal"><span class="pre">test_fitting.py</span></code> in the
+<code class="file docutils literal"><span class="pre">test_utils</span></code> folder.</p>
+<p>Remember: Write a test for all new functionality!!</p>
+</div>
+<div class="section" id="relative-imports">
+<h2>Relative Imports<a class="headerlink" href="#relative-imports" title="Permalink to this headline">¶</a></h2>
+<p>See the issue (#?) in the scikit-beam repo on github.</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/resource/dev_guide/adding_files.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014-2015 Brookhaven National Lab.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

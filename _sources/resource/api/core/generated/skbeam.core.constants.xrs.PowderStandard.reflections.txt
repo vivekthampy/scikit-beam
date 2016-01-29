@@ -1,0 +1,6 @@
+skbeam.core.constants.xrs.PowderStandard.reflections
+====================================================
+
+.. currentmodule:: skbeam.core.constants.xrs
+
+.. autoattribute:: PowderStandard.reflections

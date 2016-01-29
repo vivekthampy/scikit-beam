@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Plotting helper functions for Speckle analysis – xray_vision.mpl_plotting.speckle module &mdash; scikit-beam 0.0.7 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/spacelab/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.0.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="scikit-beam 0.0.7 documentation" href="../index.html" />
+    <link rel="up" title="Tutorial with Examples" href="../tutorial.html" />
+    <link rel="next" title="Remove bad images for one time correlation" href="Check_remove_bad_imgs_using_same_image.html" />
+    <link rel="prev" title="X-ray Speckle Visibility Spectroscopy" href="X-ray_Speckle_Visibility_Spectroscopy.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          scikit-beam</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.0.7</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../tutorial.html">Tutorial</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction to scikit-beam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installing scikit-beam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html#updating-your-installation">Updating Your Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whats_new.html">What&#8217;s new</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resource/api/index.html">Complete Reference (API)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resource/dev_guide/index.html">Development Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorial.html">Tutorial with Examples</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Generate_ROI_labeled_arrays.html">Generate Region of Interests (ROI) labeled arrays for simple shapes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dpc_demo.html">Differential Phase Contrast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Histogram2D-RingAveraging.html">Using two histograms to bin in space and time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Histogram2D.html">Computing a 2D histogram using Histogram object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="histogram3D.html">3D histogramming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IXS-alignment-clean.html">Alignment and interpolation of inelastic scattering data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="D_estimate_demo.html">[broken] An <strong>almost</strong> correct diffraction calibration notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recip_example.html">This is an example of using real experimental data to plot the HK plane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X-ray_Speckle_Visibility_Spectroscopy.html">X-ray Speckle Visibility Spectroscopy</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Plotting helper functions for Speckle analysis &#8211; <code class="docutils literal"><span class="pre">xray_vision.mpl_plotting.speckle</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Check_remove_bad_imgs_using_same_image.html">Remove bad images for one time correlation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Multi_tau_one_time_correlation_example.html">One Time Correlation Example for NIPA_GEL 250K¶</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Removing_bad_images_one_time_correlation.html">Removing bad images from images set and get the one time correlation data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XPCS_fitting_with_lmfit.html">XPCS fitting with lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="partial-multi-tau.html">First, let&#8217;s demo with synthetic data.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="partial-multi-tau.html#show-the-correlator-working-with-synthetic-data">Show the correlator working with synthetic data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="partial-multi-tau.html#now-let-s-do-it-with-some-real-data">Now let&#8217;s do it with some real data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="two-time-correlation.html">Two time correlation example notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_xrf_spectrum.html">Using X-ray fluorescence information in scikit-beam</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Plotting helper functions for Speckle analysis &#8211; <code class="docutils literal"><span class="pre">xray_vision.mpl_plotting.speckle</span></code> module</a><ul>
+<li><a class="reference internal" href="#easily-switch-between-interactive-and-static-matplotlib-plots">Easily switch between interactive and static matplotlib plots</a></li>
+<li><a class="reference internal" href="#where-does-this-data-come-from">Where does this data come from?</a></li>
+<li><a class="reference internal" href="#load-the-data">Load the data</a></li>
+<li><a class="reference internal" href="#define-the-image-metadata">Define the image metadata</a></li>
+<li><a class="reference internal" href="#let-s-pretend-like-this-is-data-from-5-different-points-in-the-sample">Let&#8217;s pretend like this is data from 5 different points in the sample</a></li>
+<li><a class="reference internal" href="#plot-the-masks">Plot the masks</a></li>
+<li><a class="reference internal" href="#oops-the-masks-are-reversed">Oops, the masks are reversed!</a><ul>
+<li><a class="reference internal" href="#there-we-go-that-looks-better">There we go. That looks better!</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#let-s-look-at-the-total-dataset-pre-and-post-masking">Let&#8217;s look at the total dataset pre- and post-masking</a></li>
+<li><a class="reference internal" href="#use-the-skbeam-core-roi-module-to-easily-create-ring-rois">Use the <code class="docutils literal"><span class="pre">skbeam.core.roi</span></code> module to easily create ring ROIs</a></li>
+<li><a class="reference internal" href="#let-s-look-at-what-these-ring-rois-look-like">Let&#8217;s look at what these ring ROIs look like.</a></li>
+<li><a class="reference internal" href="#these-rois-are-looking-good-let-s-make-sure-that-each-point-in-the-sample-is-behaving-similarly">These ROIs are looking good! Let&#8217;s make sure that each point in the sample is behaving similarly</a></li>
+<li><a class="reference internal" href="#use-the-skbeam-core-roi-module-to-compute-the-mean-intensity-for-each-roi-for-each-sample">Use the <code class="docutils literal"><span class="pre">skbeam.core.roi</span> <span class="pre">module</span></code> to compute the mean intensity for each ROI for each sample.</a></li>
+<li><a class="reference internal" href="#let-s-look-at-the-data-in-this-dataframe">Let&#8217;s look at the data in this dataframe.</a></li>
+<li><a class="reference internal" href="#things-look-good-let-s-probe-the-return-value-of-the-mean-intensity-plotter-function">Things look good! Let&#8217;s probe the return value of the <code class="docutils literal"><span class="pre">mean_intensity_plotter</span></code> function</a><ul>
+<li><a class="reference internal" href="#if-you-are-using-matplotlib-in-interactive-mode-go-look-at-the-above-figure-again-the-left-most-like-in-the-top-plot-should-now-be-pink">If you are using matplotlib in interactive mode, go look at the above figure again. The left-most like in the top plot should now be pink!</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#at-this-point-this-dataset-looks-fine-to-illustrate-how-we-would-go-about-cleaning-this-data-if-one-of-the-points-in-the-sample-was-not-good-we-have-to-manipulate-the-data-let-s-do-that-now">At this point, this dataset looks fine. To illustrate how we would go about cleaning this data if one of the points in the sample was not &#8220;good&#8221;, we have to manipulate the data. Let&#8217;s do that now.</a><ul>
+<li><a class="reference internal" href="#oh-no-there-seems-to-be-an-issue-with-sample-point-2-let-s-remove-that-from-the-image-list">Oh no! There seems to be an issue with &#8220;sample_point_2&#8221;. Let&#8217;s remove that from the image list</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#very-short-pandas-tutorial-drop-a-column">Very short pandas tutorial: drop a column</a></li>
+<li><a class="reference internal" href="#very-short-pandas-tutorial-drop-a-row">Very short pandas tutorial: drop a row</a></li>
+<li><a class="reference internal" href="#ok-so-let-s-drop-the-bad-data-for-point-2">Ok, so let&#8217;s drop the bad data for &#8220;point_2&#8221;</a></li>
+<li><a class="reference internal" href="#yay-no-more-point-2">Yay, no more point_2!</a></li>
+<li><a class="reference internal" href="#now-we-need-to-recombine-the-data-that-is-currently-stored-in-the-dataframe">Now we need to recombine the data that is currently stored in the dataframe</a></li>
+<li><a class="reference internal" href="#circular-average-radial-integration-of-the-intensity-distribution-of-the-image-data">Circular average(radial integration) of the intensity distribution of the image data.</a><ul>
+<li><a class="reference internal" href="#demonstrate-that-all-keys-in-bad-data-are-no-longer-in-masked-data">Demonstrate that all keys in <code class="docutils literal"><span class="pre">bad_data</span></code> are no longer in <code class="docutils literal"><span class="pre">masked_data</span></code></a></li>
+<li><a class="reference internal" href="#compute-the-average-image-from-the-remaining-data-in-masked-data">Compute the average image from the remaining data in <code class="docutils literal"><span class="pre">masked_data</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#data-for-graphical-representation-of-pixels-variation-over-time-for-required-roi">Data for graphical representation of pixels variation over time for required ROI.</a></li>
+<li><a class="reference internal" href="#this-will-provide-intensities-of-the-roi-s-of-the-labeled-array-according-to-the-pixel-list">This will provide intensities of the ROI&#8217;s of the labeled array according to the pixel list</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="plotting-helper-functions-for-speckle-analysis-xray-vision-mpl-plotting-speckle-module">
+<h1>Plotting helper functions for Speckle analysis &#8211; <code class="docutils literal"><span class="pre">xray_vision.mpl_plotting.speckle</span></code> module<a class="headerlink" href="#plotting-helper-functions-for-speckle-analysis-xray-vision-mpl-plotting-speckle-module" title="Permalink to this headline">¶</a></h1>
+<p>Required python packages that might not be installed: - clint - pandas -
+requests</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">xray_vision.mpl_plotting.speckle</span> <span class="kn">as</span> <span class="nn">speckle_plot</span>
+<span class="kn">import</span> <span class="nn">xray_vision.mpl_plotting</span> <span class="kn">as</span> <span class="nn">mpl_plot</span>
+<span class="c1"># imports... all the imports</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="kn">as</span> <span class="nn">mpl</span>
+<span class="kn">import</span> <span class="nn">matplotlib.ticker</span> <span class="kn">as</span> <span class="nn">mticks</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.axes_grid1.axes_grid</span> <span class="kn">import</span> <span class="n">ImageGrid</span>
+
+<span class="kn">import</span> <span class="nn">skbeam.core.roi</span> <span class="kn">as</span> <span class="nn">roi</span>
+<span class="kn">import</span> <span class="nn">skbeam.core.correlation</span> <span class="kn">as</span> <span class="nn">corr</span>
+<span class="kn">import</span> <span class="nn">skbeam.core.utils</span> <span class="kn">as</span> <span class="nn">core</span>
+<span class="kn">import</span> <span class="nn">scipy.ndimage.measurements</span> <span class="kn">as</span> <span class="nn">ndim</span>
+</pre></div>
+</div>
+<div class="section" id="easily-switch-between-interactive-and-static-matplotlib-plots">
+<h2>Easily switch between interactive and static matplotlib plots<a class="headerlink" href="#easily-switch-between-interactive-and-static-matplotlib-plots" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre>interactive_mode = False
+
+if interactive_mode:
+    %matplotlib notebook
+else:
+    %matplotlib inline
+
+backend = mpl.get_backend()
+</pre></div>
+</div>
+</div>
+<div class="section" id="where-does-this-data-come-from">
+<h2>Where does this data come from?<a class="headerlink" href="#where-does-this-data-come-from" title="Permalink to this headline">¶</a></h2>
+<p>L. Li, P. Kwasniewski, D. Oris, L Wiegart, L. Cristofolini, C. Carona
+and A. Fluerasu , &#8220;Photon statistics and speckle visibility spectroscopy
+with partially coherent x-rays&#8221; J. Synchrotron Rad., vol 21, p
+1288-1295, 2014.</p>
+<div class="code python highlight-python"><div class="highlight"><pre>%run download.py
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>__file__
+current_folder = /home/edill/dev/python/scikit-beam-examples/demos/speckle
+Downloading url --&gt; https://www.dropbox.com/s/56gqn3poc3gsvux/Duke_data.zip?dl=1
+to --&gt; /home/edill/dev/python/scikit-beam-examples/demos/speckle/Duke_data.zip
+current_folder = /home/edill/dev/python/scikit-beam-examples/demos/speckle
+extracting to --&gt; /home/edill/dev/python/scikit-beam-examples/demos/speckle
+</pre></div>
+</div>
+</div>
+<div class="section" id="load-the-data">
+<h2>Load the data<a class="headerlink" href="#load-the-data" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="c1"># we will provide a link to the data once it is approved</span>
+<span class="c1"># for distribution by Dr. Fluerasu</span>
+<span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;Duke_data/&quot;</span>
+<span class="n">duke_ndata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">data_dir</span><span class="o">+</span><span class="s2">&quot;duke_img_1_5000.npy&quot;</span><span class="p">)</span>
+<span class="n">duke_dark</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">data_dir</span><span class="o">+</span><span class="s2">&quot;duke_dark.npy&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="define-the-image-metadata">
+<h2>Define the image metadata<a class="headerlink" href="#define-the-image-metadata" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">pixel_size</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>  <span class="c1"># in mm</span>
+<span class="n">image_center</span> <span class="o">=</span> <span class="p">(</span><span class="mi">133</span><span class="p">,</span> <span class="mi">143</span><span class="p">)</span> <span class="c1"># in pixels</span>
+<span class="c1"># if we are 1.5 or later</span>
+<span class="k">if</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">__version__</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[:</span><span class="mi">2</span><span class="p">]))</span> <span class="o">&gt;=</span> <span class="mf">1.5</span><span class="p">:</span>
+    <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;viridis&#39;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;CMRmap&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="let-s-pretend-like-this-is-data-from-5-different-points-in-the-sample">
+<h2>Let&#8217;s pretend like this is data from 5 different points in the sample<a class="headerlink" href="#let-s-pretend-like-this-is-data-from-5-different-points-in-the-sample" title="Permalink to this headline">¶</a></h2>
+<p>We are doing this to demonstrate the use cases at CHX</p>
+<p>The next few cells will result in a dictionary of 5 data sets</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="c1"># fake that this is 5 different points in the same sample</span>
+<span class="n">splits</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1500</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">3500</span><span class="p">,</span> <span class="n">duke_ndata</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">split_data</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">ranges</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">splits</span><span class="p">,</span> <span class="n">splits</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
+    <span class="n">split_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">duke_ndata</span><span class="p">[</span><span class="n">lower</span><span class="p">:</span><span class="n">upper</span><span class="p">])</span>
+    <span class="n">ranges</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">:</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">))</span>
+
+<span class="n">data_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sample_point_</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">region</span> <span class="ow">in</span>
+               <span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">split_data</span><span class="p">)),</span> <span class="n">ranges</span><span class="p">)]</span>
+
+<span class="n">data_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">label</span><span class="p">:</span> <span class="n">data</span> <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span>
+             <span class="nb">zip</span><span class="p">(</span><span class="n">data_labels</span><span class="p">,</span> <span class="n">split_data</span><span class="p">)}</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="c1"># subtract the dark image from the dataset</span>
+<span class="n">data_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">label</span><span class="p">:</span> <span class="n">data</span> <span class="o">-</span> <span class="n">duke_dark</span> <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span>
+             <span class="n">data_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="c1"># load the mask(s) and mask the data</span>
+<span class="n">mask1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">data_dir</span><span class="o">+</span><span class="s2">&quot;new_mask4.npy&quot;</span><span class="p">)</span>
+<span class="n">mask2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">data_dir</span><span class="o">+</span><span class="s2">&quot;Luxi_duke_mask.npy&quot;</span><span class="p">)</span>
+
+<span class="n">mask</span> <span class="o">=</span> <span class="n">mask1</span> <span class="o">+</span> <span class="n">mask2</span>
+
+<span class="n">masked_data</span> <span class="o">=</span> <span class="p">{</span><span class="n">label</span><span class="p">:</span> <span class="n">data</span> <span class="o">*</span> <span class="n">mask</span> <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">data_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="plot-the-masks">
+<h2>Plot the masks<a class="headerlink" href="#plot-the-masks" title="Permalink to this headline">¶</a></h2>
+<p>use the ImageGrid to make this plot look very nice because it handles a
+lot of annoying setup bits, such as: - show axis labels only on the
+left/bottom of the image panels - easily handle colorbar formatting -
+easily specify horizontal and vertical spacings between the image panels
+- Zoom/pan all images together</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.axes_grid1.axes_grid</span> <span class="kn">import</span> <span class="n">ImageGrid</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">ImageGrid</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="s1">&#39;111&#39;</span><span class="p">,</span> <span class="n">nrows_ncols</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">share_all</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                 <span class="n">axes_pad</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">label_mode</span><span class="o">=</span><span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="n">cbar_location</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span>
+                 <span class="n">cbar_mode</span><span class="o">=</span><span class="s2">&quot;single&quot;</span><span class="p">,</span> <span class="n">cbar_size</span><span class="o">=</span><span class="s1">&#39;3%&#39;</span><span class="p">)</span>
+<span class="c1"># plot the images</span>
+<span class="n">im1</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">mask1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+<span class="n">im2</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">mask2</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+<span class="n">im3</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+
+<span class="c1"># instantiate the colorbar</span>
+<span class="n">grid</span><span class="o">.</span><span class="n">cbar_axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im3</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="n">mticks</span><span class="o">.</span><span class="n">MaxNLocator</span><span class="p">(</span><span class="n">integer</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
+
+<span class="c1"># set the titles of the axes</span>
+<span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;new_mask4.npy&#39;</span><span class="p">)</span>
+<span class="n">grid</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Luxi_duke_mask.npy&#39;</span><span class="p">)</span>
+<span class="n">grid</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;combined mask&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="s1">&#39;inline&#39;</span> <span class="ow">in</span> <span class="n">backend</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/speckle-plotting_16_0.png" src="../_images/speckle-plotting_16_0.png" />
+</div>
+<div class="section" id="oops-the-masks-are-reversed">
+<h2>Oops, the masks are reversed!<a class="headerlink" href="#oops-the-masks-are-reversed" title="Permalink to this headline">¶</a></h2>
+<p>We want the pixels to keep to be &#8216;1&#8217; and the pixels to discard to be &#8216;0&#8217;</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="c1"># load the mask(s) and mask the data</span>
+<span class="n">mask1</span> <span class="o">=</span> <span class="o">~</span><span class="n">mask1</span>
+<span class="n">mask2</span> <span class="o">=</span> <span class="o">~</span><span class="n">mask2</span>
+
+<span class="n">mask</span> <span class="o">=</span> <span class="o">~</span><span class="n">mask</span>
+
+<span class="n">masked_data</span> <span class="o">=</span> <span class="p">{</span><span class="n">label</span><span class="p">:</span> <span class="n">data</span> <span class="o">*</span> <span class="n">mask</span> <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">data_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.axes_grid1.axes_grid</span> <span class="kn">import</span> <span class="n">ImageGrid</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">ImageGrid</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="s1">&#39;111&#39;</span><span class="p">,</span> <span class="n">nrows_ncols</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">share_all</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                 <span class="n">axes_pad</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">label_mode</span><span class="o">=</span><span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="n">cbar_location</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span>
+                 <span class="n">cbar_mode</span><span class="o">=</span><span class="s2">&quot;single&quot;</span><span class="p">,</span> <span class="n">cbar_size</span><span class="o">=</span><span class="s1">&#39;3%&#39;</span><span class="p">)</span>
+<span class="c1"># plot the images</span>
+<span class="n">im1</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">mask1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+<span class="n">im2</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">mask2</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+<span class="n">im3</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+
+<span class="c1"># instantiate the colorbar</span>
+<span class="n">grid</span><span class="o">.</span><span class="n">cbar_axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im3</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="n">mticks</span><span class="o">.</span><span class="n">MaxNLocator</span><span class="p">(</span><span class="n">integer</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
+
+<span class="c1"># set the titles of the axes</span>
+<span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;new_mask4.npy&#39;</span><span class="p">)</span>
+<span class="n">grid</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Luxi_duke_mask.npy&#39;</span><span class="p">)</span>
+<span class="n">grid</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;combined mask&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="s1">&#39;inline&#39;</span> <span class="ow">in</span> <span class="n">backend</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/speckle-plotting_19_0.png" src="../_images/speckle-plotting_19_0.png" />
+<div class="section" id="there-we-go-that-looks-better">
+<h3>There we go. That looks better!<a class="headerlink" href="#there-we-go-that-looks-better" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="let-s-look-at-the-total-dataset-pre-and-post-masking">
+<h2>Let&#8217;s look at the total dataset pre- and post-masking<a class="headerlink" href="#let-s-look-at-the-total-dataset-pre-and-post-masking" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="c1"># compute the average raw and masked images</span>
+<span class="n">avg_raw</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">data_dict</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">avg_masked</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">masked_data</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">ImageGrid</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">nrows_ncols</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">share_all</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                 <span class="n">cbar_mode</span><span class="o">=</span><span class="s1">&#39;each&#39;</span><span class="p">,</span> <span class="n">axes_pad</span><span class="o">=.</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">im1</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">avg_raw</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+<span class="n">im2</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">avg_masked</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+
+<span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Duke Silica -- log of average&quot;</span><span class="p">)</span>
+<span class="n">grid</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Duke Silica -- log of masked average&quot;</span><span class="p">)</span>
+
+<span class="n">grid</span><span class="o">.</span><span class="n">cbar_axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im1</span><span class="p">)</span>
+<span class="n">grid</span><span class="o">.</span><span class="n">cbar_axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im2</span><span class="p">)</span>
+<span class="c1"># the following code is needed to make it easy to switch</span>
+<span class="c1"># between &#39;%matplotlib inline&#39; and &#39;%matplotlib notebook&#39;</span>
+<span class="k">if</span> <span class="s1">&#39;inline&#39;</span> <span class="ow">in</span> <span class="n">backend</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/speckle-plotting_23_0.png" src="../_images/speckle-plotting_23_0.png" />
+</div>
+<div class="section" id="use-the-skbeam-core-roi-module-to-easily-create-ring-rois">
+<h2>Use the <code class="docutils literal"><span class="pre">skbeam.core.roi</span></code> module to easily create ring ROIs<a class="headerlink" href="#use-the-skbeam-core-roi-module-to-easily-create-ring-rois" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="c1"># define the parameters for the ring regions of interest</span>
+<span class="n">starting_radius</span> <span class="o">=</span> <span class="mi">26</span>
+<span class="n">ring_width</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">space_between_rings</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">num_rings</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="c1"># image center was defined when we loaded the data</span>
+
+<span class="c1"># get the inner/outer radii of the rings</span>
+<span class="n">ring_edges</span> <span class="o">=</span> <span class="n">roi</span><span class="o">.</span><span class="n">ring_edges</span><span class="p">(</span><span class="n">starting_radius</span><span class="p">,</span> <span class="n">ring_width</span><span class="p">,</span> <span class="n">space_between_rings</span><span class="p">,</span> <span class="n">num_rings</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;ring_edges are defined as [inner_radius, outer_radius]:</span><span class="se">\n</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">ring_edges</span><span class="p">)</span>
+<span class="n">ring_centers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">ring_edges</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">ring_centers: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">ring_centers</span><span class="p">)</span>
+
+<span class="c1"># rings is a labeled array where 0 is background and 1-4 are ROIS 1-4.</span>
+<span class="n">rings</span> <span class="o">=</span> <span class="n">roi</span><span class="o">.</span><span class="n">rings</span><span class="p">(</span><span class="n">edges</span><span class="o">=</span><span class="n">ring_edges</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="n">image_center</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">avg_raw</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="c1"># multiplying the rings with the image mask removes the bad information (beam stop, beam stop scatter,</span>
+<span class="c1"># bad pixels, etc..) from the rings ROI. See the plot below</span>
+<span class="n">rings_mask</span> <span class="o">=</span> <span class="n">rings</span><span class="o">*</span><span class="n">mask</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>ring_edges are defined as [inner_radius, outer_radius]:
+[[ 26.  34.]
+ [ 35.  43.]
+ [ 44.  52.]
+ [ 53.  61.]]
+
+ring_centers: [ 30.  39.  48.  57.]
+</pre></div>
+</div>
+</div>
+<div class="section" id="let-s-look-at-what-these-ring-rois-look-like">
+<h2>Let&#8217;s look at what these ring ROIs look like.<a class="headerlink" href="#let-s-look-at-what-these-ring-rois-look-like" title="Permalink to this headline">¶</a></h2>
+<p>again, use ImageGrid to nicely format the plot</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">ImageGrid</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="s1">&#39;111&#39;</span><span class="p">,</span> <span class="n">nrows_ncols</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">share_all</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">axes_pad</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                 <span class="n">label_mode</span><span class="o">=</span><span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="n">cbar_location</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span> <span class="n">cbar_mode</span><span class="o">=</span><span class="s2">&quot;single&quot;</span><span class="p">,</span> <span class="n">cbar_size</span><span class="o">=</span><span class="s1">&#39;2%&#39;</span><span class="p">)</span>
+<span class="n">im1</span> <span class="o">=</span> <span class="n">mpl_plot</span><span class="o">.</span><span class="n">show_label_array</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">rings</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+<span class="n">im2</span> <span class="o">=</span> <span class="n">mpl_plot</span><span class="o">.</span><span class="n">show_label_array</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">rings_mask</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+<span class="c1"># turn on the colorbar</span>
+<span class="n">grid</span><span class="o">.</span><span class="n">cbar_axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im1</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="n">mticks</span><span class="o">.</span><span class="n">MaxNLocator</span><span class="p">(</span><span class="n">integer</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
+<span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Rings&#39;</span><span class="p">)</span>
+<span class="n">grid</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Masked Rings&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="s1">&#39;inline&#39;</span> <span class="ow">in</span> <span class="n">backend</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/speckle-plotting_27_0.png" src="../_images/speckle-plotting_27_0.png" />
+</div>
+<div class="section" id="these-rois-are-looking-good-let-s-make-sure-that-each-point-in-the-sample-is-behaving-similarly">
+<h2>These ROIs are looking good! Let&#8217;s make sure that each point in the sample is behaving similarly<a class="headerlink" href="#these-rois-are-looking-good-let-s-make-sure-that-each-point-in-the-sample-is-behaving-similarly" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="use-the-skbeam-core-roi-module-to-compute-the-mean-intensity-for-each-roi-for-each-sample">
+<h2>Use the <code class="docutils literal"><span class="pre">skbeam.core.roi</span> <span class="pre">module</span></code> to compute the mean intensity for each ROI for each sample.<a class="headerlink" href="#use-the-skbeam-core-roi-module-to-compute-the-mean-intensity-for-each-roi-for-each-sample" title="Permalink to this headline">¶</a></h2>
+<p>This uses the <code class="docutils literal"><span class="pre">roi.mean_intensity</span></code> function which takes in ONE image
+stack and returns a list of arrays where the arrays correspond to the
+average intensity for each ROI.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">masked_data</span><span class="p">[</span><span class="s1">&#39;sample_point_1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">intensity</span><span class="p">,</span> <span class="n">index_list</span> <span class="o">=</span> <span class="n">roi</span><span class="o">.</span><span class="n">mean_intensity</span><span class="p">(</span><span class="n">masked_data</span><span class="p">[</span><span class="s1">&#39;sample_point_1&#39;</span><span class="p">],</span> <span class="n">rings_mask</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">intensity</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">roi_data</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">masked_data</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+    <span class="n">intensity</span><span class="p">,</span> <span class="n">index_list</span> <span class="o">=</span> <span class="n">roi</span><span class="o">.</span><span class="n">mean_intensity</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">rings_mask</span><span class="p">)</span>
+    <span class="n">roi_data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">arr</span> <span class="k">for</span> <span class="n">arr</span> <span class="ow">in</span> <span class="n">intensity</span><span class="o">.</span><span class="n">T</span><span class="p">]</span>
+<span class="c1">#     roi_data[k] = intensity</span>
+<span class="c1"># one line dict comprehension</span>
+<span class="c1"># roi_data = {k: roi.mean_intensity(v, rings_mask) for k, v in masked_data.items()}</span>
+<span class="n">row_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;roi_</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">index_list</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">roi_data</span><span class="p">,</span> <span class="n">row_labels</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">df</span>
+</pre></div>
+</div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sample_point_1</th>
+      <th>sample_point_2</th>
+      <th>sample_point_3</th>
+      <th>sample_point_4</th>
+      <th>sample_point_5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>roi_1</th>
+      <td>[1.10843373494, 1.13403614458, 1.17921686747, ...</td>
+      <td>[1.27409638554, 1.23493975904, 1.17168674699, ...</td>
+      <td>[1.21234939759, 1.26355421687, 1.19126506024, ...</td>
+      <td>[1.23945783133, 1.27259036145, 1.17168674699, ...</td>
+      <td>[1.2078313253, 1.19126506024, 1.17018072289, 1...</td>
+    </tr>
+    <tr>
+      <th>roi_2</th>
+      <td>[0.608735213831, 0.61601455869, 0.617834394904...</td>
+      <td>[0.623293903549, 0.630573248408, 0.64695177434...</td>
+      <td>[0.6296633303, 0.65059144677, 0.676979071884, ...</td>
+      <td>[0.639672429481, 0.659690627843, 0.60054595086...</td>
+      <td>[0.582347588717, 0.606005459509, 0.59326660600...</td>
+    </tr>
+    <tr>
+      <th>roi_3</th>
+      <td>[0.275794938352, 0.283582089552, 0.32057105775...</td>
+      <td>[0.290071382219, 0.292018170019, 0.29915639195...</td>
+      <td>[0.284231018819, 0.304347826087, 0.30369889682...</td>
+      <td>[0.310188189487, 0.292018170019, 0.30175210902...</td>
+      <td>[0.327060350422, 0.296560674886, 0.29850746268...</td>
+    </tr>
+    <tr>
+      <th>roi_4</th>
+      <td>[0.12229491696, 0.123301459487, 0.121288374434...</td>
+      <td>[0.119778560644, 0.12380473075, 0.105183694011...</td>
+      <td>[0.129843985908, 0.121288374434, 0.11675893306...</td>
+      <td>[0.114745848012, 0.120281831907, 0.11977856064...</td>
+      <td>[0.133366884751, 0.119275289381, 0.11726220432...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+<div class="section" id="let-s-look-at-the-data-in-this-dataframe">
+<h2>Let&#8217;s look at the data in this dataframe.<a class="headerlink" href="#let-s-look-at-the-data-in-this-dataframe" title="Permalink to this headline">¶</a></h2>
+<p>We will use the <code class="docutils literal"><span class="pre">mean_intensity_plotter</span></code> function in the
+<code class="docutils literal"><span class="pre">xray_vision.mpl_plotting.speckle</span></code> module, which we imported as
+<code class="docutils literal"><span class="pre">speckle_plot</span></code></p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="c1"># fig, ax = plt.subplots(len(df.index))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">arts</span> <span class="o">=</span> <span class="n">speckle_plot</span><span class="o">.</span><span class="n">mean_intensity_plotter</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="s1">&#39;inline&#39;</span> <span class="ow">in</span> <span class="n">backend</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/speckle-plotting_36_0.png" src="../_images/speckle-plotting_36_0.png" />
+</div>
+<div class="section" id="things-look-good-let-s-probe-the-return-value-of-the-mean-intensity-plotter-function">
+<h2>Things look good! Let&#8217;s probe the return value of the <code class="docutils literal"><span class="pre">mean_intensity_plotter</span></code> function<a class="headerlink" href="#things-look-good-let-s-probe-the-return-value-of-the-mean-intensity-plotter-function" title="Permalink to this headline">¶</a></h2>
+<p>What does the return value of speckle_plot.mean_intensity_plotter
+look like?</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">arts</span>
+</pre></div>
+</div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sample_point_1</th>
+      <th>sample_point_2</th>
+      <th>sample_point_3</th>
+      <th>sample_point_4</th>
+      <th>sample_point_5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>roi_1</th>
+      <td>Line2D(sample_point_1)</td>
+      <td>Line2D(sample_point_2)</td>
+      <td>Line2D(sample_point_3)</td>
+      <td>Line2D(sample_point_4)</td>
+      <td>Line2D(sample_point_5)</td>
+    </tr>
+    <tr>
+      <th>roi_2</th>
+      <td>Line2D(sample_point_1)</td>
+      <td>Line2D(sample_point_2)</td>
+      <td>Line2D(sample_point_3)</td>
+      <td>Line2D(sample_point_4)</td>
+      <td>Line2D(sample_point_5)</td>
+    </tr>
+    <tr>
+      <th>roi_3</th>
+      <td>Line2D(sample_point_1)</td>
+      <td>Line2D(sample_point_2)</td>
+      <td>Line2D(sample_point_3)</td>
+      <td>Line2D(sample_point_4)</td>
+      <td>Line2D(sample_point_5)</td>
+    </tr>
+    <tr>
+      <th>roi_4</th>
+      <td>Line2D(sample_point_1)</td>
+      <td>Line2D(sample_point_2)</td>
+      <td>Line2D(sample_point_3)</td>
+      <td>Line2D(sample_point_4)</td>
+      <td>Line2D(sample_point_5)</td>
+    </tr>
+  </tbody>
+</table>
+</div><p>If you guessed &#8220;a dataframe&#8221;, then you would be correct! It is returning
+the matplotlib artists in the same layout as the data that was passed
+in.</p>
+<p>What is a matplotlib artist? It is the thing that you can modify to
+change the appearance of the plot after it has been created. There is a
+&#8220;gotcha&#8221; here. If you are using matplotlib in &#8220;inline&#8221; mode (%matplotlib
+inline) then you will not be able to interactively modify a figure. Go
+back to the second cell code cell and make sure that &#8220;interactive&#8221; is
+set to True, if you want interactive plots. Then come back and play
+around with the next few cells. Otherwise, skip them.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">arts</span><span class="o">.</span><span class="n">sample_point_1</span><span class="o">.</span><span class="n">roi_1</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;pink&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="if-you-are-using-matplotlib-in-interactive-mode-go-look-at-the-above-figure-again-the-left-most-like-in-the-top-plot-should-now-be-pink">
+<h3>If you are using matplotlib in interactive mode, go look at the above figure again. The left-most like in the top plot should now be pink!<a class="headerlink" href="#if-you-are-using-matplotlib-in-interactive-mode-go-look-at-the-above-figure-again-the-left-most-like-in-the-top-plot-should-now-be-pink" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="at-this-point-this-dataset-looks-fine-to-illustrate-how-we-would-go-about-cleaning-this-data-if-one-of-the-points-in-the-sample-was-not-good-we-have-to-manipulate-the-data-let-s-do-that-now">
+<h2>At this point, this dataset looks fine. To illustrate how we would go about cleaning this data if one of the points in the sample was not &#8220;good&#8221;, we have to manipulate the data. Let&#8217;s do that now.<a class="headerlink" href="#at-this-point-this-dataset-looks-fine-to-illustrate-how-we-would-go-about-cleaning-this-data-if-one-of-the-points-in-the-sample-was-not-good-we-have-to-manipulate-the-data-let-s-do-that-now" title="Permalink to this headline">¶</a></h2>
+<p>Let&#8217;s pretend that there is an issue with the second sample (point_2)</p>
+<p>Obviously there is not a problem, but if we want to use the helper
+function that removes a dataset</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="c1"># make a copy of the dataframe so that we can mess it up for tutorial purposes</span>
+<span class="n">bad_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">bad_df</span><span class="p">[</span><span class="s1">&#39;sample_point_2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bad_df</span><span class="p">[</span><span class="s1">&#39;sample_point_2&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1.1</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="c1"># fig, ax = plt.subplots(len(df.index))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bad_df</span><span class="o">.</span><span class="n">index</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">arts</span> <span class="o">=</span> <span class="n">speckle_plot</span><span class="o">.</span><span class="n">mean_intensity_plotter</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">bad_df</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="s1">&#39;inline&#39;</span> <span class="ow">in</span> <span class="n">backend</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/speckle-plotting_45_0.png" src="../_images/speckle-plotting_45_0.png" />
+<div class="section" id="oh-no-there-seems-to-be-an-issue-with-sample-point-2-let-s-remove-that-from-the-image-list">
+<h3>Oh no! There seems to be an issue with &#8220;sample_point_2&#8221;. Let&#8217;s remove that from the image list<a class="headerlink" href="#oh-no-there-seems-to-be-an-issue-with-sample-point-2-let-s-remove-that-from-the-image-list" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="very-short-pandas-tutorial-drop-a-column">
+<h2>Very short pandas tutorial: drop a column<a class="headerlink" href="#very-short-pandas-tutorial-drop-a-column" title="Permalink to this headline">¶</a></h2>
+<p>Note that this returns a new dataframe. Use the &#8216;inplace&#8217; kwarg if you
+want to modify the dataframe in-place</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">dropped_column</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;sample_point_2&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># dropped_column = df.drop(&#39;point_2&#39;, axis=1, inplace=True)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">dropped_column</span>
+</pre></div>
+</div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sample_point_1</th>
+      <th>sample_point_3</th>
+      <th>sample_point_4</th>
+      <th>sample_point_5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>roi_1</th>
+      <td>[1.10843373494, 1.13403614458, 1.17921686747, ...</td>
+      <td>[1.21234939759, 1.26355421687, 1.19126506024, ...</td>
+      <td>[1.23945783133, 1.27259036145, 1.17168674699, ...</td>
+      <td>[1.2078313253, 1.19126506024, 1.17018072289, 1...</td>
+    </tr>
+    <tr>
+      <th>roi_2</th>
+      <td>[0.608735213831, 0.61601455869, 0.617834394904...</td>
+      <td>[0.6296633303, 0.65059144677, 0.676979071884, ...</td>
+      <td>[0.639672429481, 0.659690627843, 0.60054595086...</td>
+      <td>[0.582347588717, 0.606005459509, 0.59326660600...</td>
+    </tr>
+    <tr>
+      <th>roi_3</th>
+      <td>[0.275794938352, 0.283582089552, 0.32057105775...</td>
+      <td>[0.284231018819, 0.304347826087, 0.30369889682...</td>
+      <td>[0.310188189487, 0.292018170019, 0.30175210902...</td>
+      <td>[0.327060350422, 0.296560674886, 0.29850746268...</td>
+    </tr>
+    <tr>
+      <th>roi_4</th>
+      <td>[0.12229491696, 0.123301459487, 0.121288374434...</td>
+      <td>[0.129843985908, 0.121288374434, 0.11675893306...</td>
+      <td>[0.114745848012, 0.120281831907, 0.11977856064...</td>
+      <td>[0.133366884751, 0.119275289381, 0.11726220432...</td>
+    </tr>
+  </tbody>
+</table>
+</div><p>Note that there is no <code class="docutils literal"><span class="pre">point_2</span></code> column any more. However, the original
+dataframe remains unchanged</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">df</span>
+</pre></div>
+</div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sample_point_1</th>
+      <th>sample_point_2</th>
+      <th>sample_point_3</th>
+      <th>sample_point_4</th>
+      <th>sample_point_5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>roi_1</th>
+      <td>[1.10843373494, 1.13403614458, 1.17921686747, ...</td>
+      <td>[1.27409638554, 1.23493975904, 1.17168674699, ...</td>
+      <td>[1.21234939759, 1.26355421687, 1.19126506024, ...</td>
+      <td>[1.23945783133, 1.27259036145, 1.17168674699, ...</td>
+      <td>[1.2078313253, 1.19126506024, 1.17018072289, 1...</td>
+    </tr>
+    <tr>
+      <th>roi_2</th>
+      <td>[0.608735213831, 0.61601455869, 0.617834394904...</td>
+      <td>[0.623293903549, 0.630573248408, 0.64695177434...</td>
+      <td>[0.6296633303, 0.65059144677, 0.676979071884, ...</td>
+      <td>[0.639672429481, 0.659690627843, 0.60054595086...</td>
+      <td>[0.582347588717, 0.606005459509, 0.59326660600...</td>
+    </tr>
+    <tr>
+      <th>roi_3</th>
+      <td>[0.275794938352, 0.283582089552, 0.32057105775...</td>
+      <td>[0.290071382219, 0.292018170019, 0.29915639195...</td>
+      <td>[0.284231018819, 0.304347826087, 0.30369889682...</td>
+      <td>[0.310188189487, 0.292018170019, 0.30175210902...</td>
+      <td>[0.327060350422, 0.296560674886, 0.29850746268...</td>
+    </tr>
+    <tr>
+      <th>roi_4</th>
+      <td>[0.12229491696, 0.123301459487, 0.121288374434...</td>
+      <td>[0.119778560644, 0.12380473075, 0.105183694011...</td>
+      <td>[0.129843985908, 0.121288374434, 0.11675893306...</td>
+      <td>[0.114745848012, 0.120281831907, 0.11977856064...</td>
+      <td>[0.133366884751, 0.119275289381, 0.11726220432...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+<div class="section" id="very-short-pandas-tutorial-drop-a-row">
+<h2>Very short pandas tutorial: drop a row<a class="headerlink" href="#very-short-pandas-tutorial-drop-a-row" title="Permalink to this headline">¶</a></h2>
+<p>Note that this returns a new dataframe. Use the &#8216;inplace&#8217; kwarg if you
+want to modify the dataframe in-place</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">dropped_row</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[[</span><span class="mi">2</span><span class="p">]])</span>
+<span class="c1"># dropped_row = df.drop(df.index[[2]], inplace=False)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">dropped_row</span>
+</pre></div>
+</div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sample_point_1</th>
+      <th>sample_point_2</th>
+      <th>sample_point_3</th>
+      <th>sample_point_4</th>
+      <th>sample_point_5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>roi_1</th>
+      <td>[1.10843373494, 1.13403614458, 1.17921686747, ...</td>
+      <td>[1.27409638554, 1.23493975904, 1.17168674699, ...</td>
+      <td>[1.21234939759, 1.26355421687, 1.19126506024, ...</td>
+      <td>[1.23945783133, 1.27259036145, 1.17168674699, ...</td>
+      <td>[1.2078313253, 1.19126506024, 1.17018072289, 1...</td>
+    </tr>
+    <tr>
+      <th>roi_2</th>
+      <td>[0.608735213831, 0.61601455869, 0.617834394904...</td>
+      <td>[0.623293903549, 0.630573248408, 0.64695177434...</td>
+      <td>[0.6296633303, 0.65059144677, 0.676979071884, ...</td>
+      <td>[0.639672429481, 0.659690627843, 0.60054595086...</td>
+      <td>[0.582347588717, 0.606005459509, 0.59326660600...</td>
+    </tr>
+    <tr>
+      <th>roi_4</th>
+      <td>[0.12229491696, 0.123301459487, 0.121288374434...</td>
+      <td>[0.119778560644, 0.12380473075, 0.105183694011...</td>
+      <td>[0.129843985908, 0.121288374434, 0.11675893306...</td>
+      <td>[0.114745848012, 0.120281831907, 0.11977856064...</td>
+      <td>[0.133366884751, 0.119275289381, 0.11726220432...</td>
+    </tr>
+  </tbody>
+</table>
+</div><p>Note that there is no <code class="docutils literal"><span class="pre">roi_3</span></code> anymore. However, the original dataframe
+remains unchanged</p>
+</div>
+<div class="section" id="ok-so-let-s-drop-the-bad-data-for-point-2">
+<h2>Ok, so let&#8217;s drop the bad data for &#8220;point_2&#8221;<a class="headerlink" href="#ok-so-let-s-drop-the-bad-data-for-point-2" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">bad_data</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sample_point_2&#39;</span><span class="p">]</span>
+<span class="c1"># drop, by default, returns a copy of the dataframe. If you want to update it in-place, use &#39;inplace=True&#39;</span>
+<span class="n">cleaned_df</span> <span class="o">=</span> <span class="n">bad_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">bad_data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># bad_df.drop(&#39;point_2&#39;, axis=1, inplace=True)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">cleaned_df</span>
+</pre></div>
+</div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sample_point_1</th>
+      <th>sample_point_3</th>
+      <th>sample_point_4</th>
+      <th>sample_point_5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>roi_1</th>
+      <td>[1.10843373494, 1.13403614458, 1.17921686747, ...</td>
+      <td>[1.21234939759, 1.26355421687, 1.19126506024, ...</td>
+      <td>[1.23945783133, 1.27259036145, 1.17168674699, ...</td>
+      <td>[1.2078313253, 1.19126506024, 1.17018072289, 1...</td>
+    </tr>
+    <tr>
+      <th>roi_2</th>
+      <td>[0.608735213831, 0.61601455869, 0.617834394904...</td>
+      <td>[0.6296633303, 0.65059144677, 0.676979071884, ...</td>
+      <td>[0.639672429481, 0.659690627843, 0.60054595086...</td>
+      <td>[0.582347588717, 0.606005459509, 0.59326660600...</td>
+    </tr>
+    <tr>
+      <th>roi_3</th>
+      <td>[0.275794938352, 0.283582089552, 0.32057105775...</td>
+      <td>[0.284231018819, 0.304347826087, 0.30369889682...</td>
+      <td>[0.310188189487, 0.292018170019, 0.30175210902...</td>
+      <td>[0.327060350422, 0.296560674886, 0.29850746268...</td>
+    </tr>
+    <tr>
+      <th>roi_4</th>
+      <td>[0.12229491696, 0.123301459487, 0.121288374434...</td>
+      <td>[0.129843985908, 0.121288374434, 0.11675893306...</td>
+      <td>[0.114745848012, 0.120281831907, 0.11977856064...</td>
+      <td>[0.133366884751, 0.119275289381, 0.11726220432...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+<div class="section" id="yay-no-more-point-2">
+<h2>Yay, no more point_2!<a class="headerlink" href="#yay-no-more-point-2" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="now-we-need-to-recombine-the-data-that-is-currently-stored-in-the-dataframe">
+<h2>Now we need to recombine the data that is currently stored in the dataframe<a class="headerlink" href="#now-we-need-to-recombine-the-data-that-is-currently-stored-in-the-dataframe" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">roi_data</span> <span class="o">=</span> <span class="p">{</span><span class="n">roi</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="k">for</span> <span class="n">roi</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()}</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">roi_data</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s1">&#39;roi_1&#39;</span><span class="p">:</span> <span class="n">array</span><span class="p">([</span> <span class="mf">1.10843373</span><span class="p">,</span>  <span class="mf">1.13403614</span><span class="p">,</span>  <span class="mf">1.17921687</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span>  <span class="mf">1.19277108</span><span class="p">,</span>
+         <span class="mf">1.23343373</span><span class="p">,</span>  <span class="mf">1.2063253</span> <span class="p">]),</span>
+ <span class="s1">&#39;roi_2&#39;</span><span class="p">:</span> <span class="n">array</span><span class="p">([</span> <span class="mf">0.60873521</span><span class="p">,</span>  <span class="mf">0.61601456</span><span class="p">,</span>  <span class="mf">0.61783439</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span>  <span class="mf">0.61874431</span><span class="p">,</span>
+         <span class="mf">0.66515014</span><span class="p">,</span>  <span class="mf">0.63148317</span><span class="p">]),</span>
+ <span class="s1">&#39;roi_3&#39;</span><span class="p">:</span> <span class="n">array</span><span class="p">([</span> <span class="mf">0.27579494</span><span class="p">,</span>  <span class="mf">0.28358209</span><span class="p">,</span>  <span class="mf">0.32057106</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span>  <span class="mf">0.29980532</span><span class="p">,</span>
+         <span class="mf">0.2816353</span> <span class="p">,</span>  <span class="mf">0.28552888</span><span class="p">]),</span>
+ <span class="s1">&#39;roi_4&#39;</span><span class="p">:</span> <span class="n">array</span><span class="p">([</span> <span class="mf">0.12229492</span><span class="p">,</span>  <span class="mf">0.12330146</span><span class="p">,</span>  <span class="mf">0.12128837</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span>  <span class="mf">0.12531454</span><span class="p">,</span>
+         <span class="mf">0.11877202</span><span class="p">,</span>  <span class="mf">0.12229492</span><span class="p">])}</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">speckle_plot</span><span class="o">.</span><span class="n">combine_intensity_plotter</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">roi_data</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="k">if</span> <span class="s1">&#39;inline&#39;</span> <span class="ow">in</span> <span class="n">backend</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/speckle-plotting_63_0.png" src="../_images/speckle-plotting_63_0.png" />
+</div>
+<div class="section" id="circular-average-radial-integration-of-the-intensity-distribution-of-the-image-data">
+<h2>Circular average(radial integration) of the intensity distribution of the image data.<a class="headerlink" href="#circular-average-radial-integration-of-the-intensity-distribution-of-the-image-data" title="Permalink to this headline">¶</a></h2>
+<p>Compute the average without the bad data</p>
+<p>drop the <code class="docutils literal"><span class="pre">bad_data</span></code> from <code class="docutils literal"><span class="pre">data</span></code></p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">bad</span> <span class="ow">in</span> <span class="n">bad_data</span><span class="p">:</span>
+    <span class="k">del</span> <span class="n">masked_data</span><span class="p">[</span><span class="n">bad</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="section" id="demonstrate-that-all-keys-in-bad-data-are-no-longer-in-masked-data">
+<h3>Demonstrate that all keys in <code class="docutils literal"><span class="pre">bad_data</span></code> are no longer in <code class="docutils literal"><span class="pre">masked_data</span></code><a class="headerlink" href="#demonstrate-that-all-keys-in-bad-data-are-no-longer-in-masked-data" title="Permalink to this headline">¶</a></h3>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">masked_data</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">dict_keys</span><span class="p">([</span><span class="s1">&#39;sample_point_1&#39;</span><span class="p">,</span> <span class="s1">&#39;sample_point_5&#39;</span><span class="p">,</span> <span class="s1">&#39;sample_point_4&#39;</span><span class="p">,</span> <span class="s1">&#39;sample_point_3&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="compute-the-average-image-from-the-remaining-data-in-masked-data">
+<h3>Compute the average image from the remaining data in <code class="docutils literal"><span class="pre">masked_data</span></code><a class="headerlink" href="#compute-the-average-image-from-the-remaining-data-in-masked-data" title="Permalink to this headline">¶</a></h3>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">average_images</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">data</span>
+                  <span class="ow">in</span> <span class="n">masked_data</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">averages</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">average_images</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">averages</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">roi</span><span class="o">.</span><span class="n">circular_average</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">calibrated_center</span><span class="o">=</span><span class="n">image_center</span><span class="p">,</span>
+                                          <span class="n">threshold</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">nx</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">pixel_size</span><span class="o">=</span><span class="n">pixel_size</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">averages</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<span class="n">im_kw</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;vmax&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;cmap&#39;</span><span class="p">:</span> <span class="n">cmap</span><span class="p">}</span>
+<span class="n">line_kw</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;marker&#39;</span><span class="p">:</span> <span class="s1">&#39;o&#39;</span><span class="p">}</span>
+<span class="n">keys</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">averages</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span>  <span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="n">axes</span><span class="p">):</span>
+    <span class="n">bin_centers</span><span class="p">,</span> <span class="n">ring_averages</span> <span class="o">=</span> <span class="n">averages</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+    <span class="n">im</span><span class="p">,</span> <span class="n">line</span> <span class="o">=</span> <span class="n">speckle_plot</span><span class="o">.</span><span class="n">circular_average</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">average_images</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">ring_averages</span><span class="p">,</span> <span class="n">bin_centers</span><span class="p">,</span>
+                                          <span class="n">im_kw</span><span class="o">=</span><span class="n">im_kw</span><span class="p">,</span> <span class="n">line_kw</span><span class="o">=</span><span class="n">line_kw</span><span class="p">,</span>
+                                          <span class="n">im_title</span><span class="o">=</span><span class="s1">&#39;Average Image Data for </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">k</span><span class="p">)</span>
+<span class="k">if</span> <span class="s1">&#39;inline&#39;</span> <span class="ow">in</span> <span class="n">backend</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/speckle-plotting_71_0.png" src="../_images/speckle-plotting_71_0.png" />
+</div>
+</div>
+<div class="section" id="data-for-graphical-representation-of-pixels-variation-over-time-for-required-roi">
+<h2>Data for graphical representation of pixels variation over time for required ROI.<a class="headerlink" href="#data-for-graphical-representation-of-pixels-variation-over-time-for-required-roi" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">roi_kymograph</span> <span class="o">=</span> <span class="n">roi</span><span class="o">.</span><span class="n">kymograph</span><span class="p">(</span><span class="n">masked_data</span><span class="p">[</span><span class="s1">&#39;sample_point_1&#39;</span><span class="p">],</span> <span class="n">rings_mask</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Pixel&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Frame&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Kymograph&#39;</span><span class="p">)</span>
+
+<span class="n">plot_kw</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;cmap&#39;</span><span class="p">:</span> <span class="n">cmap</span><span class="p">,</span>
+    <span class="s1">&#39;vmin&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s1">&#39;vmax&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+    <span class="s1">&#39;interpolation&#39;</span><span class="p">:</span> <span class="s1">&#39;nearest&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;aspect&#39;</span><span class="p">:</span> <span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">im</span><span class="p">,</span> <span class="n">cb</span> <span class="o">=</span> <span class="n">speckle_plot</span><span class="o">.</span><span class="n">kymograph</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">roi_kymograph</span><span class="p">,</span> <span class="o">**</span><span class="n">plot_kw</span><span class="p">)</span>
+<span class="c1"># speckle_plot.roi_kymograph_plotter(ax, roi_kymograph)</span>
+<span class="k">if</span> <span class="s1">&#39;inline&#39;</span> <span class="ow">in</span> <span class="n">backend</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/speckle-plotting_74_0.png" src="../_images/speckle-plotting_74_0.png" />
+</div>
+<div class="section" id="this-will-provide-intensities-of-the-roi-s-of-the-labeled-array-according-to-the-pixel-list">
+<h2>This will provide intensities of the ROI&#8217;s of the labeled array according to the pixel list<a class="headerlink" href="#this-will-provide-intensities-of-the-roi-s-of-the-labeled-array-according-to-the-pixel-list" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">average_images</span><span class="p">)),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">average_images</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">roi_pixel_values</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">roi</span><span class="o">.</span><span class="n">roi_pixel_values</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">rings_mask</span><span class="p">)</span>
+    <span class="n">speckle_plot</span><span class="o">.</span><span class="n">rois_as_lines</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">roi_pixel_values</span><span class="p">,</span>
+                               <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="n">label</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">image</span><span class="p">))</span>
+<span class="k">if</span> <span class="s1">&#39;inline&#39;</span> <span class="ow">in</span> <span class="n">backend</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/speckle-plotting_76_0.png" src="../_images/speckle-plotting_76_0.png" />
+<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">skbeam</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">skbeam</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="s1">&#39;0.0.6+41.g8aa4712&#39;</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">xray_vision</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">xray_vision</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="s1">&#39;0.0.4+7.ge6b680f&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/tutorial/speckle-plotting.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014-2015 Brookhaven National Lab.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

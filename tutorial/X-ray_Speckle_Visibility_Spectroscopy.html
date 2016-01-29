@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>X-ray Speckle Visibility Spectroscopy &mdash; scikit-beam 0.0.7 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/spacelab/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.0.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="scikit-beam 0.0.7 documentation" href="../index.html" />
+    <link rel="up" title="Tutorial with Examples" href="../tutorial.html" />
+    <link rel="next" title="Plotting helper functions for Speckle analysis – xray_vision.mpl_plotting.speckle module" href="speckle-plotting.html" />
+    <link rel="prev" title="This is an example of using real experimental data to plot the HK plane" href="recip_example.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          scikit-beam</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.0.7</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../tutorial.html">Tutorial</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction to scikit-beam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installing scikit-beam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html#updating-your-installation">Updating Your Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whats_new.html">What&#8217;s new</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resource/api/index.html">Complete Reference (API)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resource/dev_guide/index.html">Development Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorial.html">Tutorial with Examples</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Generate_ROI_labeled_arrays.html">Generate Region of Interests (ROI) labeled arrays for simple shapes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dpc_demo.html">Differential Phase Contrast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Histogram2D-RingAveraging.html">Using two histograms to bin in space and time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Histogram2D.html">Computing a 2D histogram using Histogram object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="histogram3D.html">3D histogramming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IXS-alignment-clean.html">Alignment and interpolation of inelastic scattering data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="D_estimate_demo.html">[broken] An <strong>almost</strong> correct diffraction calibration notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recip_example.html">This is an example of using real experimental data to plot the HK plane</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">X-ray Speckle Visibility Spectroscopy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="speckle-plotting.html">Plotting helper functions for Speckle analysis &#8211; <code class="docutils literal"><span class="pre">xray_vision.mpl_plotting.speckle</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Check_remove_bad_imgs_using_same_image.html">Remove bad images for one time correlation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Multi_tau_one_time_correlation_example.html">One Time Correlation Example for NIPA_GEL 250K¶</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Removing_bad_images_one_time_correlation.html">Removing bad images from images set and get the one time correlation data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XPCS_fitting_with_lmfit.html">XPCS fitting with lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="partial-multi-tau.html">First, let&#8217;s demo with synthetic data.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="partial-multi-tau.html#show-the-correlator-working-with-synthetic-data">Show the correlator working with synthetic data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="partial-multi-tau.html#now-let-s-do-it-with-some-real-data">Now let&#8217;s do it with some real data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="two-time-correlation.html">Two time correlation example notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_xrf_spectrum.html">Using X-ray fluorescence information in scikit-beam</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">X-ray Speckle Visibility Spectroscopy</a><ul>
+<li><a class="reference internal" href="#easily-switch-between-interactive-and-static-matplotlib-plots">Easily switch between interactive and static matplotlib plots¶</a></li>
+<li><a class="reference internal" href="#this-data-provided-by-dr-andrei-fluerasu">This data provided by Dr. Andrei Fluerasu</a></li>
+<li><a class="reference internal" href="#create-the-rings-mask">Create the Rings Mask¶</a></li>
+<li><a class="reference internal" href="#convert-the-edge-values-of-the-rings-to-q-reciprocal-space">Convert the edge values of the rings to q ( reciprocal space)</a></li>
+<li><a class="reference internal" href="#create-a-labeled-array-using-roi-rings">Create a labeled array using roi.rings</a></li>
+<li><a class="reference internal" href="#find-the-brightest-pixel-in-any-roi-in-any-image-in-the-image-set">Find the brightest pixel in any ROI in any image in the image set.</a></li>
+<li><a class="reference internal" href="#everything-looks-good-next-x-ray-speckle-visibilty-spectroscopy">Everything looks good, next X-ray speckle visibilty spectroscopy</a></li>
+<li><a class="reference internal" href="#find-the-integration-times">Find the integration times</a><ul>
+<li><a class="reference internal" href="#get-the-mean-intensity-of-each-ring">Get the mean intensity of each ring</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#get-the-normalized-bin-edges-and-bin-centers-for-each-integration-time">Get the normalized bin edges and bin centers for each integration time.</a></li>
+<li><a class="reference internal" href="#st-q-ring-0-0026859-1-angstroms">1st q ring 0.0026859 (1/Angstroms)</a></li>
+<li><a class="reference internal" href="#nd-q-ring-0-00278726-1-angstroms">2nd q ring 0.00278726 (1/Angstroms)¶</a><ul>
+<li><a class="reference internal" href="#x-ray-speckle-visibilty-spectroscopy-xsvs-for-differnt-time-steps">X-ray speckle visibilty spectroscopy(XSVS) for differnt time steps</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#find-the-new-integration-times">Find the new integration times</a><ul>
+<li><a class="reference internal" href="#xsvs-results-for-new-integartion-times-1ms-5ms-and-25ms">XSVS results for new integartion times 1ms, 5ms and 25ms</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#plot-the-results-for-each-q-ring">Plot the results for each Q ring</a></li>
+<li><a class="reference internal" href="#id1">1st q ring 0.0026859 (1/Angstroms)</a></li>
+<li><a class="reference internal" href="#id2">2nd q ring 0.00278726 (1/Angstroms)</a></li>
+<li><a class="reference internal" href="#rd-q-ring-0-00288861-1-angstroms">3rd q ring 0.00288861 (1/ Angstroms)</a></li>
+<li><a class="reference internal" href="#th-q-ring-0-0298997-1-angstroms">4th q ring 0.0298997 (1/ Angstroms)</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="x-ray-speckle-visibility-spectroscopy">
+<h1>X-ray Speckle Visibility Spectroscopy<a class="headerlink" href="#x-ray-speckle-visibility-spectroscopy" title="Permalink to this headline">¶</a></h1>
+<p>The analysis module &#8220;skbeam/core/speckle&#8221;
+<a class="reference external" href="https://github.com/scikit-beam/scikit-beam/blob/master/skbeam/core/speckle.py">https://github.com/scikit-beam/scikit-beam/blob/master/skbeam/core/speckle.py</a></p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">xray_vision</span>
+<span class="kn">import</span> <span class="nn">xray_vision.mpl_plotting</span> <span class="kn">as</span> <span class="nn">mpl_plot</span>
+
+<span class="kn">import</span> <span class="nn">skbeam.core.speckle</span> <span class="kn">as</span> <span class="nn">xsvs</span>
+<span class="kn">import</span> <span class="nn">skbeam.core.roi</span> <span class="kn">as</span> <span class="nn">roi</span>
+<span class="kn">import</span> <span class="nn">skbeam.core.correlation</span> <span class="kn">as</span> <span class="nn">corr</span>
+<span class="kn">import</span> <span class="nn">skbeam.core.utils</span> <span class="kn">as</span> <span class="nn">utils</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="kn">as</span> <span class="nn">mpl</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="n">MaxNLocator</span>
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LogNorm</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.axes_grid1.axes_grid</span> <span class="kn">import</span> <span class="n">ImageGrid</span>
+</pre></div>
+</div>
+<div class="section" id="easily-switch-between-interactive-and-static-matplotlib-plots">
+<h2>Easily switch between interactive and static matplotlib plots¶<a class="headerlink" href="#easily-switch-between-interactive-and-static-matplotlib-plots" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre>interactive_mode = False
+
+if interactive_mode:
+    %matplotlib notebook
+else:
+    %matplotlib inline
+
+backend = mpl.get_backend()
+</pre></div>
+</div>
+</div>
+<div class="section" id="this-data-provided-by-dr-andrei-fluerasu">
+<h2>This data provided by Dr. Andrei Fluerasu<a class="headerlink" href="#this-data-provided-by-dr-andrei-fluerasu" title="Permalink to this headline">¶</a></h2>
+<p>L. Li, P. Kwasniewski, D. Oris, L Wiegart, L. Cristofolini, C. Carona
+and A. Fluerasu , &#8220;Photon statistics and speckle visibility spectroscopy
+with partially coherent x-rays&#8221; J. Synchrotron Rad., vol 21, p
+1288-1295, 2014.</p>
+<div class="code python highlight-python"><div class="highlight"><pre>%run download.py
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>__file__
+current_folder = /home/edill/dev/python/scikit-beam-examples/demos/speckle
+current_folder = /home/edill/dev/python/scikit-beam-examples/demos/speckle
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;Duke_data/&quot;</span>
+<span class="n">duke_rdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">data_dir</span><span class="o">+</span><span class="s2">&quot;duke_img_1_5000.npy&quot;</span><span class="p">)</span>
+<span class="n">duke_dark</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">data_dir</span><span class="o">+</span><span class="s2">&quot;duke_dark.npy&quot;</span><span class="p">)</span>
+
+<span class="n">duke_data</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">duke_rdata</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="n">duke_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">duke_rdata</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">duke_dark</span><span class="p">)</span>
+
+<span class="n">duke_ndata</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">duke_data</span><span class="p">)</span>
+
+<span class="c1"># load the mask(s) and mask the data</span>
+<span class="n">mask1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">data_dir</span><span class="o">+</span><span class="s2">&quot;new_mask4.npy&quot;</span><span class="p">)</span>
+<span class="n">mask2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">data_dir</span><span class="o">+</span><span class="s2">&quot;Luxi_duke_mask.npy&quot;</span><span class="p">)</span>
+
+<span class="n">N_mask</span> <span class="o">=</span> <span class="o">~</span><span class="p">(</span><span class="n">mask1</span> <span class="o">+</span> <span class="n">mask2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">mask_data</span> <span class="o">=</span> <span class="n">N_mask</span><span class="o">*</span><span class="n">duke_ndata</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="c1">#  get the average image</span>
+<span class="n">avg_img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">duke_ndata</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># if matplotlib version 1.5 or later</span>
+<span class="k">if</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">mpl</span><span class="o">.</span><span class="n">__version__</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[:</span><span class="mi">2</span><span class="p">]))</span> <span class="o">&gt;=</span> <span class="mf">1.5</span><span class="p">:</span>
+    <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;viridis&#39;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;CMRmap&#39;</span>
+
+<span class="c1"># plot the average image data after masking</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">N_mask</span><span class="o">*</span><span class="n">avg_img</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1e0</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Averaged masked data for Duke Silica Gel &quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/X-ray_Speckle_Visibility_Spectroscopy_8_0.png" src="../_images/X-ray_Speckle_Visibility_Spectroscopy_8_0.png" />
+</div>
+<div class="section" id="create-the-rings-mask">
+<h2>Create the Rings Mask¶<a class="headerlink" href="#create-the-rings-mask" title="Permalink to this headline">¶</a></h2>
+<p>Use the skbeam.core.roi module to create Ring ROIs (ROI Mask).¶
+(<a class="reference external" href="https://github.com/scikit-beam/scikit-beam/blob/master/skbeam/core/roi.py">https://github.com/scikit-beam/scikit-beam/blob/master/skbeam/core/roi.py</a>)</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">inner_radius</span> <span class="o">=</span> <span class="mi">26</span>  <span class="c1"># radius of the first ring</span>
+<span class="n">width</span> <span class="o">=</span> <span class="mi">1</span>        <span class="c1"># width of each ring</span>
+<span class="n">spacing</span> <span class="o">=</span> <span class="mi">0</span>      <span class="c1"># no spacing between rings</span>
+<span class="n">num_rings</span> <span class="o">=</span> <span class="mi">4</span>    <span class="c1"># number of rings</span>
+<span class="n">center</span> <span class="o">=</span> <span class="p">(</span><span class="mi">133</span><span class="p">,</span> <span class="mi">143</span><span class="p">)</span>   <span class="c1"># center of the spckle pattern</span>
+
+<span class="c1">#  find the edges of the required rings</span>
+<span class="n">edges</span> <span class="o">=</span> <span class="n">roi</span><span class="o">.</span><span class="n">ring_edges</span><span class="p">(</span><span class="n">inner_radius</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">spacing</span><span class="p">,</span> <span class="n">num_rings</span><span class="p">)</span>
+<span class="n">edges</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">array</span><span class="p">([[</span> <span class="mf">26.</span><span class="p">,</span>  <span class="mf">27.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">27.</span><span class="p">,</span>  <span class="mf">28.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">28.</span><span class="p">,</span>  <span class="mf">29.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">29.</span><span class="p">,</span>  <span class="mf">30.</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="convert-the-edge-values-of-the-rings-to-q-reciprocal-space">
+<h2>Convert the edge values of the rings to q ( reciprocal space)<a class="headerlink" href="#convert-the-edge-values-of-the-rings-to-q-reciprocal-space" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">dpix</span> <span class="o">=</span> <span class="mf">0.055</span>  <span class="c1"># The physical size of the pixels</span>
+
+<span class="n">lambda_</span> <span class="o">=</span> <span class="mf">1.5498</span>  <span class="c1"># wavelength of the X-rays</span>
+<span class="n">Ldet</span> <span class="o">=</span> <span class="mf">2200.</span>   <span class="c1">#   # detector to sample distance</span>
+
+<span class="n">two_theta</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">radius_to_twotheta</span><span class="p">(</span><span class="n">Ldet</span><span class="p">,</span> <span class="n">edges</span><span class="o">*</span><span class="n">dpix</span><span class="p">)</span>
+<span class="n">q_val</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">twotheta_to_q</span><span class="p">(</span><span class="n">two_theta</span><span class="p">,</span> <span class="n">lambda_</span><span class="p">)</span>
+
+<span class="n">q_val</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">array</span><span class="p">([[</span> <span class="mf">0.00263522</span><span class="p">,</span>  <span class="mf">0.00273658</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.00273658</span><span class="p">,</span>  <span class="mf">0.00283793</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.00283793</span><span class="p">,</span>  <span class="mf">0.00293929</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.00293929</span><span class="p">,</span>  <span class="mf">0.00304064</span><span class="p">]])</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">q_ring</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">q_val</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">q_ring</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">array</span><span class="p">([</span> <span class="mf">0.0026859</span> <span class="p">,</span>  <span class="mf">0.00278726</span><span class="p">,</span>  <span class="mf">0.00288861</span><span class="p">,</span>  <span class="mf">0.00298997</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-a-labeled-array-using-roi-rings">
+<h2>Create a labeled array using roi.rings<a class="headerlink" href="#create-a-labeled-array-using-roi-rings" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">rings</span> <span class="o">=</span> <span class="n">roi</span><span class="o">.</span><span class="n">rings</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span> <span class="n">avg_img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">images_sets</span> <span class="o">=</span> <span class="p">(</span><span class="n">mask_data</span><span class="p">,</span> <span class="p">)</span>
+
+<span class="n">ring_mask</span> <span class="o">=</span> <span class="n">rings</span><span class="o">*</span><span class="n">N_mask</span>
+
+<span class="c1"># plot the figure</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Ring Mask&quot;</span><span class="p">)</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">mpl_plot</span><span class="o">.</span><span class="n">show_label_array</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">ring_mask</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/X-ray_Speckle_Visibility_Spectroscopy_15_0.png" src="../_images/X-ray_Speckle_Visibility_Spectroscopy_15_0.png" />
+</div>
+<div class="section" id="find-the-brightest-pixel-in-any-roi-in-any-image-in-the-image-set">
+<h2>Find the brightest pixel in any ROI in any image in the image set.<a class="headerlink" href="#find-the-brightest-pixel-in-any-roi-in-any-image-in-the-image-set" title="Permalink to this headline">¶</a></h2>
+<p>Using roi_max_counts function from skbeam.core.roi module</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">max_cts</span> <span class="o">=</span> <span class="n">roi</span><span class="o">.</span><span class="n">roi_max_counts</span><span class="p">(</span><span class="n">images_sets</span><span class="p">,</span> <span class="n">ring_mask</span><span class="p">)</span>
+<span class="n">max_cts</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="mi">24</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="everything-looks-good-next-x-ray-speckle-visibilty-spectroscopy">
+<h2>Everything looks good, next X-ray speckle visibilty spectroscopy<a class="headerlink" href="#everything-looks-good-next-x-ray-speckle-visibilty-spectroscopy" title="Permalink to this headline">¶</a></h2>
+<p>This function will provide the probability density of detecting photons
+for different integration time. Using skbeam.core.speckle module</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">spe_cts_all</span><span class="p">,</span> <span class="n">std_dev</span> <span class="o">=</span> <span class="n">xsvs</span><span class="o">.</span><span class="n">xsvs</span><span class="p">(</span><span class="n">images_sets</span><span class="p">,</span> <span class="n">ring_mask</span><span class="p">,</span> <span class="n">timebin_num</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                             <span class="n">number_of_img</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">max_cts</span><span class="o">=</span><span class="n">max_cts</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>/home/edill/mc/envs/beam35/lib/python3.5/site-packages/numpy/core/numeric.py:294: FutureWarning: in the future, full(5, 2) will return an array of dtype(&#39;int64&#39;)
+  format(shape, fill_value, array(fill_value).dtype), FutureWarning)
+</pre></div>
+</div>
+</div>
+<div class="section" id="find-the-integration-times">
+<h2>Find the integration times<a class="headerlink" href="#find-the-integration-times" title="Permalink to this headline">¶</a></h2>
+<p>using skbeam.core.utils.geometric_series</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">time_steps</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">geometric_series</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">time_steps</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="section" id="get-the-mean-intensity-of-each-ring">
+<h3>Get the mean intensity of each ring<a class="headerlink" href="#get-the-mean-intensity-of-each-ring" title="Permalink to this headline">¶</a></h3>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">mean_int_sets</span><span class="p">,</span> <span class="n">index_list</span> <span class="o">=</span> <span class="n">roi</span><span class="o">.</span><span class="n">mean_intensity</span><span class="p">(</span><span class="n">mask_data</span><span class="p">,</span> <span class="n">ring_mask</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Mean intensity of each ring&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_rings</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mean_int_sets</span><span class="p">[:,</span><span class="n">i</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Ring &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/X-ray_Speckle_Visibility_Spectroscopy_24_0.png" src="../_images/X-ray_Speckle_Visibility_Spectroscopy_24_0.png" />
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">mean_int_ring</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">mean_int_sets</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">mean_int_ring</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">array</span><span class="p">([</span> <span class="mf">3.17503051</span><span class="p">,</span>  <span class="mf">2.03199322</span><span class="p">,</span>  <span class="mf">1.22062687</span><span class="p">,</span>  <span class="mf">0.78536136</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="get-the-normalized-bin-edges-and-bin-centers-for-each-integration-time">
+<h2>Get the normalized bin edges and bin centers for each integration time.<a class="headerlink" href="#get-the-normalized-bin-edges-and-bin-centers-for-each-integration-time" title="Permalink to this headline">¶</a></h2>
+<p>using skbeam.core.speckle.normalize_bin_edges</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">num_times</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">num_rois</span><span class="o">=</span><span class="n">num_rings</span>
+<span class="n">norm_bin_edges</span><span class="p">,</span> <span class="n">norm_bin_centers</span> <span class="o">=</span> <span class="n">xsvs</span><span class="o">.</span><span class="n">normalize_bin_edges</span><span class="p">(</span><span class="n">num_times</span><span class="p">,</span>
+                                                            <span class="n">num_rois</span><span class="p">,</span> <span class="n">mean_int_ring</span><span class="p">,</span> <span class="n">max_cts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="st-q-ring-0-0026859-1-angstroms">
+<h2>1st q ring 0.0026859 (1/Angstroms)<a class="headerlink" href="#st-q-ring-0-0026859-1-angstroms" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;K/&lt;K&gt;&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;P(K)&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">art</span><span class="p">,</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">norm_bin_edges</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">spe_cts_all</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">time_steps</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">+</span><span class="s2">&quot; ms&quot;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">axes</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;1st q ring 0.0026859 (1/Angstroms)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/X-ray_Speckle_Visibility_Spectroscopy_29_0.png" src="../_images/X-ray_Speckle_Visibility_Spectroscopy_29_0.png" />
+</div>
+<div class="section" id="nd-q-ring-0-00278726-1-angstroms">
+<h2>2nd q ring 0.00278726 (1/Angstroms)¶<a class="headerlink" href="#nd-q-ring-0-00278726-1-angstroms" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;K/&lt;K&gt;&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;P(K)&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">art</span><span class="p">,</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">norm_bin_edges</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">spe_cts_all</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">time_steps</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">+</span><span class="s2">&quot; ms&quot;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">axes</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;2nd q ring 0.00278726 (1/Angstroms)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/X-ray_Speckle_Visibility_Spectroscopy_31_0.png" src="../_images/X-ray_Speckle_Visibility_Spectroscopy_31_0.png" />
+<div class="section" id="x-ray-speckle-visibilty-spectroscopy-xsvs-for-differnt-time-steps">
+<h3>X-ray speckle visibilty spectroscopy(XSVS) for differnt time steps<a class="headerlink" href="#x-ray-speckle-visibilty-spectroscopy-xsvs-for-differnt-time-steps" title="Permalink to this headline">¶</a></h3>
+<p>This function will provide the probability density of detecting photons
+for different integration time. Using skbeam.core.speckle module</p>
+</div>
+</div>
+<div class="section" id="find-the-new-integration-times">
+<h2>Find the new integration times<a class="headerlink" href="#find-the-new-integration-times" title="Permalink to this headline">¶</a></h2>
+<p>using skbeam.core.utils.geometric_series</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">time_steps_5</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">geometric_series</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">time_steps_5</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="section" id="xsvs-results-for-new-integartion-times-1ms-5ms-and-25ms">
+<h3>XSVS results for new integartion times 1ms, 5ms and 25ms<a class="headerlink" href="#xsvs-results-for-new-integartion-times-1ms-5ms-and-25ms" title="Permalink to this headline">¶</a></h3>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">p_K</span><span class="p">,</span> <span class="n">std_dev_5</span> <span class="o">=</span> <span class="n">xsvs</span><span class="o">.</span><span class="n">xsvs</span><span class="p">(</span><span class="n">images_sets</span><span class="p">,</span> <span class="n">ring_mask</span><span class="p">,</span> <span class="n">timebin_num</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                             <span class="n">number_of_img</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">max_cts</span><span class="o">=</span><span class="n">max_cts</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>/home/edill/mc/envs/beam35/lib/python3.5/site-packages/numpy/core/numeric.py:294: FutureWarning: in the future, full(3, 5) will return an array of dtype(&#39;int64&#39;)
+  format(shape, fill_value, array(fill_value).dtype), FutureWarning)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="plot-the-results-for-each-q-ring">
+<h2>Plot the results for each Q ring<a class="headerlink" href="#plot-the-results-for-each-q-ring" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id1">
+<h2>1st q ring 0.0026859 (1/Angstroms)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;K/&lt;K&gt;&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;P(K)&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">art</span><span class="p">,</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">norm_bin_edges</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">p_K</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">time_steps_5</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">+</span><span class="s2">&quot; ms&quot;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">axes</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;1st q ring 0.0026859 (1/Angstroms)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/X-ray_Speckle_Visibility_Spectroscopy_39_0.png" src="../_images/X-ray_Speckle_Visibility_Spectroscopy_39_0.png" />
+</div>
+<div class="section" id="id2">
+<h2>2nd q ring 0.00278726 (1/Angstroms)<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;K/&lt;K&gt;&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;P(K)&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">art</span><span class="p">,</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">norm_bin_edges</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">p_K</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">time_steps_5</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">+</span><span class="s2">&quot; ms&quot;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">axes</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;2nd q ring 0.00278726 (1/Angstroms)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/X-ray_Speckle_Visibility_Spectroscopy_41_0.png" src="../_images/X-ray_Speckle_Visibility_Spectroscopy_41_0.png" />
+</div>
+<div class="section" id="rd-q-ring-0-00288861-1-angstroms">
+<h2>3rd q ring 0.00288861 (1/ Angstroms)<a class="headerlink" href="#rd-q-ring-0-00288861-1-angstroms" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;K/&lt;K&gt;&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;P(K)&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">art</span><span class="p">,</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">norm_bin_edges</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">2</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">p_K</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">time_steps_5</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">+</span><span class="s2">&quot; ms&quot;</span> <span class="p">)</span>
+    <span class="n">axes</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">axes</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;3rd q ring 0.00288861 (1/ Angstroms)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/X-ray_Speckle_Visibility_Spectroscopy_43_0.png" src="../_images/X-ray_Speckle_Visibility_Spectroscopy_43_0.png" />
+</div>
+<div class="section" id="th-q-ring-0-0298997-1-angstroms">
+<h2>4th q ring 0.0298997 (1/ Angstroms)<a class="headerlink" href="#th-q-ring-0-0298997-1-angstroms" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;K/&lt;K&gt;&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;P(K)&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">art</span><span class="p">,</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">norm_bin_edges</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">3</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">p_K</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">time_steps_5</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">+</span><span class="s2">&quot; ms&quot;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">axes</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;4th q ring 0.0298997 (1/ Angstroms)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/X-ray_Speckle_Visibility_Spectroscopy_45_0.png" src="../_images/X-ray_Speckle_Visibility_Spectroscopy_45_0.png" />
+<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">skbeam</span>
+<span class="k">print</span><span class="p">(</span><span class="n">skbeam</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>0.0.6+41.g8aa4712
+</pre></div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/tutorial/X-ray_Speckle_Visibility_Spectroscopy.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014-2015 Brookhaven National Lab.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

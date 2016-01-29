@@ -1,0 +1,6 @@
+skbeam.core.roi.rings
+=====================
+
+.. currentmodule:: skbeam.core.roi
+
+.. autofunction:: rings

@@ -1,0 +1,6 @@
+skbeam.core.utils.verbosedict.values
+====================================
+
+.. currentmodule:: skbeam.core.utils
+
+.. automethod:: verbosedict.values

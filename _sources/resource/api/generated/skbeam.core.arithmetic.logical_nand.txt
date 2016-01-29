@@ -1,0 +1,6 @@
+skbeam.core.arithmetic.logical_nand
+===================================
+
+.. currentmodule:: skbeam.core.arithmetic
+
+.. autofunction:: logical_nand

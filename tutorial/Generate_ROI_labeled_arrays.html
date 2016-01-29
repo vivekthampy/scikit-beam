@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Generate Region of Interests (ROI) labeled arrays for simple shapes &mdash; scikit-beam 0.0.7 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/spacelab/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.0.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="scikit-beam 0.0.7 documentation" href="../index.html" />
+    <link rel="up" title="Tutorial with Examples" href="../tutorial.html" />
+    <link rel="next" title="Differential Phase Contrast" href="dpc_demo.html" />
+    <link rel="prev" title="Tutorial with Examples" href="../tutorial.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          scikit-beam</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.0.7</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../tutorial.html">Tutorial</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction to scikit-beam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installing scikit-beam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html#updating-your-installation">Updating Your Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whats_new.html">What&#8217;s new</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resource/api/index.html">Complete Reference (API)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resource/dev_guide/index.html">Development Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorial.html">Tutorial with Examples</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Generate Region of Interests (ROI) labeled arrays for simple shapes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dpc_demo.html">Differential Phase Contrast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Histogram2D-RingAveraging.html">Using two histograms to bin in space and time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Histogram2D.html">Computing a 2D histogram using Histogram object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="histogram3D.html">3D histogramming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IXS-alignment-clean.html">Alignment and interpolation of inelastic scattering data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="D_estimate_demo.html">[broken] An <strong>almost</strong> correct diffraction calibration notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recip_example.html">This is an example of using real experimental data to plot the HK plane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="X-ray_Speckle_Visibility_Spectroscopy.html">X-ray Speckle Visibility Spectroscopy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="speckle-plotting.html">Plotting helper functions for Speckle analysis &#8211; <code class="docutils literal"><span class="pre">xray_vision.mpl_plotting.speckle</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Check_remove_bad_imgs_using_same_image.html">Remove bad images for one time correlation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Multi_tau_one_time_correlation_example.html">One Time Correlation Example for NIPA_GEL 250K¶</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Removing_bad_images_one_time_correlation.html">Removing bad images from images set and get the one time correlation data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XPCS_fitting_with_lmfit.html">XPCS fitting with lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="partial-multi-tau.html">First, let&#8217;s demo with synthetic data.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="partial-multi-tau.html#show-the-correlator-working-with-synthetic-data">Show the correlator working with synthetic data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="partial-multi-tau.html#now-let-s-do-it-with-some-real-data">Now let&#8217;s do it with some real data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="two-time-correlation.html">Two time correlation example notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_xrf_spectrum.html">Using X-ray fluorescence information in scikit-beam</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Generate Region of Interests (ROI) labeled arrays for simple shapes</a><ul>
+<li><a class="reference internal" href="#easily-switch-between-interactive-and-static-matplotlib-plots">Easily switch between interactive and static matplotlib plots</a><ul>
+<li><a class="reference internal" href="#rectangle-region-of-interests">Rectangle region of interests.</a></li>
+<li><a class="reference internal" href="#draw-annual-ring-shaped-regions-of-interest">Draw annual (ring-shaped) regions of interest</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#test-when-there-is-same-spacing-between-rings">Test when there is same spacing between rings</a></li>
+<li><a class="reference internal" href="#test-when-there-is-different-spacing-between-rings">Test when there is different spacing between rings</a></li>
+<li><a class="reference internal" href="#test-when-there-is-no-spacing-between-rings">Test when there is no spacing between rings</a></li>
+<li><a class="reference internal" href="#generate-a-roi-of-segmented-rings">Generate a ROI of Segmented Rings¶</a></li>
+<li><a class="reference internal" href="#generate-a-roi-of-pies">Generate a ROI of Pies</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="generate-region-of-interests-roi-labeled-arrays-for-simple-shapes">
+<h1>Generate Region of Interests (ROI) labeled arrays for simple shapes<a class="headerlink" href="#generate-region-of-interests-roi-labeled-arrays-for-simple-shapes" title="Permalink to this headline">¶</a></h1>
+<p>This example notebook explain the use of analysis module
+&#8220;skbeam/core/roi&#8221;
+<a class="reference external" href="https://github.com/scikit-beam/scikit-beam/blob/master/skbeam/core/roi.py">https://github.com/scikit-beam/scikit-beam/blob/master/skbeam/core/roi.py</a></p>
+<div class="code python highlight-python"><div class="highlight"><pre>import skbeam.core.roi as roi
+import skbeam.core.correlation as corr
+
+import numpy as np
+
+import matplotlib.pyplot as plt
+%matplotlib inline
+from matplotlib.ticker import MaxNLocator
+from matplotlib.colors import LogNorm
+
+import xray_vision.mpl_plotting as mpl_plot
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>:0: FutureWarning: IPython widgets are experimental and may change in the future.
+</pre></div>
+</div>
+<div class="section" id="easily-switch-between-interactive-and-static-matplotlib-plots">
+<h2>Easily switch between interactive and static matplotlib plots<a class="headerlink" href="#easily-switch-between-interactive-and-static-matplotlib-plots" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre>interactive_mode = False
+
+import matplotlib as mpl
+if interactive_mode:
+    %matplotlib notebook
+else:
+    %matplotlib inline
+
+backend = mpl.get_backend()
+cmap=&#39;Dark2&#39;
+</pre></div>
+</div>
+<div class="section" id="rectangle-region-of-interests">
+<h3>Rectangle region of interests.<a class="headerlink" href="#rectangle-region-of-interests" title="Permalink to this headline">¶</a></h3>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="c1"># Image shape which is used to determine the maximum extent of output pixel coordinates</span>
+<span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">26</span><span class="p">)</span>
+
+<span class="c1"># coordinates of the upper-left corner and width and height of each rectangle</span>
+<span class="n">roi_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">]),</span>
+                        <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+
+<span class="c1">#Elements not inside any ROI are zero; elements inside each ROI are 1, 2, 3, corresponding</span>
+<span class="c1"># to the order they are specified in coords.</span>
+<span class="n">label_array</span> <span class="o">=</span> <span class="n">roi</span><span class="o">.</span><span class="n">rectangles</span><span class="p">(</span><span class="n">roi_data</span><span class="p">,</span> <span class="n">shape</span><span class="p">)</span>
+<span class="n">roi_inds</span><span class="p">,</span> <span class="n">pixel_list</span> <span class="o">=</span> <span class="n">roi</span><span class="o">.</span><span class="n">extract_label_indices</span><span class="p">(</span><span class="n">label_array</span><span class="p">)</span>
+
+<span class="c1"># plot the figure</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">mpl_plot</span><span class="o">.</span><span class="n">show_label_array</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">label_array</span><span class="p">,</span> <span class="n">cmap</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/Generate_ROI_labeled_arrays_5_0.png" src="../_images/Generate_ROI_labeled_arrays_5_0.png" />
+</div>
+<div class="section" id="draw-annual-ring-shaped-regions-of-interest">
+<h3>Draw annual (ring-shaped) regions of interest<a class="headerlink" href="#draw-annual-ring-shaped-regions-of-interest" title="Permalink to this headline">¶</a></h3>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">center</span> <span class="o">=</span> <span class="p">(</span><span class="mf">100.</span><span class="p">,</span> <span class="mf">100.</span><span class="p">)</span>   <span class="c1"># center of the rings</span>
+
+<span class="c1"># Image shape which is used to determine the maximum extent of output pixel coordinates</span>
+<span class="n">img_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">205</span><span class="p">)</span>
+
+<span class="n">first_q</span> <span class="o">=</span> <span class="mf">10.0</span> <span class="c1"># inner radius of the inner-most ring</span>
+<span class="n">delta_q</span> <span class="o">=</span> <span class="mf">5.0</span>  <span class="c1">#ring thickness</span>
+
+<span class="n">num_rings</span> <span class="o">=</span> <span class="mi">7</span>  <span class="c1"># number of Q rings</span>
+
+<span class="c1"># step or spacing, spacing between rings</span>
+<span class="n">one_step_q</span> <span class="o">=</span> <span class="mf">5.0</span>  <span class="c1">#  one spacing between rings</span>
+
+<span class="n">step_q</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">5.8</span><span class="p">]</span>   <span class="c1"># differnt spacing between rings</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="test-when-there-is-same-spacing-between-rings">
+<h2>Test when there is same spacing between rings<a class="headerlink" href="#test-when-there-is-same-spacing-between-rings" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="c1"># inner and outer radius for each ring</span>
+<span class="n">edges</span> <span class="o">=</span> <span class="n">roi</span><span class="o">.</span><span class="n">ring_edges</span><span class="p">(</span><span class="n">first_q</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">delta_q</span><span class="p">,</span> <span class="n">spacing</span><span class="o">=</span><span class="n">one_step_q</span><span class="p">,</span>
+                           <span class="n">num_rings</span><span class="o">=</span><span class="n">num_rings</span><span class="p">)</span>
+<span class="n">edges</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">array</span><span class="p">([[</span> <span class="mf">10.</span><span class="p">,</span>  <span class="mf">15.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">20.</span><span class="p">,</span>  <span class="mf">25.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">30.</span><span class="p">,</span>  <span class="mf">35.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">40.</span><span class="p">,</span>  <span class="mf">45.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">50.</span><span class="p">,</span>  <span class="mf">55.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">60.</span><span class="p">,</span>  <span class="mf">65.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">70.</span><span class="p">,</span>  <span class="mf">75.</span><span class="p">]])</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="c1">#Elements not inside any ROI are zero; elements inside each</span>
+<span class="c1">#ROI are 1, 2, 3, corresponding to the order they are specified in edges.</span>
+<span class="n">label_array</span> <span class="o">=</span> <span class="n">roi</span><span class="o">.</span><span class="n">rings</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span> <span class="n">img_shape</span><span class="p">)</span>
+
+<span class="c1"># plot the figure</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Same spacing between rings&quot;</span><span class="p">)</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">mpl_plot</span><span class="o">.</span><span class="n">show_label_array</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">label_array</span><span class="p">,</span> <span class="n">cmap</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/Generate_ROI_labeled_arrays_10_0.png" src="../_images/Generate_ROI_labeled_arrays_10_0.png" />
+</div>
+<div class="section" id="test-when-there-is-different-spacing-between-rings">
+<h2>Test when there is different spacing between rings<a class="headerlink" href="#test-when-there-is-different-spacing-between-rings" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="c1"># inner and outer radius for each ring</span>
+
+<span class="n">edges</span> <span class="o">=</span> <span class="n">roi</span><span class="o">.</span><span class="n">ring_edges</span><span class="p">(</span><span class="n">first_q</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">delta_q</span><span class="p">,</span> <span class="n">spacing</span><span class="o">=</span><span class="n">step_q</span><span class="p">,</span>
+                           <span class="n">num_rings</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;edges when there is different spacing between rings&quot;</span><span class="p">,</span> <span class="n">edges</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">(</span><span class="s1">&#39;edges when there is different spacing between rings&#39;</span><span class="p">,</span> <span class="n">array</span><span class="p">([[</span> <span class="mf">10.</span> <span class="p">,</span>  <span class="mf">15.</span> <span class="p">],</span>
+       <span class="p">[</span> <span class="mf">17.5</span><span class="p">,</span>  <span class="mf">22.5</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">25.5</span><span class="p">,</span>  <span class="mf">30.5</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">36.3</span><span class="p">,</span>  <span class="mf">41.3</span><span class="p">]]))</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="c1">#Elements not inside any ROI are zero; elements inside each</span>
+<span class="c1">#ROI are 1, 2, 3, corresponding to the order they are specified in edges.</span>
+<span class="n">label_array</span> <span class="o">=</span> <span class="n">roi</span><span class="o">.</span><span class="n">rings</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span> <span class="n">img_shape</span><span class="p">)</span>
+
+<span class="c1"># plot the figure</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Different spacing between rings&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">mpl_plot</span><span class="o">.</span><span class="n">show_label_array</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">label_array</span><span class="p">,</span> <span class="n">cmap</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/Generate_ROI_labeled_arrays_13_0.png" src="../_images/Generate_ROI_labeled_arrays_13_0.png" />
+</div>
+<div class="section" id="test-when-there-is-no-spacing-between-rings">
+<h2>Test when there is no spacing between rings<a class="headerlink" href="#test-when-there-is-no-spacing-between-rings" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="c1"># inner and outer radius for each ring</span>
+<span class="n">edges</span> <span class="o">=</span> <span class="n">roi</span><span class="o">.</span><span class="n">ring_edges</span><span class="p">(</span><span class="n">first_q</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">delta_q</span><span class="p">,</span> <span class="n">num_rings</span><span class="o">=</span><span class="n">num_rings</span><span class="p">)</span>
+<span class="n">edges</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">array</span><span class="p">([[</span> <span class="mf">10.</span><span class="p">,</span>  <span class="mf">15.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">15.</span><span class="p">,</span>  <span class="mf">20.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">20.</span><span class="p">,</span>  <span class="mf">25.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">25.</span><span class="p">,</span>  <span class="mf">30.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">30.</span><span class="p">,</span>  <span class="mf">35.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">35.</span><span class="p">,</span>  <span class="mf">40.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">40.</span><span class="p">,</span>  <span class="mf">45.</span><span class="p">]])</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="c1">#Elements not inside any ROI are zero; elements inside each</span>
+<span class="c1">#ROI are 1, 2, 3, corresponding to the order they are specified in edges.</span>
+<span class="n">label_array</span> <span class="o">=</span> <span class="n">roi</span><span class="o">.</span><span class="n">rings</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span> <span class="n">img_shape</span><span class="p">)</span>
+
+<span class="c1"># plot the figure</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;There is no spacing between rings&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">mpl_plot</span><span class="o">.</span><span class="n">show_label_array</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">label_array</span><span class="p">,</span> <span class="n">cmap</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/Generate_ROI_labeled_arrays_16_0.png" src="../_images/Generate_ROI_labeled_arrays_16_0.png" />
+</div>
+<div class="section" id="generate-a-roi-of-segmented-rings">
+<h2>Generate a ROI of Segmented Rings¶<a class="headerlink" href="#generate-a-roi-of-segmented-rings" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">center</span> <span class="o">=</span> <span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">75</span><span class="p">)</span>   <span class="c1"># center of the rings</span>
+
+<span class="c1">#Image shape which is used to determine the maximum extent of output pixel coordinates</span>
+<span class="n">img_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">140</span><span class="p">)</span>
+
+<span class="n">first_q</span> <span class="o">=</span> <span class="mf">5.0</span>  <span class="c1"># inner radius of the inner-most ring</span>
+<span class="n">delta_q</span> <span class="o">=</span> <span class="mf">5.0</span>  <span class="c1">#ring thickness</span>
+<span class="n">num_rings</span> <span class="o">=</span> <span class="mi">4</span>  <span class="c1"># number of rings</span>
+
+<span class="n">slicing</span> <span class="o">=</span> <span class="mi">4</span> <span class="c1"># number of pie slices or list of angles in radians</span>
+<span class="n">spacing</span> <span class="o">=</span> <span class="mi">4</span> <span class="c1"># margin between rings, 0 by default</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="c1"># inner and outer radius for each ring</span>
+<span class="n">edges</span> <span class="o">=</span> <span class="n">roi</span><span class="o">.</span><span class="n">ring_edges</span><span class="p">(</span><span class="n">first_q</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">delta_q</span><span class="p">,</span> <span class="n">spacing</span><span class="o">=</span><span class="n">spacing</span><span class="p">,</span>
+                           <span class="n">num_rings</span><span class="o">=</span><span class="n">num_rings</span><span class="p">)</span>
+
+<span class="n">edges</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">array</span><span class="p">([[</span>  <span class="mf">5.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">14.</span><span class="p">,</span>  <span class="mf">19.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">23.</span><span class="p">,</span>  <span class="mf">28.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">32.</span><span class="p">,</span>  <span class="mf">37.</span><span class="p">]])</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="c1">#Elements not inside any ROI are zero; elements inside each</span>
+<span class="c1">#ROI are 1, 2, 3, corresponding to the order they are specified in edges.</span>
+<span class="n">label_array</span> <span class="o">=</span> <span class="n">roi</span><span class="o">.</span><span class="n">segmented_rings</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">slicing</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span>
+                                      <span class="n">img_shape</span><span class="p">,</span> <span class="n">offset_angle</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># plot the figure</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Segmented Rings&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">38</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">38</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">mpl_plot</span><span class="o">.</span><span class="n">show_label_array</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">label_array</span><span class="p">,</span> <span class="n">cmap</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/Generate_ROI_labeled_arrays_21_0.png" src="../_images/Generate_ROI_labeled_arrays_21_0.png" />
+</div>
+<div class="section" id="generate-a-roi-of-pies">
+<h2>Generate a ROI of Pies<a class="headerlink" href="#generate-a-roi-of-pies" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">first_q</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># inner and outer radius for each ring</span>
+<span class="n">edges</span> <span class="o">=</span> <span class="n">roi</span><span class="o">.</span><span class="n">ring_edges</span><span class="p">(</span><span class="n">first_q</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">num_rings</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">edges</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">array</span><span class="p">([[</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">50.</span><span class="p">]])</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">slicing</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># number of pie slices or list of angles in radians</span>
+
+<span class="c1">#Elements not inside any ROI are zero; elements inside each</span>
+<span class="c1">#ROI are 1, 2, 3, corresponding to the order they are specified in edges.</span>
+<span class="n">label_array</span> <span class="o">=</span> <span class="n">roi</span><span class="o">.</span><span class="n">segmented_rings</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">slicing</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span>
+                                      <span class="n">img_shape</span><span class="p">,</span> <span class="n">offset_angle</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># plot the figure</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Pies&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">140</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">140</span><span class="p">)</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">mpl_plot</span><span class="o">.</span><span class="n">show_label_array</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">label_array</span><span class="p">,</span> <span class="n">cmap</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/Generate_ROI_labeled_arrays_24_0.png" src="../_images/Generate_ROI_labeled_arrays_24_0.png" />
+<div class="highlight-python"><div class="highlight"><pre>&lt;matplotlib.figure.Figure at 0x10c4db810&gt;
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>&lt;matplotlib.figure.Figure at 0x10c4db810&gt;
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">skbeam</span>
+<span class="k">print</span><span class="p">(</span><span class="n">skbeam</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>0.0.4+105.ge27b978
+</pre></div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/tutorial/Generate_ROI_labeled_arrays.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014-2015 Brookhaven National Lab.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

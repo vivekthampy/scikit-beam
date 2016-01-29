@@ -1,0 +1,6 @@
+skbeam.core.utils.verbosedict.clear
+===================================
+
+.. currentmodule:: skbeam.core.utils
+
+.. automethod:: verbosedict.clear

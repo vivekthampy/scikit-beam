@@ -1,0 +1,6 @@
+skbeam.core.constants.xrf.XrayLibWrap.opts_info_type
+====================================================
+
+.. currentmodule:: skbeam.core.constants.xrf
+
+.. autoattribute:: XrayLibWrap.opts_info_type

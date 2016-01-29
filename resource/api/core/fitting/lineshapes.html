@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>background Module &mdash; scikit-beam 0.0.7 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/bootswatch-3.3.4/spacelab/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '0.0.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="scikit-beam 0.0.7 documentation" href="../../../../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../../index.html">
+          scikit-beam</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.0.7</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../../../../tutorial.html">Tutorial</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../introduction.html">Introduction to scikit-beam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installing scikit-beam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html#updating-your-installation">Updating Your Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../whats_new.html">What&#8217;s new</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Complete Reference (API)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev_guide/index.html">Development Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial.html">Tutorial with Examples</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/Generate_ROI_labeled_arrays.html">Generate Region of Interests (ROI) labeled arrays for simple shapes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/dpc_demo.html">Differential Phase Contrast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/Histogram2D-RingAveraging.html">Using two histograms to bin in space and time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/Histogram2D.html">Computing a 2D histogram using Histogram object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/histogram3D.html">3D histogramming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/IXS-alignment-clean.html">Alignment and interpolation of inelastic scattering data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/D_estimate_demo.html">[broken] An <strong>almost</strong> correct diffraction calibration notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/recip_example.html">This is an example of using real experimental data to plot the HK plane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/X-ray_Speckle_Visibility_Spectroscopy.html">X-ray Speckle Visibility Spectroscopy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/speckle-plotting.html">Plotting helper functions for Speckle analysis &#8211; <code class="docutils literal"><span class="pre">xray_vision.mpl_plotting.speckle</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/Check_remove_bad_imgs_using_same_image.html">Remove bad images for one time correlation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/Multi_tau_one_time_correlation_example.html">One Time Correlation Example for NIPA_GEL 250K¶</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/Removing_bad_images_one_time_correlation.html">Removing bad images from images set and get the one time correlation data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/XPCS_fitting_with_lmfit.html">XPCS fitting with lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/partial-multi-tau.html">First, let&#8217;s demo with synthetic data.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/partial-multi-tau.html#show-the-correlator-working-with-synthetic-data">Show the correlator working with synthetic data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/partial-multi-tau.html#now-let-s-do-it-with-some-real-data">Now let&#8217;s do it with some real data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/two-time-correlation.html">Two time correlation example notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial/plot_xrf_spectrum.html">Using X-ray fluorescence information in scikit-beam</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#"><code class="docutils literal"><span class="pre">background</span></code> Module</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="module-skbeam.core.fitting.background">
+<span id="background-module"></span><h1><code class="xref py py-mod docutils literal"><span class="pre">background</span></code> Module<a class="headerlink" href="#module-skbeam.core.fitting.background" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="skbeam.core.fitting.background.snip_method">
+<code class="descclassname">skbeam.core.fitting.background.</code><code class="descname">snip_method</code><span class="sig-paren">(</span><em>spectrum</em>, <em>e_off</em>, <em>e_lin</em>, <em>e_quad</em>, <em>xmin=0</em>, <em>xmax=4096</em>, <em>epsilon=2.96</em>, <em>width=0.5</em>, <em>decrease_factor=1.4142135623730951</em>, <em>spectral_binning=None</em>, <em>con_val=None</em>, <em>iter_num=None</em>, <em>width_threshold=0.5</em><span class="sig-paren">)</span><a class="headerlink" href="#skbeam.core.fitting.background.snip_method" title="Permalink to this definition">¶</a></dt>
+<dd><p>use snip algorithm to obtain background</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>spectrum</strong> : array</p>
+<blockquote>
+<div><p>intensity spectrum</p>
+</div></blockquote>
+<p><strong>e_off</strong> : float</p>
+<blockquote>
+<div><p>energy calibration, such as e_off + e_lin * energy + e_quad * energy^2</p>
+</div></blockquote>
+<p><strong>e_lin</strong> : float</p>
+<blockquote>
+<div><p>energy calibration, such as e_off + e_lin * energy + e_quad * energy^2</p>
+</div></blockquote>
+<p><strong>e_quad</strong> : float</p>
+<blockquote>
+<div><p>energy calibration, such as e_off + e_lin * energy + e_quad * energy^2</p>
+</div></blockquote>
+<p><strong>xmin</strong> : float, optional</p>
+<blockquote>
+<div><p>smallest index to define the range</p>
+</div></blockquote>
+<p><strong>xmax</strong> : float, optional</p>
+<blockquote>
+<div><p>largest index to define the range</p>
+</div></blockquote>
+<p><strong>epsilon</strong> : float, optional</p>
+<blockquote>
+<div><p>energy to create a hole-electron pair
+for Ge 2.96, for Si 3.61 at 300K
+needs to double check this value</p>
+</div></blockquote>
+<p><strong>width</strong> : int, optional</p>
+<blockquote>
+<div><p>window size to adjust how much to shift background</p>
+</div></blockquote>
+<p><strong>decrease_factor</strong> : float, optional</p>
+<blockquote>
+<div><p>gradually decrease of window size, default as sqrt(2)</p>
+</div></blockquote>
+<p><strong>spectral_binning</strong> : float, optional</p>
+<blockquote>
+<div><p>bin the data into different size</p>
+</div></blockquote>
+<p><strong>con_val</strong> : int, optional</p>
+<blockquote>
+<div><p>size of scipy.signal.boxcar to convolve the spectrum.</p>
+<p>Default value is controlled by the keys <cite>con_val_no_bin</cite>
+and <cite>con_val_bin</cite> in the defaults dictionary, depending
+on if spectral_binning is used or not</p>
+</div></blockquote>
+<p><strong>iter_num</strong> : int, optional</p>
+<blockquote>
+<div><p>Number of iterations.</p>
+<p>Default value is controlled by the keys <cite>iter_num_no_bin</cite>
+and <cite>iter_num_bin</cite> in the defaults dictionary, depending
+on if spectral_binning is used or not</p>
+</div></blockquote>
+<p><strong>width_threshold</strong> : float, optional</p>
+<blockquote>
+<div><p>stop point of the algorithm</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>background</strong> : array</p>
+<blockquote class="last">
+<div><p>output results with peak removed</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r9" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[R9]</a></td><td>C.G. Ryan etc, &#8220;SNIP, a statistics-sensitive background
+treatment for the quantitative analysis of PIXE spectra in
+geoscience applications&#8221;, Nuclear Instruments and Methods in
+Physics Research Section B, vol. 34, 1998.</td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../../../_sources/resource/api/core/fitting/lineshapes.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014-2015 Brookhaven National Lab.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

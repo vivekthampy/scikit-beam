@@ -1,0 +1,6 @@
+skbeam.core.constants.xrs.PowderStandard.convert_2theta
+=======================================================
+
+.. currentmodule:: skbeam.core.constants.xrs
+
+.. automethod:: PowderStandard.convert_2theta

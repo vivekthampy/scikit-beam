@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>What’s new &mdash; scikit-beam 0.0.7 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.4/spacelab/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="scikit-beam 0.0.7 documentation" href="index.html" />
+    <link rel="next" title="Complete Reference (API)" href="resource/api/index.html" />
+    <link rel="prev" title="Installing scikit-beam" href="installation.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          scikit-beam</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.0.7</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="tutorial.html">Tutorial</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction to scikit-beam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installing scikit-beam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#updating-your-installation">Updating Your Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">What&#8217;s new</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resource/api/index.html">Complete Reference (API)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resource/dev_guide/index.html">Development Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial with Examples</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/Generate_ROI_labeled_arrays.html">Generate Region of Interests (ROI) labeled arrays for simple shapes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/dpc_demo.html">Differential Phase Contrast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/Histogram2D-RingAveraging.html">Using two histograms to bin in space and time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/Histogram2D.html">Computing a 2D histogram using Histogram object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/histogram3D.html">3D histogramming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/IXS-alignment-clean.html">Alignment and interpolation of inelastic scattering data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/D_estimate_demo.html">[broken] An <strong>almost</strong> correct diffraction calibration notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/recip_example.html">This is an example of using real experimental data to plot the HK plane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/X-ray_Speckle_Visibility_Spectroscopy.html">X-ray Speckle Visibility Spectroscopy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/speckle-plotting.html">Plotting helper functions for Speckle analysis &#8211; <code class="docutils literal"><span class="pre">xray_vision.mpl_plotting.speckle</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/Check_remove_bad_imgs_using_same_image.html">Remove bad images for one time correlation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/Multi_tau_one_time_correlation_example.html">One Time Correlation Example for NIPA_GEL 250K¶</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/Removing_bad_images_one_time_correlation.html">Removing bad images from images set and get the one time correlation data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/XPCS_fitting_with_lmfit.html">XPCS fitting with lmfit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/partial-multi-tau.html">First, let&#8217;s demo with synthetic data.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/partial-multi-tau.html#show-the-correlator-working-with-synthetic-data">Show the correlator working with synthetic data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/partial-multi-tau.html#now-let-s-do-it-with-some-real-data">Now let&#8217;s do it with some real data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/two-time-correlation.html">Two time correlation example notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/plot_xrf_spectrum.html">Using X-ray fluorescence information in scikit-beam</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">What&#8217;s new</a><ul>
+<li><a class="reference internal" href="#v0-0-8">v0.0.8</a><ul>
+<li><a class="reference internal" href="#in-progress">In-progress</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v0-0-7">v0.0.7</a></li>
+<li><a class="reference internal" href="#v0-0-6">v0.0.6</a></li>
+<li><a class="reference internal" href="#v0-0-5">v0.0.5</a><ul>
+<li><a class="reference internal" href="#new-functionality">New Functionality</a></li>
+<li><a class="reference internal" href="#api-changes">API Changes</a></li>
+<li><a class="reference internal" href="#other-updates">Other updates</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="what-s-new">
+<span id="whats-new"></span><h1>What&#8217;s new<a class="headerlink" href="#what-s-new" title="Permalink to this headline">¶</a></h1>
+<p>A catalog of new features, improvements, and bug-fixes in each release.
+Follow links to the relevant GitHub issue or pull request for specific
+code changes and any related discussion.</p>
+<div class="section" id="v0-0-8">
+<h2>v0.0.8<a class="headerlink" href="#v0-0-8" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="in-progress">
+<h3>In-progress<a class="headerlink" href="#in-progress" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/scikit-beam/scikit-beam/pull/395">PR #395</a>: One-time from two-time</li>
+<li><a class="reference external" href="https://github.com/scikit-beam/scikit-beam/pull/401">PR #401</a>: Removing bad images from xsvs</li>
+<li><a class="reference external" href="https://github.com/scikit-beam/scikit-beam/pull/401">PR #403</a>: Adding four time correlation</li>
+<li><a class="reference external" href="https://github.com/scikit-beam/scikit-beam/pull/405">PR #405</a>: Implement user peak, so users have more flexible control of escape peak or pileup peaks.</li>
+<li><a class="reference external" href="https://github.com/scikit-beam/scikit-beam/pull/373">PR #373</a>: Major overhaul of the docs</li>
+</ul>
+</div>
+</div>
+<div class="section" id="v0-0-7">
+<h2>v0.0.7<a class="headerlink" href="#v0-0-7" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Added multi-tau scheme two-time correlation. <a class="reference external" href="https://github.com/scikit-beam/scikit-beam/pull/391">PR #391</a>
+This two-time correlator can be found at <cite>skbeam.core.correlation:two_time_corr</cite>.
+There is a generator version that returns its internal state after consuming
+each image, <cite>skbeam.core.correlation:lazy_two_time</cite>. The value that the
+generator yields should be passed to <cite>skbeam.core.correlation:two_time_state_to_results</cite>
+to produce the correlation results and the lag steps that the correlation results
+correspond to.</li>
+<li><a class="reference external" href="https://github.com/scikit-beam/scikit-beam/pull/400">PR #400</a> Added
+removing bad images from multi-tau one time correlation.<ul>
+<li>Added new module <cite>skbeam.core.mask</cite>.
+It contains functions specific to mask or threshold an image
+basically to clean images. This module contains:<ul>
+<li>Convert the images marked as &#8220;bad&#8221; in bad list by their index in images into
+a np.nan array.</li>
+<li>Set all pixels whose value is greater than <cite>threshold</cite> to 0 and yields the
+thresholded images out.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="v0-0-6">
+<h2>v0.0.6<a class="headerlink" href="#v0-0-6" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Partial data, generator implementation of one-time-correlation</li>
+<li>Rename from scikit-xray to scikit-beam and skxray-&gt;skbeam</li>
+<li>Add cython implementation of accumulating histograms</li>
+<li>Clean up the ctrans code</li>
+<li>Add multiprocessing single pixel fitting</li>
+<li>Automatically build the docs on traivs</li>
+</ul>
+</div>
+<div class="section" id="v0-0-5">
+<h2>v0.0.5<a class="headerlink" href="#v0-0-5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="new-functionality">
+<h3>New Functionality<a class="headerlink" href="#new-functionality" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>X-Ray Speckle Visibility Spectroscopy <a class="reference external" href="https://github.com/scikit-beam/scikit-beam/pull/293">PR 293</a></li>
+<li>Fitting 1-time correlation data to ISF equation, <a class="reference external" href="https://github.com/scikit-beam/scikit-beam/pull/295">PR 295</a></li>
+<li>Kymograph (aka waterfall plot), <a class="reference external" href="https://github.com/scikit-beam/scikit-beam/pull/306">PR  306</a></li>
+</ul>
+</div>
+<div class="section" id="api-changes">
+<h3>API Changes<a class="headerlink" href="#api-changes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><code class="xref py py-func docutils literal"><span class="pre">weighted_nnls_fit()</span></code> was removed from <a class="reference internal" href="resource/api/core/fitting/funcs.html#module-skbeam.core.fitting.xrf_model" title="skbeam.core.fitting.xrf_model"><code class="xref py py-mod docutils literal"><span class="pre">skbeam.core.fitting.xrf_model</span></code></a>.
+Weighted nnls fitting was combined into <code class="xref py py-func docutils literal"><span class="pre">nnls_fit()</span></code>, which includes
+weights as a new argument.</li>
+<li><code class="xref py py-func docutils literal"><span class="pre">extract_label_indices()</span></code> is a helper function for labeled arrays and
+was moved to its new home in <cite>skbeam.core.roi</cite> from <cite>skbeam.core.correlation</cite></li>
+</ul>
+</div>
+<div class="section" id="other-updates">
+<h3>Other updates<a class="headerlink" href="#other-updates" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/scikit-beam/scikit-beam/pull/316">PR 316</a>: Do a better
+job isolating dependencies so that our &#8220;optional&#8221; packages truly are optional</li>
+<li><a class="reference external" href="https://github.com/scikit-beam/scikit-beam/pull/319">PR 319</a>: Use latest
+lmfit version published to scikit-beam anaconda.org channel in travis build</li>
+<li><a class="reference external" href="https://github.com/scikit-beam/scikit-beam/pull/326">PR 326</a>:
+Add quick start guide and note about testing</li>
+<li><a class="reference external" href="https://github.com/scikit-beam/scikit-beam/pull/327">PR 327</a>: Pin to lmfit
+0.8.3 in conda recipe</li>
+<li><a class="reference external" href="https://github.com/scikit-beam/scikit-beam/pull/332">PR 332</a>: Correct the
+equation in the one-time correlation docstring</li>
+<li><a class="reference external" href="https://github.com/scikit-beam/scikit-beam/pull/333">PR 333</a>: Update
+readme with new examples in <a class="reference external" href="https://github.com/scikit-beam/scikit-beam-examples">scikit-beam-examples</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="_sources/whats_new.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014-2015 Brookhaven National Lab.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

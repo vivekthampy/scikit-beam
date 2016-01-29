@@ -1,0 +1,6 @@
+skbeam.core.utils.pairwise
+==========================
+
+.. currentmodule:: skbeam.core.utils
+
+.. autofunction:: pairwise

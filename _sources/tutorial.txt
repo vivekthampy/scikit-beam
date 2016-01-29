@@ -1,0 +1,28 @@
+.. _tutorial:
+
+Tutorial with Examples
+======================
+
+Basic Usage
+-----------
+
+.. toctree::
+   :maxdepth: 1
+
+   tutorial/Generate_ROI_labeled_arrays
+   tutorial/dpc_demo
+   tutorial/Histogram2D-RingAveraging
+   tutorial/Histogram2D
+   tutorial/histogram3D
+   tutorial/IXS-alignment-clean
+   tutorial/D_estimate_demo
+   tutorial/recip_example
+   tutorial/X-ray_Speckle_Visibility_Spectroscopy
+   tutorial/speckle-plotting
+   tutorial/Check_remove_bad_imgs_using_same_image
+   tutorial/Multi_tau_one_time_correlation_example
+   tutorial/Removing_bad_images_one_time_correlation
+   tutorial/XPCS_fitting_with_lmfit
+   tutorial/partial-multi-tau
+   tutorial/two-time-correlation
+   tutorial/plot_xrf_spectrum

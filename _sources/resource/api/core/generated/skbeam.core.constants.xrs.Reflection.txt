@@ -1,0 +1,32 @@
+skbeam.core.constants.xrs.Reflection
+====================================
+
+.. currentmodule:: skbeam.core.constants.xrs
+
+.. autoclass:: Reflection
+
+   
+
+
+  .. HACK -- the point here is that we don't want this to appear in the output, but the autosummary should still generate the pages.
+      .. autosummary::
+         :toctree:
+      
+         Reflection.count
+         Reflection.index
+
+
+
+
+   
+
+
+   .. HACK -- the point here is that we don't want this to appear in the output, but the autosummary should still generate the pages.
+      .. autosummary::
+         :toctree:
+      
+         Reflection.d
+         Reflection.hkl
+         Reflection.q
+
+

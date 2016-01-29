@@ -1,0 +1,6 @@
+skbeam.core.utils.q_to_d
+========================
+
+.. currentmodule:: skbeam.core.utils
+
+.. autofunction:: q_to_d

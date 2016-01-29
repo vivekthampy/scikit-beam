@@ -1,0 +1,6 @@
+skbeam.core.spectroscopy.find_largest_peak
+==========================================
+
+.. currentmodule:: skbeam.core.spectroscopy
+
+.. autofunction:: find_largest_peak

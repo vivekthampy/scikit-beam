@@ -1,0 +1,6 @@
+skbeam.core.feature.filter_n_largest
+====================================
+
+.. currentmodule:: skbeam.core.feature
+
+.. autofunction:: filter_n_largest

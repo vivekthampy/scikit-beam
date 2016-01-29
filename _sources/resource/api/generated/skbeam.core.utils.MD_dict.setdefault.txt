@@ -1,0 +1,6 @@
+skbeam.core.utils.MD_dict.setdefault
+====================================
+
+.. currentmodule:: skbeam.core.utils
+
+.. automethod:: MD_dict.setdefault

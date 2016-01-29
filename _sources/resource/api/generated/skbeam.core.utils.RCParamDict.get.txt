@@ -1,0 +1,6 @@
+skbeam.core.utils.RCParamDict.get
+=================================
+
+.. currentmodule:: skbeam.core.utils
+
+.. automethod:: RCParamDict.get

@@ -1,0 +1,6 @@
+skbeam.core.utils.RCParamDict.pop
+=================================
+
+.. currentmodule:: skbeam.core.utils
+
+.. automethod:: RCParamDict.pop

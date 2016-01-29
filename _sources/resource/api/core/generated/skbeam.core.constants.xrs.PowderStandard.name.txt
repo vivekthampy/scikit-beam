@@ -1,0 +1,6 @@
+skbeam.core.constants.xrs.PowderStandard.name
+=============================================
+
+.. currentmodule:: skbeam.core.constants.xrs
+
+.. autoattribute:: PowderStandard.name

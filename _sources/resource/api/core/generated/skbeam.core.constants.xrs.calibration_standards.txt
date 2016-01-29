@@ -1,0 +1,6 @@
+skbeam.core.constants.xrs.calibration_standards
+===============================================
+
+.. currentmodule:: skbeam.core.constants.xrs
+
+.. autodata:: calibration_standards

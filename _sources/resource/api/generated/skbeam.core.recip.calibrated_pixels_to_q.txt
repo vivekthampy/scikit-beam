@@ -1,0 +1,6 @@
+skbeam.core.recip.calibrated_pixels_to_q
+========================================
+
+.. currentmodule:: skbeam.core.recip
+
+.. autofunction:: calibrated_pixels_to_q

@@ -1,0 +1,6 @@
+skbeam.core.feature.peak_refinement
+===================================
+
+.. currentmodule:: skbeam.core.feature
+
+.. autofunction:: peak_refinement

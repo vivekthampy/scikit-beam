@@ -1,0 +1,6 @@
+skbeam.core.utils.radius_to_twotheta
+====================================
+
+.. currentmodule:: skbeam.core.utils
+
+.. autofunction:: radius_to_twotheta

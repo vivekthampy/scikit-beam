@@ -1,0 +1,6 @@
+skbeam.core.dpc.recon
+=====================
+
+.. currentmodule:: skbeam.core.dpc
+
+.. autofunction:: recon

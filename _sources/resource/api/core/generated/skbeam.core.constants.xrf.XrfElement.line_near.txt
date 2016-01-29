@@ -1,0 +1,6 @@
+skbeam.core.constants.xrf.XrfElement.line_near
+==============================================
+
+.. currentmodule:: skbeam.core.constants.xrf
+
+.. automethod:: XrfElement.line_near
