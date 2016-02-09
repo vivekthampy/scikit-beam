@@ -177,7 +177,7 @@ def process_to_q(setting_angles, detector_size, pixel_size,
     logger.info("Processing time for {0} {1} x {2} images took {3} seconds."
                 "".format(setting_angles.shape[0], detector_size[0],
                           detector_size[1], (t2 - t1)))
-    return hkl
+    return hkl.astype(np.float16)
 
 # Assign frame_mode as an attribute to the process_to_q function so that the
 # autowrapping knows what the valid options are

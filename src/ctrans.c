@@ -706,6 +706,8 @@ void* grid3DThread(void *ptr){
 
   data_ptr = data_ptr + (data->start * 4);
   for(i=data->start; i<data->end; i++){
+    // Check if number is nan
+    if(isnan(*data_ptr)){continue;}
     // Calculate the relative position in the grid.
     pos_double[0] = (*data_ptr - grid_start[0]) / grid_len[0];
     data_ptr++;

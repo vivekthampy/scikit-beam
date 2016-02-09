@@ -915,7 +915,6 @@ def grid3d(q, img_stack,
         # should probably change this to use something similar to:
         # todo http://stackoverflow.com/questions/5564098/
         binary_mask = np.tile(np.ravel(binary_mask), img_stack.shape[0])
-
     else:
         raise ValueError("The binary mask must be the same shape as the"
                          "img_stack ({0}) or a single image in the image "
@@ -933,21 +932,23 @@ def grid3d(q, img_stack,
                          " which you provided.".format(*q.shape))
 
     # set defaults for qmin, qmax, dq
-    qmin = np.min(q, axis=0)
-    qmax = np.max(q, axis=0)
-    dqn = [_defaults['nx'], _defaults['ny'], _defaults['nz']]
+    #qmin = np.min(q, axis=0)
+    #qmax = np.max(q, axis=0)
+    #dqn = [_defaults['nx'], _defaults['ny'], _defaults['nz']]
+
+    qmin = [xmin, ymin, zmin]
+    qmax = [xmax, ymax, zmax]
+
+    qmin = [qmin[ii] if qmin[ii] is not None else q[:,ii].min() for ii in range(3)]
+    qmax = [qmax[ii] if qmax[ii] is not None else q[:,ii].max() for ii in range(3)]
+
+    dqn_def = [_defaults['nx'], _defaults['ny'], _defaults['nz']]
+    dqn  = [nx, ny, nz]
+    dqn = [dqn[ii] if dqn[ii] else dqn_def[ii] for ii in range(3)]
 
     # pad the upper edge by just enough to ensure that all of the
     # points are in-bounds with the binning rules: lo <= val < hi
     qmax += np.spacing(qmax)
-
-    # check for non-default input
-    for target, input_vals in ((dqn, (nx, ny, nz)),
-                               (qmin, (xmin, ymin, zmin)),
-                               (qmax, (xmax, ymax, zmax))):
-        for j, in_val in enumerate(input_vals):
-            if in_val is not None:
-                target[j] = in_val
 
     # format bounds
     bounds = np.array([qmin, qmax, dqn]).T
@@ -955,6 +956,7 @@ def grid3d(q, img_stack,
     # creating (Qx, Qy, Qz, I) Nx4 array - HKL values and Intensity
     # getting the intensity value for each pixel
     q = np.insert(q, 3, np.ravel(img_stack), axis=1)
+
     if binary_mask is not None:
         q = q[np.ravel(binary_mask)]
 
@@ -963,22 +965,11 @@ def grid3d(q, img_stack,
     t1 = time.time()
 
     # call the c library
-
     total, mean, occupancy, std_err, oob = ctrans.grid3d(q, qmin, qmax, dqn,
                                                          n_threads)
     # ending time for the gridding
     t2 = time.time()
     logger.info("Done processed in {0} seconds".format(t2-t1))
-
-    # No. of values zero in the grid
-    empt_nb = (occupancy == 0).sum()
-
-    # log some information about the grid at the debug level
-    if oob:
-        logger.debug("There are %.2e points outside the grid", oob)
-    logger.debug("There are %2e bins in the grid", mean.size)
-    if empt_nb:
-        logger.debug("There are %.2e values zero in the grid", empt_nb)
 
     return mean, occupancy, std_err, oob, bounds
 
